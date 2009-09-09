@@ -9,19 +9,19 @@ class Zone(object):
         
         #update model zones list
         p2e.doc._zones.append(self)
-        assert self.eco_id == zone_eco_id
+        assert self._eco_id == zone_eco_id
         
         #update model objects list
         self.current
-        object_id = self.get_next_object(-1, -1, -1, -1)
+        object_id = self.next_object(-1, -1, -1, -1)
         prev_id = object_id
         while (object_id != -1):
             p2e.obj._ObjectRoot(object_id, None)
-            object_id = self.get_next_object(prev_id, -1, -1, -1)
+            object_id = self.next_object(prev_id, -1, -1, -1)
             prev_id = object_id
             
     @staticmethod
-    def create_zone(name):
+    def create(name):
         """
         
         Use this command to create new zones in the model. It returns the 
@@ -64,7 +64,7 @@ class Zone(object):
         
         """
         #execute ecotect instruction
-        arg_str = p2e._base._util._convert_args_to_string("zone.delete", self.eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("zone.delete", self._eco_id)
         p2e._app.Exec(arg_str)
         
         #Delete objects of this zone
@@ -85,7 +85,7 @@ class Zone(object):
     # Commands
     #===========================================================================
 
-    def extrude(self, offset_distance):
+    def extrude_by_vec(self, vector):
         """
         
         Extrudes the FLOOR object(s) in the specified zone a distance of 
@@ -94,15 +94,15 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        offset_distance 
+        vector 
         A list of three values representing the offset distance in each of the 
         X, Y and Z axis, given in model coordinates. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("zone.extrude", self.eco_id, 
-                                                      offset_distance[0], 
-                                                      offset_distance[1], 
-                                                      offset_distance[2])
+        arg_str = p2e._base._util._convert_args_to_string("zone.extrude", self._eco_id, 
+                                                      vector[0], 
+                                                      vector[1], 
+                                                      vector[2])
         p2e._app.Exec(arg_str)
 
     def isolate(self):
@@ -115,10 +115,10 @@ class Zone(object):
         This command takes the following parameters.
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("zone.isolate", self.eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("zone.isolate", self._eco_id)
         p2e._app.Exec(arg_str)
 
-    def move(self, offset_distance):
+    def move_by_vec(self, vector):
         """
         
         Moves all objects in the specified zone a distance of dx , dy and dz in 
@@ -127,15 +127,15 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        offset_distance 
+        vector 
         A list of three values representing the offset distance in each of the 
         X, Y and Z axis, given in model coordinates.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("zone.move", self.eco_id, 
-                                                      offset_distance[0], 
-                                                      offset_distance[1], 
-                                                      offset_distance[2])
+        arg_str = p2e._base._util._convert_args_to_string("zone.move", self._eco_id, 
+                                                      vector[0], 
+                                                      vector[1], 
+                                                      vector[2])
         p2e._app.Exec(arg_str)
 
     def nudge(self, dir):
@@ -158,7 +158,7 @@ class Zone(object):
         3, -3 In the Z axis. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("zone.nudge", self.eco_id, dir)
+        arg_str = p2e._base._util._convert_args_to_string("zone.nudge", self._eco_id, dir)
         p2e._app.Exec(arg_str)
 
     def rotate(self, azi, alt):
@@ -178,7 +178,7 @@ class Zone(object):
         The altitude value in degrees. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("zone.rotate", self.eco_id, 
+        arg_str = p2e._base._util._convert_args_to_string("zone.rotate", self._eco_id, 
                                                       azi, alt)
         p2e._app.Exec(arg_str)
 
@@ -197,7 +197,7 @@ class Zone(object):
         the X, Y, Z Axis.
         """
         arg_str = p2e._base._util._convert_args_to_string("zone.rotateaxis", 
-                                                      self.eco_id, 
+                                                      self._eco_id, 
                                                       rotation_degree[0], 
                                                       rotation_degree[1], 
                                                       rotation_degree[2])
@@ -221,10 +221,10 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("zone.rotatereverse", 
-                                                      self.eco_id, azi, alt)
+                                                      self._eco_id, azi, alt)
         p2e._app.Exec(arg_str)
 
-    def scale(self, scale_factor):
+    def scale(self, scale_factors):
         """
         
         Scales all objects in the specified zone by a factor of sx, sy and sz in 
@@ -233,18 +233,18 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        scale_factor 
+        scale_factors 
         A list of three values representing the scaling factor in each of the 
         X, Y and Z axis.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("zone.scale", self.eco_id, 
-                                                     scale_factor[0], 
-                                                     scale_factor[1], 
-                                                     scale_factor[2])
+        arg_str = p2e._base._util._convert_args_to_string("zone.scale", self._eco_id, 
+                                                     scale_factors[0], 
+                                                     scale_factors[1], 
+                                                     scale_factors[2])
         p2e._app.Exec(arg_str)
 
-    def xform(self, trans, function_values):
+    def xform(self, transformation, function_values):
         """
         
         Apply a generic transform to all objects in the specified zone. 
@@ -252,7 +252,7 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        trans 
+        transformation 
         The transformation to use, given as a token corresponding to the 
         Transformation Types table. 
         
@@ -275,8 +275,8 @@ class Zone(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("zone.xform", self.eco_id, 
-                                                      trans, 
+        arg_str = p2e._base._util._convert_args_to_string("zone.xform", self._eco_id, 
+                                                      transformation, 
                                                       function_values[0], 
                                                       function_values[1], 
                                                       function_values[2])
@@ -285,279 +285,261 @@ class Zone(object):
     #===========================================================================
     # Properties
     #===========================================================================
+    #id property  
     @apply
-    def eco_id():
+    def _eco_id():
         def fget(self):
             """
             
             Id of the zone object
-            
+        
             """
             return p2e.doc._zones.index(self)
-        
-        return property(**locals())
-    
-    @apply
-    def activity():
-        def fget(self):
-            """
-            
-            Retrieves the occupant activity rate in the specified zone. 
-    
-            Parameter(s)
-            There are no parameters for this command.
-            
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            result 
-            The activity rate index based on the following Zone Activity Rates table. 
-            
-            Relevant Data Table(s)
-            
-            Zone Activity Rates 
-            Token Value Description 
-            sedentary 0 Sitting at a desk (70W) 
-            walking 1 Moving about (80W) 
-            exercising 2 Significant activity (100W) 
-            strenuous 3 Significant exertion (150W) 
-            sleeping 5 Sleeping (40 W, 0.7 Met) 
-            resting 6 Resting (45 W, 0.8 Met) 
-            reading 7 Reading (55 W, 1.0 Met) 
-            typing 8 Typing (65 W, 1.1 Met) 
-            clerical 9 Clerical (70 W, 1.2 Met) 
-            cooking 10 Cooking, lite (95 W, 1.6 Met) 
-            cleaning 12 Cleaning, lite (115 W, 2.0 Met) 
-            slow walking 13 Slow Walking (115 W, 2.0 Met) 
-            dancing 14 Dancing, lite (140 W, 2.4 Met) 
-            lite execise 16 Light Exercise (175 W, 3.0 Met) 
-            fast walking 17 Fast Walking (200 W, 3.4 Met) 
-            hvyexercise 19 Exercise, hvy (235 W, 4.0 Met) 
-            work 20 Heavy Work (235 W, 4.0 Met) 
-            sport 22 Team Sport (440 W, 7.6 Met) 
-      
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.activity", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, int)
-    
-        def fset(self, type):
-            """
-            
-            Sets the average occupant activity rate in the specified zone. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            type 
-            An integer value corresponding to the following Zone Activity Rates 
-            table. 
-            
-            Relevant Data Table(s)
-            
-            Zone Activity Rates 
-            Token Value Description 
-            sedentary 0 Sitting at a desk (70W) 
-            walking 1 Moving about (80W) 
-            exercising 2 Significant activity (100W) 
-            strenuous 3 Significant exertion (150W) 
-            sleeping 5 Sleeping (40 W, 0.7 Met) 
-            resting 6 Resting (45 W, 0.8 Met) 
-            reading 7 Reading (55 W, 1.0 Met) 
-            typing 8 Typing (65 W, 1.1 Met) 
-            clerical 9 Clerical (70 W, 1.2 Met) 
-            cooking 10 Cooking, lite (95 W, 1.6 Met) 
-            cleaning 12 Cleaning, lite (115 W, 2.0 Met) 
-            slow walking 13 Slow Walking (115 W, 2.0 Met) 
-            dancing 14 Dancing, lite (140 W, 2.4 Met) 
-            lite execise 16 Light Exercise (175 W, 3.0 Met) 
-            fast walking 17 Fast Walking (200 W, 3.4 Met) 
-            hvyexercise 19 Exercise, hvy (235 W, 4.0 Met) 
-            work 20 Heavy Work (235 W, 4.0 Met) 
-            sport 22 Team Sport (440 W, 7.6 Met) 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.activity", 
-                                                         self.eco_id, type)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def admittance():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total zone 
-            admittance (W/m^2K). 
-    
-            Parameter(s)
-            There are no parameters for this command.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.admittance", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's value for the total zone admittance (W/m^2K). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the total zone admittance (W/m^2K). 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.admittance", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def air_speed():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the designed internal 
-            air-speed (m/s). 
-    
-            Parameter(s)
-            There are no parameters for this command.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.airspeed", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's value for the designed internal air-speed (m/s). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the designed internal air-speed as (m/s).
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.airspeed", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)  
-        
-        return property(**locals())      
-    
-    @apply
-    def appliance_energy():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total energy gain 
-            from APPLIANCE objects. 
-    
-            Parameter(s)
-            There are no parameters for this command.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.applianceenergy", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-        
-        def fset(self, value):
-           """
-           
-           Sets the specified zone's current value for the total energy gain from 
-           APPLIANCE objects. 
-           
-           Parameter(s)
-           This property takes the following parameters.
-           
-           value 
-           A value representing the total energy gain from APPLIANCE objects.
-           
-           """
-           arg_str = p2e._base._util._convert_args_to_string("set.zone.applianceenergy", 
-                                                         self.eco_id, value)
-           p2e._app.Exec(arg_str)
-           
-        return property(**locals()) 
-    
-    @apply
-    def clothing():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the design clothing 
-            value of occupants (clo). 
-    
-            Parameter(s)
-            There are no parameters for this command.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.clothing", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-        
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the design clothing value of 
-            occupants (clo). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the design clothing value of occupants (clo). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.clothing", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
+
         return property(**locals())    
+    #------------------------------------------------------------------------------ 
+    def activity(self):
+        """
+        
+        Retrieves the occupant activity rate in the specified zone. 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        The activity rate index based on the following Zone Activity Rates table. 
+        
+        Relevant Data Table(s)
+        
+        Zone Activity Rates 
+        Token Value Description 
+        sedentary 0 Sitting at a desk (70W) 
+        walking 1 Moving about (80W) 
+        exercising 2 Significant activity (100W) 
+        strenuous 3 Significant exertion (150W) 
+        sleeping 5 Sleeping (40 W, 0.7 Met) 
+        resting 6 Resting (45 W, 0.8 Met) 
+        reading 7 Reading (55 W, 1.0 Met) 
+        typing 8 Typing (65 W, 1.1 Met) 
+        clerical 9 Clerical (70 W, 1.2 Met) 
+        cooking 10 Cooking, lite (95 W, 1.6 Met) 
+        cleaning 12 Cleaning, lite (115 W, 2.0 Met) 
+        slow walking 13 Slow Walking (115 W, 2.0 Met) 
+        dancing 14 Dancing, lite (140 W, 2.4 Met) 
+        lite execise 16 Light Exercise (175 W, 3.0 Met) 
+        fast walking 17 Fast Walking (200 W, 3.4 Met) 
+        hvyexercise 19 Exercise, hvy (235 W, 4.0 Met) 
+        work 20 Heavy Work (235 W, 4.0 Met) 
+        sport 22 Team Sport (440 W, 7.6 Met) 
+  
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.activity", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, int)
     
-    def get_colour(self):
+    def set_activity(self, type):
+        """
+        
+        Sets the average occupant activity rate in the specified zone. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        type 
+        An integer value corresponding to the following Zone Activity Rates 
+        table. 
+        
+        Relevant Data Table(s)
+        
+        Zone Activity Rates 
+        Token Value Description 
+        sedentary 0 Sitting at a desk (70W) 
+        walking 1 Moving about (80W) 
+        exercising 2 Significant activity (100W) 
+        strenuous 3 Significant exertion (150W) 
+        sleeping 5 Sleeping (40 W, 0.7 Met) 
+        resting 6 Resting (45 W, 0.8 Met) 
+        reading 7 Reading (55 W, 1.0 Met) 
+        typing 8 Typing (65 W, 1.1 Met) 
+        clerical 9 Clerical (70 W, 1.2 Met) 
+        cooking 10 Cooking, lite (95 W, 1.6 Met) 
+        cleaning 12 Cleaning, lite (115 W, 2.0 Met) 
+        slow walking 13 Slow Walking (115 W, 2.0 Met) 
+        dancing 14 Dancing, lite (140 W, 2.4 Met) 
+        lite execise 16 Light Exercise (175 W, 3.0 Met) 
+        fast walking 17 Fast Walking (200 W, 3.4 Met) 
+        hvyexercise 19 Exercise, hvy (235 W, 4.0 Met) 
+        work 20 Heavy Work (235 W, 4.0 Met) 
+        sport 22 Team Sport (440 W, 7.6 Met) 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.activity", 
+                                                     self._eco_id, type)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+
+    def admittance(self):
+        """
+        
+        Retrieves the specified zone's current value for the total zone 
+        admittance (W/m^2K). 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.admittance", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+    
+    def set_admittance(self, value):
+        """
+        
+        Sets the specified zone's value for the total zone admittance (W/m^2K). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the total zone admittance (W/m^2K). 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.admittance", 
+                                                     self._eco_id, value)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def air_speed(self):
+        """
+        
+        Retrieves the specified zone's current value for the designed internal 
+        air-speed (m/s). 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.airspeed", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_air_speed(self, value):
+        """
+        
+        Sets the specified zone's value for the designed internal air-speed (m/s). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the designed internal air-speed as (m/s).
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.airspeed", 
+                                                     self._eco_id, value)
+        p2e._app.Exec(arg_str)  
+    #------------------------------------------------------------------------------ 
+    def appliance_energy(self):
+        """
+        
+        Retrieves the specified zone's current value for the total energy gain 
+        from APPLIANCE objects. 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.applianceenergy", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+    
+    def set_appliance_energy(self, value):
+        """
+        
+        Sets the specified zone's current value for the total energy gain from 
+        APPLIANCE objects. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the total energy gain from APPLIANCE objects.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.applianceenergy", 
+                                                      self._eco_id, value)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def clothing(self):
+        """
+        
+        Retrieves the specified zone's current value for the design clothing 
+        value of occupants (clo). 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.clothing", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+    
+    def set_clothing(self, value):
+        """
+        
+        Sets the specified zone's current value for the design clothing value of 
+        occupants (clo). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the design clothing value of occupants (clo). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.clothing", 
+                                                     self._eco_id, value)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def colour(self):
         """
         
         Retrieves the colour of the specified zone. 
@@ -579,7 +561,7 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.colour", 
-                                                     self.eco_id)
+                                                     self._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, str, str, str)
     
@@ -604,12 +586,11 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("set.zone.colour", 
-                                                     self.eco_id, display, shadow, 
+                                                     self._eco_id, display, shadow, 
                                                      reflection)
         p2e._app.Exec(arg_str)
-        
- 
-    def get_comfort(self, day, hour):
+    #------------------------------------------------------------------------------ 
+    def comfort(self, day, hour):
         """
         
         Retrieves the number of hours the specified zone spent at the given 
@@ -637,11 +618,11 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.comfort", 
-                                                     self.eco_id, day, hour)
+                                                     self._eco_id, day, hour)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float)
-    
-    def get_cooling(self, month):
+    #------------------------------------------------------------------------------ 
+    def cooling_load(self, month):
         """
         
         Retrieves the total monthly cooling load for the zone during the given 
@@ -661,50 +642,43 @@ class Zone(object):
         The cooling load value for the given month. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.zone.cooling", 
-                                                     self.eco_id, month)
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.cooling", self._eco_id, month)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
-    
-    @apply
-    def current():
-        def fget(self):
-            """
-            
-            Determine if the specified zone is the current zone. To get the actual 
-            index of the current zone, use the model.currentzone property. 
-    
-            Parameter(s)
-            There are no parameters for this command.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            result 
-            A boolean value where 1 represents true and 0 represents false.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.current", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, int)
-            
-        def fset(self):
-            """
-            
-            Sets the specified zone to be the current zone. 
-    
-            Parameter(s)
-            There are no parameters for this command.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.current", 
-                                                         self.eco_id)
-            p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def current(self):
+        """
         
-        return property(**locals())
-    
-    def get_distribution(self, temperature):
+        Determine if the specified zone is the current zone. To get the actual 
+        index of the current zone, use the model.currentzone property. 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.current", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, int)
+        
+    def set_current(self):
+        """
+        
+        Sets the specified zone to be the current zone. 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.current", self._eco_id)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def temperature_distribution(self, temperature):
         """
         
         Retrieves the number of hours the specified zone spent at the given 
@@ -725,139 +699,121 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.distribution", 
-                                                     self.eco_id, temperature)
+                                                     self._eco_id, temperature)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
-    
-    @apply
-    def efficiency():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the HVAC system 
-            efficiency (%). 
-    
-            Parameter(s)
-            There are no parameters for this property. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.efficiency", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
+    #------------------------------------------------------------------------------ 
+    def hvac_efficiency(self):
+        """
         
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the HVAC system 
-            efficiency (%). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the HVAC system efficiency (%). 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.efficiency", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def equator_area():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total exposed 
-            WINDOW area facing the equator (m^). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-    
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.equatorarea", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-        
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total exposed WINDOW 
-            area facing the equator (m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the total exposed WINDOW area facing the equator 
-            (m^2). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.equatorarea", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def exposed_area():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total surface area 
-            exposed to outside conditions (m^2). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-        
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.exposedarea", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total surface area 
-            exposed to outside conditions (m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the total surface area exposed to outside 
-            conditions (m^2).
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.exposedarea", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
+        Retrieves the specified zone's current value for the HVAC system 
+        efficiency (%). 
 
-    def get_flag(self, flag):
+        Parameter(s)
+        There are no parameters for this property. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.efficiency", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+    
+    def set_hvac_efficiency(self, value):
+        """
+        
+        Sets the specified zone's current value for the HVAC system 
+        efficiency (%). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the HVAC system efficiency (%). 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.efficiency", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def window_equator_area(self):
+        """
+        
+        Retrieves the specified zone's current value for the total exposed 
+        WINDOW area facing the equator (m^). 
+
+        Parameter(s)
+        There are no parameters for this property.
+
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.equatorarea", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+    
+    def set_window_equator_area(self, value):
+        """
+        
+        Sets the specified zone's current value for the total exposed WINDOW 
+        area facing the equator (m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the total exposed WINDOW area facing the equator 
+        (m^2). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.equatorarea", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def exposed_area(self):
+        """
+        
+        Retrieves the specified zone's current value for the total surface area 
+        exposed to outside conditions (m^2). 
+
+        Parameter(s)
+        There are no parameters for this property.
+    
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.exposedarea", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_exposed_area(self, value):
+        """
+        
+        Sets the specified zone's current value for the total surface area 
+        exposed to outside conditions (m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the total surface area exposed to outside 
+        conditions (m^2).
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.exposedarea", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def flag(self, flag):
         """
         
         In ECOTECT, zone have a range of boolean flags associated with them that 
@@ -907,7 +863,7 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.flag", 
-                                                     self.eco_id)
+                                                     self._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
 
@@ -965,56 +921,49 @@ class Zone(object):
         16777216 NO_OUTLINE 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.zone.flag", 
-                                                     self.eco_id, flag, state)
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.flag", self._eco_id, flag, state)
         p2e._app.Exec(arg_str)
-    
-    @apply    
-    def floor_area():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total zone floor 
-            area (m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.floorarea", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-            
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total zone floor area 
-            (m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            value representing the total zone floor area (m^2). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.floorarea", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------    
+    def floor_area(self):
+        """
         
-        return property(**locals())
-    
-    def get_group_hidden(self, group):
+        Retrieves the specified zone's current value for the total zone floor 
+        area (m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.floorarea", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+        
+    def set_floor_area(self, value):
+        """
+        
+        Sets the specified zone's current value for the total zone floor area 
+        (m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        value representing the total zone floor area (m^2). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.floorarea", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def group_hidden(self, group):
         """
         
         Retrieves the hidden state of the specified zone group. Hidden zones 
@@ -1060,8 +1009,8 @@ class Zone(object):
         arg_str = p2e._base._util._convert_args_to_string("set.zone.group.hidden", 
                                                      group, hidden)
         p2e._app.Exec(arg_str)
-    
-    def get_group_index(self, name):
+    #------------------------------------------------------------------------------ 
+    def group_index(self, name):
         """
         
         Retrieves the index (0-15) the specified zone group name. 
@@ -1084,8 +1033,8 @@ class Zone(object):
                                                      name)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
-    
-    def get_group_locked(self, group):
+    #------------------------------------------------------------------------------ 
+    def group_locked(self, group):
         """
         
         Retrieves the locked state of the specified zone group. Locked zones are 
@@ -1131,8 +1080,8 @@ class Zone(object):
         arg_str = p2e._base._util._convert_args_to_string("set.zone.group.locked", 
                                                      group, locked)
         p2e._app.Exec(arg_str)
-    
-    def get_group_name(self, group, nospaces = False):
+    #------------------------------------------------------------------------------ 
+    def group_name(self, group, nospaces = False):
         """
         
         Retrieves the name of the specified zone group. 
@@ -1159,7 +1108,7 @@ class Zone(object):
                                                      group, nospaces)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, str)
-        
+
     def set_group_name(self, group, name):
         """
         
@@ -1178,8 +1127,8 @@ class Zone(object):
         arg_str = p2e._base._util._convert_args_to_string("set.zone.group.name", 
                                                      group, name)
         p2e._app.Exec(arg_str)
-    
-    def  get_group_off(self, group):
+    #------------------------------------------------------------------------------ 
+    def  group_off(self, group):
         """
         
         Retrieves the off state of the specified zone group. Off zones are 
@@ -1203,7 +1152,7 @@ class Zone(object):
                                                      group)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
-    
+
     def set_group_off(self, group, off):
         """
         
@@ -1225,8 +1174,8 @@ class Zone(object):
         arg_str = p2e._base._util._convert_args_to_string("set.zone.group.off", 
                                                      group, off)
         p2e._app.Exec(arg_str)
-        
-    def get_group_thermal(self, group):
+    #------------------------------------------------------------------------------ 
+    def is_group_thermal(self, group):
         """
         
         Retrieves the thermal state of the specified zone group. Thermal zones 
@@ -1250,8 +1199,8 @@ class Zone(object):
                                                      group)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
-    
-    def set_group_thermal(self, group, thermal):
+
+    def set_is_group_thermal(self, group, thermal):
         """
         
         Sets the thermal state of all zones in the specified zone group. 
@@ -1272,8 +1221,8 @@ class Zone(object):
         arg_str = p2e._base._util._convert_args_to_string("set.zone.group.thermal", 
                                                      group, thermal)
         p2e._app.Exec(arg_str)
-        
-    def get_heating(self, month):
+    #------------------------------------------------------------------------------ 
+    def heating_load(self, month):
         """
         
         Retrieves the total monthly heating load for the zone during the given 
@@ -1297,62 +1246,58 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.heating", 
-                                                     self.eco_id, month)
+                                                     self._eco_id, month)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
     
-    @apply
-    def hidden():
-        def fget(self):
-            """
-            
-            Retrieves the current hidden state of the specified zone. Hidden zones 
-            still take part in all analytical calculations, but are not visible in 
-            the current model view. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            result 
-            A boolean value where 1 represents true and 0 represents false. 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.hidden", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, int)
-            
-        def fset(self, state = True):
-            """
-            
-            Sets or resets the specified zone's hidden state. Hidden zones still 
-            take part in all analytical calculations, but are not visible in the 
-            current model view. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            [state] 
-            This optional parameter will set (true) or reset (false) the specified 
-            state. Defaulting to true if not given.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.hidden", 
-                                                         self.eco_id, state)
-            p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def hidden(self):
+        """
         
-        return property(**locals())
-    
-    def get_index(self, name):
+        Retrieves the current hidden state of the specified zone. Hidden zones 
+        still take part in all analytical calculations, but are not visible in 
+        the current model view. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false. 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.hidden", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, int)
+            
+    def set_hidden(self, state = True):
+        """
+        
+        Sets or resets the specified zone's hidden state. Hidden zones still 
+        take part in all analytical calculations, but are not visible in the 
+        current model view. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        [state] 
+        This optional parameter will set (true) or reset (false) the specified 
+        state. Defaulting to true if not given.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.hidden", self._eco_id, state)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def index(self, name):
         """
         
         This property returns the zero-based index of the zone with a name 
@@ -1376,56 +1321,54 @@ class Zone(object):
                                                      name)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
-    
-    @apply
-    def infiltration_rate():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the air infiltration 
-            rate (ac/h). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.infiltrationrate", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the air infiltration rate 
-            (ac/h). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            value 
-            A value representing the air infiltration rate (ac/h). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.infiltrationrate", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def infiltration_rate(self):
+        """
         
-        return property(**locals())
+        Retrieves the specified zone's current value for the air infiltration 
+        rate (ac/h). 
 
-    def get_ingroup(self, group):
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.infiltrationrate", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+    
+    def set_infiltration_rate(self, value):
+        """
+        
+        Sets the specified zone's current value for the air infiltration rate 
+        (ac/h). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the air infiltration rate (ac/h). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.infiltrationrate", 
+                                                     self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+
+    def is_in_group(self, group):
         """
         
         Determines if the specified zone belongs to the given zone group. 
@@ -1447,412 +1390,373 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.ingroup", 
-                                                     self.eco_id, group)
+                                                     self._eco_id, group)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
     
-    @apply
-    def internal_gains():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total internally 
-            generated heat gains (W). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.internalgains", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
+    #------------------------------------------------------------------------------ 
+    def internal_gains(self):
+        """
         
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total internally 
-            generated heat gains (W). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            value 
-            A value representing the total internally generated heat gains (W). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.internalgains", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        Retrieves the specified zone's current value for the total internally 
+        generated heat gains (W). 
+
+        Parameter(s)
+        This property takes the following parameters.
         
-        return property(**locals())
-    
-    @apply    
-    def interzonal_gains():    
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total gains flowing 
-            to/from other adjacent zones (W). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.interzonalgains", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        return property(**locals()) 
-    
-    @apply
-    def latent_gains():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the latent internal 
-            heat gains (W/m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.latentgains", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float) 
+        zone 
+        The zero-based index value of the zone. 
         
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the latent internal heat 
-            gains (W/m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            value 
-            A value representing the latent internal heat gains (W/m^2).
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.latentgains", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        Return Value(s)
+        Getting this property returns the following value(s).
         
-        return property(**locals())
-    
-    @apply
-    def lighting_energy():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total energy gain 
-            from LIGHT objects. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.lightingenergy", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float) 
+        value 
+        A decimal value containing the reqested zone data. 
         
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total energy gain from 
-            LIGHT objects. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            value 
-            A value representing the total energy gain from LIGHT objects.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.latentgains", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.internalgains", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
         
-        return property(**locals())
-    
-    @apply
-    def locked():
-        def fget(self):
-            """
-            
-            Retrieves the current locked state of the specified zone. Locked zones 
-            are still displayed and take part in calculations, but the user cannot 
-            interactively select or manipulate them. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            result 
-            A boolean value where 1 represents true and 0 represents false.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.locked", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, int) 
+    def set_internal_gains(self, value):
+        """
         
-        def fset(self, state = True):
-            """
-            
-            Sets or resets the specified zone's locked state. Locked zones are still 
-            displayed and take part in calculations, but the user cannot 
-            interactively select or manipulate them. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            [state] 
-            This optional parameter will set (true) or reset (false) the specified 
-            state. Defaulting to true if not given.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.locked", 
-                                                         self.eco_id, state)
-            p2e._app.Exec(arg_str)
+        Sets the specified zone's current value for the total internally 
+        generated heat gains (W). 
+
+        Parameter(s)
+        This property takes the following parameters.
         
-        return property(**locals())
-    
-    @apply
-    def lower_band():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the lower comfort 
-            band ( deg Celsius). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.lowerband", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float) 
+        zone 
+        The zero-based index value of the zone. 
         
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the lower comfort band 
-            (deg Celsius). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            value 
-            A value representing the lower comfort band (deg Celsius). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.lowerband", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        value 
+        A value representing the total internally generated heat gains (W). 
         
-        return property(**locals())
-    
-    @apply
-    def lux():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the design internal 
-            lighting level (lux). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.lux", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float) 
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the design internal lighting 
-            level (lux). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            value 
-            A value representing the design internal lighting level (lux). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.lux", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.internalgains", self._eco_id, value)
+        p2e._app.Exec(arg_str)
         
-        return property(**locals())
-    
-    @apply
-    def method_reverb():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the reverberation 
-            calculation method. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.methodreverb", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float) 
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the reverberation 
-            calculation method. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            zone 
-            The zero-based index value of the zone. 
-            
-            value 
-            A value representing the reverberation calculation method.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.methodreverb", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------   
+    def interzonal_gains(self):
+        """
         
-        return property(**locals())
-    
-    @apply
-    def name():
-        def fget(self):
-            """
-            
-            Returns the zone's name. 
-    
-            Parameter(s)
-            This property has no parameters.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            name 
-            A text string containing the zone's name.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.name", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, str) 
-    
-        def fset(self, name):
-            """
-            
-            Sets the specified zone's name. 
-    
-            Parameter(s)
-            This property takes the following parameters. 
-            
-            name 
-            A string of up to 40 characters representing the zone name. 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.name", 
-                                                         self.eco_id, name)
-            p2e._app.Exec(arg_str)
+        Retrieves the specified zone's current value for the total gains flowing 
+        to/from other adjacent zones (W). 
+
+        Parameter(s)
+        This property takes the following parameters.
         
-        return property(**locals())
+        zone 
+        The zero-based index value of the zone.
         
-    def get_next_object(self, startat, type, flag, tag):
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.interzonalgains", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+    
+    #------------------------------------------------------------------------------ 
+    def latent_gains(self):
+        """
+        
+        Retrieves the specified zone's current value for the latent internal 
+        heat gains (W/m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.latentgains", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float) 
+    
+    def set_latent_gains(self, value):
+        """
+        
+        Sets the specified zone's current value for the latent internal heat 
+        gains (W/m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the latent internal heat gains (W/m^2).
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.latentgains", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def lighting_energy(self):
+        """
+        
+        Retrieves the specified zone's current value for the total energy gain 
+        from LIGHT objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.lightingenergy", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float) 
+    
+    def set_lighting_energy(self, value):
+        """
+        
+        Sets the specified zone's current value for the total energy gain from 
+        LIGHT objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the total energy gain from LIGHT objects.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.latentgains", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def locked(self):
+        """
+        
+        Retrieves the current locked state of the specified zone. Locked zones 
+        are still displayed and take part in calculations, but the user cannot 
+        interactively select or manipulate them. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.locked", 
+                                                     self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, int) 
+    
+    def set_locked(self, state = True):
+        """
+        
+        Sets or resets the specified zone's locked state. Locked zones are still 
+        displayed and take part in calculations, but the user cannot 
+        interactively select or manipulate them. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        [state] 
+        This optional parameter will set (true) or reset (false) the specified 
+        state. Defaulting to true if not given.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.locked", 
+                                                     self._eco_id, state)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def lower_comfort_band(self):
+        """
+        
+        Retrieves the specified zone's current value for the lower comfort 
+        band ( deg Celsius). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.lowerband", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float) 
+    
+    def set_lower_comfort_band(self, value):
+        """
+        
+        Sets the specified zone's current value for the lower comfort band 
+        (deg Celsius). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the lower comfort band (deg Celsius). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.lowerband", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def lux(self):
+        """
+        
+        Retrieves the specified zone's current value for the design internal 
+        lighting level (lux). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.lux", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float) 
+
+    def set_lux(self, value):
+        """
+        
+        Sets the specified zone's current value for the design internal lighting 
+        level (lux). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the design internal lighting level (lux). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.lux", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def method_reverb(self):
+        """
+        
+        Retrieves the specified zone's current value for the reverberation 
+        calculation method. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.methodreverb", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float) 
+
+    def set_method_reverb(self, value):
+        """
+        
+        Sets the specified zone's current value for the reverberation 
+        calculation method. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the reverberation calculation method.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.methodreverb", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def name(self):
+        """
+        
+        Returns the zone's name. 
+
+        Parameter(s)
+        This property has no parameters.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        name 
+        A text string containing the zone's name.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.name", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, str) 
+
+    def set_name(self, name):
+        """
+        
+        Sets the specified zone's name. 
+
+        Parameter(s)
+        This property takes the following parameters. 
+        
+        name 
+        A string of up to 40 characters representing the zone name. 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.name", self._eco_id, name)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def next_object(self, startat, type, flag, tag):
         """
         
         Use this property to obtain the zero-based index of the next object 
@@ -1943,40 +1847,36 @@ class Zone(object):
 
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.nextobject", 
-                                                     self.eco_id, 
+                                                     self._eco_id, 
                                                      startat, type, flag, tag)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int) 
-    
-    @apply
-    def objects():
-        def fget(self):
-            """
-            
-            Returns the zone's object(s). 
-    
-            Parameter(s)
-            This property has no parameters.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            objects 
-            A list of objects belonging to this zone.
-            
-            """
-            object_id = self.get_next_object(-1, -1, -1, -1)
-            prev_id = object_id
-            objects = []
-            while (object_id != -1):
-                objects.append(p2e.doc._objects[object_id])
-                object_id = self.get_next_object(prev_id, -1, -1, -1)
-                prev_id = object_id
-            return objects
+    #------------------------------------------------------------------------------ 
+    def objects(self):
+        """
         
-        return property(**locals())
-    
-    def get_occupancy(self):
+        Returns the zone's object(s). 
+
+        Parameter(s)
+        This property has no parameters.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        objects 
+        A list of objects belonging to this zone.
+        
+        """
+        object_id = self.next_object(-1, -1, -1, -1)
+        prev_id = object_id
+        objects = []
+        while (object_id != -1):
+            objects.append(p2e.doc._objects[object_id])
+            object_id = self.next_object(prev_id, -1, -1, -1)
+            prev_id = object_id
+        return objects
+    #------------------------------------------------------------------------------ 
+    def occupancy(self):
         """
         
         Retrieves the number of people within the specified zone. 
@@ -2007,7 +1907,7 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.occupancy", 
-                                                     self.eco_id)
+                                                     self._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, int, float, int)
 
@@ -2041,56 +1941,51 @@ class Zone(object):
 
         """
         arg_str = p2e._base._util._convert_args_to_string("set.zone.occupancy", 
-                                                     self.eco_id, people, 
+                                                     self._eco_id, people, 
                                                      percentagefull, seatingtype)
         p2e._app.Exec(arg_str)
-    
-    @apply
-    def off():
-        def fget(self):
-            """
-            
-            Retrieves the current off state of the specified zone. Off zones are 
-            effectively removed from the mode and are not displayed or involved in 
-            any calculations. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            result 
-            A boolean value where 1 represents true and 0 represents false. 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.off", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, int)
-    
-        def fset(self, state = True):
-            """
-            
-            Sets or resets the specified zone's off state. Off zones are effectively 
-            removed from the mode and are not displayed or involved in any 
-            calculations. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            [state] 
-            This optional parameter will set (true) or reset (false) the specified 
-            state. Defaulting to true if not given. 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.off", 
-                                                         self.eco_id, state)
-            p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def off(self):
+        """
         
-        return property(**locals())
+        Retrieves the current off state of the specified zone. Off zones are 
+        effectively removed from the mode and are not displayed or involved in 
+        any calculations. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false. 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.off", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, int)
+
+    def set_off(self, state = True):
+        """
+        
+        Sets or resets the specified zone's off state. Off zones are effectively 
+        removed from the mode and are not displayed or involved in any 
+        calculations. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        [state] 
+        This optional parameter will set (true) or reset (false) the specified 
+        state. Defaulting to true if not given. 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.off", self._eco_id, state)
+        p2e._app.Exec(arg_str)
     
-    def get_operation(self):
+    #------------------------------------------------------------------------------ 
+    def hvac_operation(self):
         """
         
         Retrieves the current hourly on/off times for the occupancy or HVAC 
@@ -2115,12 +2010,11 @@ class Zone(object):
         A value between 0 and 23 representing the on hour off a weekend.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.zone.operation", 
-                                                     self.eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.operation", self._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, int, int, int, int)
 
-    def set_operation(self, wkdayon, wkdayoff, wkendon, wkendoff):
+    def set_hvac_operation(self, wkday_on, wkday_off, wkend_on, wkend_off):
         """
         
         Sets the current hourly on/off times for the occupancy or HVAC system in 
@@ -2129,240 +2023,212 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        wkdayon 
+        wkday_on 
         A value between 0 and 23 representing the on hour on a weekday. 
         
-        wkdayoff 
+        wkday_off 
         A value between 0 and 23 representing the off hour on a weekday. 
         
-        wkendon 
+        wkend_on 
         A value between 0 and 23 representing the on hour on a weekend. 
         
-        wkendoff 
+        wkend_off 
         A value between 0 and 23 representing the on hour off a weekend.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.zone.operation", 
-                                                     self.eco_id, wkdayon, wkdayoff, 
-                                                     wkendon, wkendoff)
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.operation", self._eco_id, 
+                                                     wkday_on, wkday_off, 
+                                                     wkend_on, wkend_off)
         p2e._app.Exec(arg_str)
-    
-    @apply
-    def peak_cooling():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the peak cooling load 
-            (W). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.peakcooling", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the peak cooling load (W). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the peak cooling load (W). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.peakcooling", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def peak_cooling(self):
+        """
         
-        return property(**locals())
-    
-    @apply
-    def peak_heating():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the peak heating 
-            load (W). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.peakheating", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the peak heating load (W). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-    
-            value 
-            A value representing the peak heating load (W). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.peakheating", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def random_colour():
-        def fset(self):
-            """
-            
-            Sets the display colour of the specified zone to a random colour based 
-            on the current background. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.randomcolour", 
-                                                         self.eco_id)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def range():
-        def fget(self):
-            """
-            
-            Retrieves the minimum, maximum and average temperature of the zone for 
-            the last calculated day. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            max 
-            The maximum temperature for the day, given in degrees Celcius. 
-            
-            min 
-            The minimum temperature for the day, given in degrees Celcius. 
-            
-            avg 
-            The average temperature over that day, given in degrees Celcius.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.range", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_list(val, float, float, float)
-        
-        return property(**locals())
-    
-    @apply
-    def rel_humidity():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the design internal 
-            relative humidity (%). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.relhumidity", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the design internal relative 
-            humidity (%). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the design internal relative humidity (%). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.relhumidity", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def response_factor():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total zone response 
-            factor. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.responsefactor", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total zone response 
-            factor. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            value 
-            A value representing the total zone response factor.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.responsefactor", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
+        Retrieves the specified zone's current value for the peak cooling load 
+        (W). 
 
-    def get_reverb_time(self, octave):
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.peakcooling", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_peak_cooling(self, value):
+        """
+        
+        Sets the specified zone's current value for the peak cooling load (W). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the peak cooling load (W). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.peakcooling", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def peak_heating(self):
+        """
+        
+        Retrieves the specified zone's current value for the peak heating 
+        load (W). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.peakheating", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_peak_heating(self, value):
+        """
+        
+        Sets the specified zone's current value for the peak heating load (W). 
+
+        Parameter(s)
+        This property takes the following parameters.
+
+        value 
+        A value representing the peak heating load (W). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.peakheating", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def random_colour(self):
+        """
+        
+        Sets the display colour of the specified zone to a random colour based 
+        on the current background. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.randomcolour", self._eco_id)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def temperature_range(self):
+        """
+        
+        Retrieves the minimum, maximum and average temperature of the zone for 
+        the last calculated day. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        max 
+        The maximum temperature for the day, given in degrees Celcius. 
+        
+        min 
+        The minimum temperature for the day, given in degrees Celcius. 
+        
+        avg 
+        The average temperature over that day, given in degrees Celcius.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.range", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_list(val, float, float, float)
+        
+    #------------------------------------------------------------------------------ 
+    def rel_humidity(self):
+        """
+        
+        Retrieves the specified zone's current value for the design internal 
+        relative humidity (%). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.relhumidity", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_rel_humidity(self, value):
+        """
+        
+        Sets the specified zone's current value for the design internal relative 
+        humidity (%). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the design internal relative humidity (%). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.relhumidity", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def response_factor(self):
+        """
+        
+        Retrieves the specified zone's current value for the total zone response 
+        factor. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.responsefactor", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_response_factor(self, value):
+        """
+        
+        Sets the specified zone's current value for the total zone response 
+        factor. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        value 
+        A value representing the total zone response factor.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.responsefactor", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+
+    #------------------------------------------------------------------------------ 
+    def reverb_time(self, octave):
         """
         
         Retrieves the reverberation time for the given zone at the specified 
@@ -2398,12 +2264,12 @@ class Zone(object):
         8 16000 Hz 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.zone.reverbtime", 
-                                                     self.eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.reverbtime", 
+                                                     self._eco_id)
         val = p2e._app.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
-
-    def get_schedules(self):
+        return p2e._base._util._convert_str_to_type(val, float)
+    #------------------------------------------------------------------------------ 
+    def schedules(self):
         """
         
         Retrieves the control schedule indexes for zone occupancy, ventilation 
@@ -2425,10 +2291,10 @@ class Zone(object):
         The zero-based index of the zone's internal gains schedule.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.zone.schedules", 
-                                                     self.eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.schedules", 
+                                                     self._eco_id)
         val = p2e._app.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, int, int, int)
+        return p2e._base._util._convert_str_to_list(val, int, int, int)
 
     def set_schedules(self, occIndex, ventIndex, gainsIndex):
         """
@@ -2455,230 +2321,206 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("set.zone.sensiblegains", 
-                                                     self.eco_id, occIndex, 
+                                                     self._eco_id, occIndex, 
                                                      ventIndex, gainsIndex)
         p2e._app.Exec(arg_str)
-    
-    @apply
-    def selected():
-        def fset(self, state = True):
-            """
-            
-            Selects or deselects all objects in the specified zone. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            [state] 
-            This optional parameter specifies whether to select (true) or deselect 
-            (false) objects on the zone. It defaults to true. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            result 
-            A boolean value where 1 represents true and 0 represents false.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.selected", 
-                                                         self.eco_id, state)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, int)
+    #------------------------------------------------------------------------------ 
+    def selected(self, state = True):
+        """
         
-        return property(**locals())
-    
-    @apply
-    def sensible_gains():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the sensible internal 
-            heat gains (W/m^2). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.sensiblegains", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the sensible internal heat 
-            gains (W/m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the sensible internal heat gains (W/m^2).
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.sensiblegains", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def solar_gains():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total direct solar 
-            gains through WINDOWS and transparent appertures. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.solargains", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-            
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total direct solar gains 
-            through WINDOWS and transparent appertures. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the total direct solar gains through WINDOWS and 
-            transparent appertures.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.solargains", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def surface_area():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total zone internal 
-            surface area (m^2). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.surfacearea", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total zone internal 
-            surface area (m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the total zone internal surface area (m^2). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.surfacearea", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
-    
-    @apply
-    def system():
-        def fget(self):
-            """
-            
-            Retrieves the HVAC system type for the specified zone. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            result 
-            An integer value corresponding to the following Zone HVAC System Codes 
-            table. 
-            
-            Relevant Data Table(s)
-            
-            Zone HVAC System Codes 
-            Token Value Description 
-            none 0 No HVAC or ventilation system. 
-            natvent 1 Natural ventilation only. 
-            mixedmode 2 Mixed mode HVAC operation. 
-            airconditioning 3 Full-time HVAC operation. 
-            heating 4 Heating system only. 
-            cooling 5 Cooling system only. 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.system", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, int)
-    
-        def fset(self, type):
-            """
-            
-            Sets the HVAC system type for the specified zone. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            type 
-            An integer value or token corresponding to the following Zone HVAC 
-            System Codes table. 
-            
-            Relevant Data Table(s)
-            
-            Zone HVAC System Codes 
-            Token Value Description 
-            none 0 No HVAC or ventilation system. 
-            natvent 1 Natural ventilation only. 
-            mixedmode 2 Mixed mode HVAC operation. 
-            airconditioning 3 Full-time HVAC operation. 
-            heating 4 Heating system only. 
-            cooling 5 Cooling system only. 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.system", 
-                                                         self.eco_id, type)
-            p2e._app.Exec(arg_str)
-        
-        return property(**locals())
+        Selects or deselects all objects in the specified zone. 
 
-    def get_temperature(self, hour):
+        Parameter(s)
+        This property takes the following parameters.
+        
+        [state] 
+        This optional parameter specifies whether to select (true) or deselect 
+        (false) objects on the zone. It defaults to true. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.selected", self._eco_id, state)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, int)
+        
+    #------------------------------------------------------------------------------ 
+    def sensible_gains(self):
+        """
+        
+        Retrieves the specified zone's current value for the sensible internal 
+        heat gains (W/m^2). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.sensiblegains", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_sensible_gains(self, value):
+        """
+        
+        Sets the specified zone's current value for the sensible internal heat 
+        gains (W/m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the sensible internal heat gains (W/m^2).
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.sensiblegains", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def solar_gains(self):
+        """
+        
+        Retrieves the specified zone's current value for the total direct solar 
+        gains through WINDOWS and transparent appertures. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.solargains", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+        
+    def set_solar_gains(self, value):
+        """
+        
+        Sets the specified zone's current value for the total direct solar gains 
+        through WINDOWS and transparent appertures. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the total direct solar gains through WINDOWS and 
+        transparent appertures.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.solargains", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def surface_area(self):
+        """
+        
+        Retrieves the specified zone's current value for the total zone internal 
+        surface area (m^2). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.surfacearea", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_surface_area(self, value):
+        """
+        
+        Sets the specified zone's current value for the total zone internal 
+        surface area (m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the total zone internal surface area (m^2). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.surfacearea", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def hvac_system(self):
+        """
+        
+        Retrieves the HVAC system type for the specified zone. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        An integer value corresponding to the following Zone HVAC System Codes 
+        table. 
+        
+        Relevant Data Table(s)
+        
+        Zone HVAC System Codes 
+        Token Value Description 
+        none 0 No HVAC or ventilation system. 
+        natvent 1 Natural ventilation only. 
+        mixedmode 2 Mixed mode HVAC operation. 
+        airconditioning 3 Full-time HVAC operation. 
+        heating 4 Heating system only. 
+        cooling 5 Cooling system only. 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.system", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, int)
+    
+    def set_hvac_system(self, type):
+        """
+        
+        Sets the HVAC system type for the specified zone. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        type 
+        An integer value or token corresponding to the following Zone HVAC 
+        System Codes table. 
+        
+        Relevant Data Table(s)
+        
+        Zone HVAC System Codes 
+        Token Value Description 
+        none 0 No HVAC or ventilation system. 
+        natvent 1 Natural ventilation only. 
+        mixedmode 2 Mixed mode HVAC operation. 
+        airconditioning 3 Full-time HVAC operation. 
+        heating 4 Heating system only. 
+        cooling 5 Cooling system only. 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.system", self._eco_id, type)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def temperature(self, hour):
         """
         
         Retrieves the temperature of the zone at the specified hour. 
@@ -2697,263 +2539,234 @@ class Zone(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.zone.temperature", 
-                                                     self.eco_id)
+                                                     self._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
-    
-    @apply
-    def thermal():
-        def fget(self):
-            """
-            
-            Retrieves the current thermal state of the specified zone. Thermal zones 
-            are treated as fully enclosed spaces or rooms for which volume, 
-            temperature and acoustic data is calculated. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            result 
-            A boolean value where 1 represents true and 0 represents false.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.thermal", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, int)
-    
-        def fset(self, state = True):
-            """
-            
-            Sets or resets the specified zone's thermal state. Thermal zones are 
-            treated as fully enclosed spaces or rooms for which volume, temperature 
-            and acoustic data is calculated. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            [state] 
-            This optional parameter will set (true) or reset (false) the specified 
-            state. Defaulting to true if not given.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.thermal", 
-                                                         self.eco_id, state)
-            p2e._app.Exec(arg_str)
+    #------------------------------------------------------------------------------ 
+    def is_thermal(self):
+        """
         
-        return property(**locals())
-    
-    @apply
-    def upper_band():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the upper comfort band 
-            (deg celsius). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.upperband", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the upper comfort band 
-            (deg celcius). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the upper comfort band (deg celsius). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.upperband", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        Retrieves the current thermal state of the specified zone. Thermal zones 
+        are treated as fully enclosed spaces or rooms for which volume, 
+        temperature and acoustic data is calculated. 
+
+        Parameter(s)
+        There are no parameters for this property.
         
-        return property(**locals())
-    
-    @apply
-    def uvalue():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total U-Value of 
-            exposed surface area (Heat loss rate W/m K). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data. 
-    
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.uvalue", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total U-Value of exposed 
-            surface area (Heat loss rate W/m K). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the total U-Value of exposed surface area (Heat 
-            loss rate W/m K). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.uvalue", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        Return Value(s)
+        Getting this property returns the following value(s).
         
-        return property(**locals())
-    
-    @apply
-    def ventilation_rate():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the wind-driven 
-            ventilation rate (ac/h). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.ventilationrate", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the wind-driven ventilation 
-            rate (ac/h). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the wind-driven ventilation rate (ac/h).
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.ventilationrate", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        result 
+        A boolean value where 1 represents true and 0 represents false.
         
-        return property(**locals())
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.thermal", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, int)
     
-    @apply
-    def volume():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the internal zone 
-            volume (m^3). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.volume", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-            
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the internal zone volume 
-            (m^3). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the internal zone volume (m^3).
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.volume", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+    def set_is_thermal(self, state = True):
+        """
         
-        return property(**locals())
-    
-    @apply
-    def window_area():
-        def fget(self):
-            """
-            
-            Retrieves the specified zone's current value for the total exposed 
-            WINDOW area (m^2). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the reqested zone data.
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("get.zone.windowarea", 
-                                                         self.eco_id)
-            val = p2e._app.Request(arg_str)
-            return p2e._base._util._convert_str_to_type(val, float)
-     
-        def fset(self, value):
-            """
-            
-            Sets the specified zone's current value for the total exposed WINDOW 
-            area (m^2). 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            A value representing the total exposed WINDOW area (m^2). 
-            
-            """
-            arg_str = p2e._base._util._convert_args_to_string("set.zone.windowarea", 
-                                                         self.eco_id, value)
-            p2e._app.Exec(arg_str)
+        Sets or resets the specified zone's thermal state. Thermal zones are 
+        treated as fully enclosed spaces or rooms for which volume, temperature 
+        and acoustic data is calculated. 
+
+        Parameter(s)
+        This property takes the following parameters.
         
-        return property(**locals())
+        [state] 
+        This optional parameter will set (true) or reset (false) the specified 
+        state. Defaulting to true if not given.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.thermal", self._eco_id, state)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def upper_comfort_band(self):
+        """
+        
+        Retrieves the specified zone's current value for the upper comfort band 
+        (deg celsius). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.upperband", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_upper_comfort_band(self, value):
+        """
+        
+        Sets the specified zone's current value for the upper comfort band 
+        (deg celcius). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the upper comfort band (deg celsius). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.upperband", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def u_value(self):
+        """
+        
+        Retrieves the specified zone's current value for the total U-Value of 
+        exposed surface area (Heat loss rate W/m K). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.uvalue", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_u_value(self, value):
+        """
+        
+        Sets the specified zone's current value for the total U-Value of exposed 
+        surface area (Heat loss rate W/m K). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the total U-Value of exposed surface area (Heat 
+        loss rate W/m K). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.uvalue", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def ventilation_rate(self):
+        """
+        
+        Retrieves the specified zone's current value for the wind-driven 
+        ventilation rate (ac/h). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.ventilationrate", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+
+    def set_ventilation_rate(self, value):
+        """
+        
+        Sets the specified zone's current value for the wind-driven ventilation 
+        rate (ac/h). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the wind-driven ventilation rate (ac/h).
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.ventilationrate", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def volume(self):
+        """
+        
+        Retrieves the specified zone's current value for the internal zone 
+        volume (m^3). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.volume", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+        
+    def set_volume(self, value):
+        """
+        
+        Sets the specified zone's current value for the internal zone volume 
+        (m^3). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the internal zone volume (m^3).
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.volume", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
+    def window_area(self):
+        """
+        
+        Retrieves the specified zone's current value for the total exposed 
+        WINDOW area (m^2). 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.zone.windowarea", self._eco_id)
+        val = p2e._app.Request(arg_str)
+        return p2e._base._util._convert_str_to_type(val, float)
+ 
+    def set_window_area(self, value):
+        """
+        
+        Sets the specified zone's current value for the total exposed WINDOW 
+        area (m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        A value representing the total exposed WINDOW area (m^2). 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("set.zone.windowarea", self._eco_id, value)
+        p2e._app.Exec(arg_str)
+        
+    #------------------------------------------------------------------------------ 
     

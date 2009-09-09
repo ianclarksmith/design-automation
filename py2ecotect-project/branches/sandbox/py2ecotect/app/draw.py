@@ -3,7 +3,7 @@ import py2ecotect as p2e
 #=============================================================================
 # Functions
 #=============================================================================
-def draw_arrow2d(offset, size = ""):
+def draw_arrow_2d(screen_point, size = ""):
     """
     
     Draws a 2D arrow object from the origin point to the specified 2D screen 
@@ -12,7 +12,7 @@ def draw_arrow2d(offset, size = ""):
     Parameter(s)
     This command takes the following parameters.
     
-    offset 
+    screen_point 
     A list of two values that represent the position on the screen in the 
     X and Y axis as an offset from the top-left corner in pixels of the 
     display canvas or control being used. 
@@ -22,12 +22,12 @@ def draw_arrow2d(offset, size = ""):
     
     """
     arg_str = p2e._base._util._convert_args_to_string("view.draw.arrow2d", 
-                                                  offset[0],
-                                                  offset[1], 
+                                                  screen_point[0],
+                                                  screen_point[1], 
                                                   size)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_arrowto(absolute_position, size = ""):
+def draw_arrow(point, size = ""):
     """
     
     Draws a 3D arrow object from the origin point to the specified 3D world 
@@ -36,7 +36,7 @@ def draw_arrowto(absolute_position, size = ""):
     Parameter(s)
     This command takes the following parameters.
     
-    absolute_position
+    point
     A list of three values that represent the absolute position in the 
     X, Y and Z axis of a point in 3 dimensional model space. 
     
@@ -45,13 +45,15 @@ def draw_arrowto(absolute_position, size = ""):
     modelling units.
     
     """
+    point = p2e._base._util.scale_1000(point)
+    
     arg_str = p2e._base._util._convert_args_to_string("view.draw.arrowto", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2], size)
+                                                  point[0],
+                                                  point[1],
+                                                  point[2], size)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_cross(absolute_position):
+def draw_cross(point):
     """
     
     Draws a 2D cross object at the specified 3D world position in the 
@@ -60,18 +62,20 @@ def draw_cross(absolute_position):
     Parameter(s)
     This command takes the following parameters.
     
-    absolute_position
+    point
     A list of three values that represent the absolute position in the 
     X, Y and Z axis of a point in 3 dimensional model space.  
 
     """
+    point = p2e._base._util.scale_1000(point)
+    
     arg_str = p2e._base._util._convert_args_to_string("view.draw.cross", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2])
+                                                  point[0],
+                                                  point[1],
+                                                  point[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_line2d(offset):
+def draw_line_2d(screen_point):
     """
     
     Draws a 2D line object from the origin point to the specified 2D screen 
@@ -80,18 +84,18 @@ def draw_line2d(offset):
     Parameter(s)
     This command takes the following parameters.
     
-    offset 
+    screen_point 
     A list of two values that represent the position on the screen in the 
     X and Y axis as an offset from the top-left corner in pixels of the 
     display canvas or control being used.
     
     """
     arg_str = p2e._base._util._convert_args_to_string("view.draw.line2d", 
-                                                  offset[0],
-                                                  offset[1])
+                                                  screen_point[0],
+                                                  screen_point[1])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_lineto(absolute_position):
+def draw_line(point):
     """
     
     Draws a 3D line object from the origin point to the specified 3D world 
@@ -100,18 +104,20 @@ def draw_lineto(absolute_position):
     Parameter(s)
     This command takes the following parameters.
     
-    absolute_position
+    point
     A list of three values that represent the absolute position in the 
     X, Y and Z axis of a point in 3 dimensional model space. 
     
     """
+    point = p2e._base._util.scale_1000(point)
+    
     arg_str = p2e._base._util._convert_args_to_string("view.draw.lineto", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2])
+                                                  point[0],
+                                                  point[1],
+                                                  point[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_move2d(offset):
+def draw_origin_2d(screen_point):
     """
     
     Moves the 2D origin point to the specified 2D screen location in the 
@@ -120,18 +126,18 @@ def draw_move2d(offset):
     Parameter(s)
     This command takes the following parameters.
     
-    offset 
+    screen_point 
     A list of two values that represent the position on the screen in the 
     X and Y axis as an offset from the top-left corner in pixels of the 
     display canvas or control being used.
     
     """
     arg_str = p2e._base._util._convert_args_to_string("view.draw.move2d", 
-                                                  offset[0],
-                                                  offset[1])
+                                                  screen_point[0],
+                                                  screen_point[1])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_moveto(absolute_position):
+def draw_origin(point):
     """
     
     Moves the 3D origin point to the specified 3D world position within the 
@@ -140,18 +146,20 @@ def draw_moveto(absolute_position):
     Parameter(s)
     This command takes the following parameters.
     
-    absolute_position
+    point
     A list of three values that represent the absolute position in the 
     X, Y and Z axis of a point in 3 dimensional model space. 
     
     """
+    point = p2e._base._util.scale_1000(point)
+    
     arg_str = p2e._base._util._convert_args_to_string("view.draw.moveto", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2])
+                                                  point[0],
+                                                  point[1],
+                                                  point[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_pixel(absolute_position):
+def draw_pixel(point):
     """
     
     Draws a pixel at the specified 3D world position within the curent view. 
@@ -159,18 +167,20 @@ def draw_pixel(absolute_position):
     Parameter(s)
     This command takes the following parameters.
     
-    absolute_position
+    point
     A list of three values that represent the absolute position in the 
     X, Y and Z axis of a point in 3 dimensional model space.
     
     """
+    point = p2e._base._util.scale_1000(point)
+    
     arg_str = p2e._base._util._convert_args_to_string("view.draw.pixel", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2])
+                                                  point[0],
+                                                  point[1],
+                                                  point[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_point(absolute_position):
+def draw_point(point):
     """
     
     Draws a point at the specified 3D world position within the current 
@@ -179,18 +189,20 @@ def draw_point(absolute_position):
     Parameter(s)
     This command takes the following parameters.
     
-    absolute_position
+    point
     A list of three values that represent the absolute position in the 
     X, Y and Z axis of a point in 3 dimensional model space.
     
     """
+    point = p2e._base._util.scale_1000(point)
+       
     arg_str = p2e._base._util._convert_args_to_string("view.draw.point", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2])
+                                                  point[0],
+                                                  point[1],
+                                                  point[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_sphere(absolute_position, radius):
+def draw_sphere(point, radius):
     """
     
     Draws a 3D sphere object at the specified 3D world position in the current view. 
@@ -206,14 +218,16 @@ def draw_sphere(absolute_position, radius):
     The radius of the sphere in the current modelling units.
     
     """
+    point = p2e._base._util.scale_1000(point)
+    
     arg_str = p2e._base._util._convert_args_to_string("view.draw.sphere", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2], 
+                                                  point[0],
+                                                  point[1],
+                                                  point[2], 
                                                   radius)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_text(absolute_position, text):
+def draw_text(point, text):
     """
     
     Displays a string of text at the specified 3D world position inside the 
@@ -230,22 +244,24 @@ def draw_text(absolute_position, text):
     The text string to be displayed.
     
     """
+    point = p2e._base._util.scale_1000(point)
+    
     arg_str = p2e._base._util._convert_args_to_string("view.draw.text", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2], text)
+                                                  point[0],
+                                                  point[1],
+                                                  point[2], text)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def draw_text2d(offset, string):
+def draw_text_2d(screen_point, string):
     """
     
-    Displays a string of text at the specified 3D world position inside the 
+    Displays a string of text at the specified 2D screen location in the
     current view. 
 
     Parameter(s)
     This command takes the following parameters.
     
-    offset 
+    screen_point 
     A list of two values that represent the position on the screen in the 
     X and Y axis as an offset from the top-left corner in pixels of the 
     display canvas or control being used. 
@@ -255,15 +271,15 @@ def draw_text2d(offset, string):
     
     """
     arg_str = p2e._base._util._convert_args_to_string("view.draw.text2d", 
-                                                  offset[0],
-                                                  offset[1], 
+                                                  screen_point[0],
+                                                  screen_point[1], 
                                                   string)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 #=============================================================================
 # Properties
 #=============================================================================
-def get_pen():
+def pen():
     """
     
     Retrieves the current pen color and size. 
@@ -309,7 +325,7 @@ def set_pen(color, width = 0, alpha = 0.0):
                                                   width, alpha)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_point(absolute_position):
+def screen_point(point):
     """
     
     Returns the 2D screen position of the specified 3D point within the 
@@ -318,7 +334,7 @@ def get_point(absolute_position):
     Parameter(s)
     This property takes the following parameters.
     
-    absolute_position 
+    point 
     A list of three values that represent the absolute position in the 
     X, Y and Z axis of a point in 3 dimensional model space. 
     
@@ -330,10 +346,12 @@ def get_point(absolute_position):
     from the top-left corner in pixels. 
     
     """
+    point = p2e._base._util.scale_1000(point)
+    
     arg_str = p2e._base._util._convert_args_to_string("get.view.point", 
-                                                  absolute_position[0],
-                                                  absolute_position[1],
-                                                  absolute_position[2])
+                                                  point[0],
+                                                  point[1],
+                                                  point[2])
     val = p2e._app.Request(arg_str)
     return p2e._base._util._convert_str_to_list(val, float, float)
 #------------------------------------------------------------------------------ 

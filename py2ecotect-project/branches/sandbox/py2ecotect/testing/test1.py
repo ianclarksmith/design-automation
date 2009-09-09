@@ -3,8 +3,10 @@ import py2ecotect as p2e
 p2e.doc.model.new()
 
 p2e.app.draw.set_pen(color = 'OOOOOO', width=5)
-p2e.app.draw.draw_lineto((1000,100,10000))
+p2e.app.draw.draw_line((1000,100,10000))
 p2e.app.draw.draw_sphere((0,0,0), 10000)
+
+
 
 
 points = ((0,0,0),(10,0,0),(10,0,10),(5,0,20),(5,0,3),)
@@ -31,7 +33,7 @@ p2e.doc.calculation.update_adjacencies(100, True)
 p2e.doc.calculation.set_dates(0,365)
 p2e.doc.calculation.set_times(7,19)
 
-p2e.doc.calculation.calc_shading(shading_type='percentage', cumulative=True, start_day=1, stop_day=365, start_time=1, stop_time=23)
+p2e.doc.calculation.calc_shading(calc_type='percentage', cumulative=True, start_day=1, stop_day=365, start_time=1, stop_time=23)
 
 p2e.doc.calculation.calc_insolation('objects', 0, False, 0)
 print "solar_direct = ", p2e.doc.results.solar_direct(15)

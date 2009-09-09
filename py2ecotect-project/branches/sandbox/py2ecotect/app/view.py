@@ -51,7 +51,7 @@ def view_axo(azi = 0.0):
     degrees from which the model is viewed.
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.axonometric", azi)
+    arg_str = p2e._base._util._convert_args_to_string("view.axonometric", azi)
     p2e._app.Exec(arg_str)
 
 def view_persp():
@@ -104,7 +104,7 @@ def image_save(filename, format = ""):
     """
     if len(format) != 0:
         format = "." + format
-    arg_str = p2e._util._convert_args_to_string("view.save" + format, 
+    arg_str = p2e._base._util._convert_args_to_string("view.save" + format, 
                                                   filename)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -199,7 +199,7 @@ def mouse_event(action, position):
     rdblclick Right mouse button double-clicked 
 
     """
-    arg_str = p2e._util._convert_args_to_string("view.mouseevent", 
+    arg_str = p2e._base._util._convert_args_to_string("view.mouseevent", 
                                                   action, 
                                                   position[0], position[1])
     p2e._app.Exec(arg_str)
@@ -217,7 +217,7 @@ def move_in(shift = False):
     instead. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.movein", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.movein", shift)
     p2e._app.Exec(arg_str)
 
 def move_out(shift = False):
@@ -233,7 +233,7 @@ def move_out(shift = False):
     instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.moveout", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.moveout", shift)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def pan_down(shift = False):
@@ -249,7 +249,7 @@ def pan_down(shift = False):
     instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.pandown", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.pandown", shift)
     p2e._app.Exec(arg_str)
 
 def pan_left(shift = False):
@@ -265,7 +265,7 @@ def pan_left(shift = False):
     instead. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.panleft", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.panleft", shift)
     p2e._app.Exec(arg_str)
 
 def pan_right(shift = False):
@@ -281,7 +281,7 @@ def pan_right(shift = False):
     instead. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.panright", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.panright", shift)
     p2e._app.Exec(arg_str)
 
 def pan_up(shift = False):
@@ -297,7 +297,7 @@ def pan_up(shift = False):
     instead. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("view.panup", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.panup", shift)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def redraw():
@@ -334,7 +334,7 @@ def restore(index):
     An integer value between 1 and 5 specifying the index of the stored view. 
     
     """ 
-    arg_str = p2e._util._convert_args_to_string("view.restore", index)
+    arg_str = p2e._base._util._convert_args_to_string("view.restore", index)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def rotate_down(shift = False):
@@ -350,7 +350,7 @@ def rotate_down(shift = False):
     rotation instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.rotatedown", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.rotatedown", shift)
     p2e._app.Exec(arg_str)
 
 def rotate_left(shift = False):
@@ -366,7 +366,7 @@ def rotate_left(shift = False):
     rotation instead. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.rotateleft", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.rotateleft", shift)
     p2e._app.Exec(arg_str)
 
 def rotate_right(shift = False):
@@ -382,7 +382,7 @@ def rotate_right(shift = False):
     rotation instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.rotateright", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.rotateright", shift)
     p2e._app.Exec(arg_str)
 
 def rotate_up(shift = False):
@@ -397,7 +397,7 @@ def rotate_up(shift = False):
     If this optional parameter is set to true, 1% will be used for the rotation instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.rotateup", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.rotateup", shift)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def store(index):
@@ -413,7 +413,7 @@ def store(index):
     view will be assigned. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("view.store", index)
+    arg_str = p2e._base._util._convert_args_to_string("view.store", index)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def zoom(factor):
@@ -428,7 +428,7 @@ def zoom(factor):
     A decimal value given as a multiplier.
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.store", factor)
+    arg_str = p2e._base._util._convert_args_to_string("view.store", factor)
     p2e._app.Exec(arg_str)
 
 def zoom_in(shift = False):
@@ -444,7 +444,7 @@ def zoom_in(shift = False):
     instead. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("view.zoomin", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.zoomin", shift)
     p2e._app.Exec(arg_str)
     
 def zoom_out(shift = False):
@@ -460,13 +460,13 @@ def zoom_out(shift = False):
     instead. 
             
     """
-    arg_str = p2e._util._convert_args_to_string("view.zoomout", shift)
+    arg_str = p2e._base._util._convert_args_to_string("view.zoomout", shift)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 #=============================================================================
 # Properties
 #=============================================================================
-def get_align():
+def align():
     """
     
     Retrieves the the alignment of output text by the view.draw.text. 
@@ -493,7 +493,7 @@ def get_align():
     
     """
     val = p2e._app.Request("get.view.align")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
 def set_align(alignment):
     """
@@ -520,11 +520,11 @@ def set_align(alignment):
     24 BASELINE 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.view.align", 
+    arg_str = p2e._base._util._convert_args_to_string("set.view.align", 
                                                   alignment)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_font():
+def font():
     """
     
     Retrieves the current font settings for subsequent output text in the 
@@ -544,7 +544,7 @@ def get_font():
     
     """
     val = p2e._app.Request("get.view.font")
-    return p2e._util._convert_str_to_list(val, int, str)
+    return p2e._base._util._convert_str_to_list(val, int, str)
 
 def set_font(size, name):
     """
@@ -566,11 +566,11 @@ def set_font(size, name):
     in the following example.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.view.font", 
+    arg_str = p2e._base._util._convert_args_to_string("set.view.font", 
                                                   size, name)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_grid_max():
+def grid_max():
     """
     
     Retrieves the maximum end position of the current display grid. 
@@ -587,7 +587,7 @@ def get_grid_max():
     
     """
     val = p2e._app.Request("get.view.grid.max")
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 
 def set_grid_max(absolute_position):
     """
@@ -602,13 +602,13 @@ def set_grid_max(absolute_position):
     X, Y and Z axis of a maximum point in 3 dimensional model space.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.view.grid.max", 
+    arg_str = p2e._base._util._convert_args_to_string("set.view.grid.max", 
                                                   absolute_position[0],
                                                   absolute_position[1],
                                                   absolute_position[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_grid_min():
+def grid_min():
     """
     
     Retrieves the minimum starting position of the current display grid. 
@@ -625,7 +625,7 @@ def get_grid_min():
 
     """
     val = p2e._app.Request("get.view.grid.min")
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 
 def set_grid_min(absolute_position):
     """
@@ -640,13 +640,13 @@ def set_grid_min(absolute_position):
     X, Y and Z axis of a minimum point in 3 dimensional model space. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.view.grid.min", 
+    arg_str = p2e._base._util._convert_args_to_string("set.view.grid.min", 
                                                   absolute_position[0],
                                                   absolute_position[1],
                                                   absolute_position[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_size():
+def size():
     """
     
     Retrieves the current view dimensions in pixels. 
@@ -665,7 +665,7 @@ def get_size():
     
     """
     val = p2e._app.Request("get.view.size")
-    return p2e._util._convert_str_to_list(val, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float)
 
 def set_size(width, height):
     """
@@ -682,10 +682,10 @@ def set_size(width, height):
     The new height of the view canvas.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.view.size", width, height)
+    arg_str = p2e._base._util._convert_args_to_string("set.view.size", width, height)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_visible():
+def visible():
     """
     
     Returns whether or not the 3D EDITOR view is currently displayed or not. 
@@ -701,6 +701,6 @@ def get_visible():
     
     """
     val = p2e._app.Request("get.view.visible")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 #------------------------------------------------------------------------------ 
     

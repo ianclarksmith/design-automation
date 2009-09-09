@@ -3,7 +3,7 @@ import py2ecotect as p2e
 #===========================================================================
 # Functions
 #===========================================================================
-def calc_acoustic_response(type, frequency):
+def calc_acoustic_response(calc_type, frequency):
     """
     
     Calculates the acoustic response based on acoustic rays already 
@@ -12,7 +12,7 @@ def calc_acoustic_response(type, frequency):
     Parameter(s)
     This command takes the following parameters.
     
-    type 
+    calc_type 
     This parameter is either 0 for a 'Estimated Reverberation' calculation 
     or 1 for a calculation based on 'Existing Rays/Particles'. 
     
@@ -39,7 +39,7 @@ def calc_acoustic_response(type, frequency):
     
     """
     arg_str = p2e._base._util._convert_args_to_string("calc.acousticresponse", 
-                                                  type, frequency)
+                                                  calc_type, frequency)
     p2e._app.Exec(arg_str)  
 
 def calc_comfort():
@@ -55,7 +55,7 @@ def calc_comfort():
     """
     p2e._app.Exec("calc.comfort")
 
-def calc_insolation(target, type, select_3d, accumulation, metric = None):
+def calc_insolation(calc_type, target, select_3d, accumulation, metric = None):
     """
     
     Calculates incident solar radiation levels (insolation) over either the 
@@ -70,7 +70,7 @@ def calc_insolation(target, type, select_3d, accumulation, metric = None):
     only have either the value 'grid' or 'objects'. Any other value will be 
     intepreted as 'grid'. 
     
-    type 
+    calc_type 
     The type parameter sets the type of calculation to be performed, as 
     shown in the following insolation types table. 
     
@@ -127,7 +127,7 @@ def calc_insolation(target, type, select_3d, accumulation, metric = None):
         return
     else:
         arg_str = p2e._base._util._convert_args_to_string("calc.insolation", 
-                                                      target, type, select_3d, 
+                                                      target, calc_type, select_3d, 
                                                      accumulation, metric)
         p2e._app.Exec(arg_str)
 
@@ -185,7 +185,7 @@ def calc_solar(period, shading, ground, direct):
     except:
         print "exception occured"
 
-def calc_lighting(target, type, select3D, comparison = 0):
+def calc_lighting(calc_type, target, select3D, comparison = 0):
     """
     
     Calculates daylight factors and lighting levels over either the current 
@@ -200,7 +200,7 @@ def calc_lighting(target, type, select3D, comparison = 0):
     have  either the value 'grid' or 'point'. Any other value will be 
     intepreted as grid'. 
     
-    type 
+    calc_type 
     The type parameter sets the type of calculation to be performed, as 
     shown in the following Lighting Types table. 
     
@@ -236,11 +236,11 @@ def calc_lighting(target, type, select3D, comparison = 0):
     
     """
     arg_str = p2e._base._util._convert_args_to_string("calc.lighting", target, 
-                                                  type, select3D, 
+                                                  calc_type, select3D, 
                                                   comparison)
     p2e._app.Exec(arg_str)
 
-def calc_thermal(calc_type, zone = 0):
+def calc_thermal(calc_type, zone=0):
     """
     
     Use these methods to invoke thermal calculations. The command suffixes 
@@ -287,7 +287,38 @@ def calc_thermal(calc_type, zone = 0):
                                                   calc_type, zone)
     p2e._app.Exec(arg_str)
     
-def calc_resource_consumption(type):
+def calc_thermal_temperatures(zone=0):
+    calc_thermal("temperatures", zone)
+def calc_thermal_gains(zone=0):
+    calc_thermal("gains", zone)
+def calc_thermal_loads(zone=0):
+    calc_thermal("loads", zone)
+def calc_thermal_distribution(zone=0):
+    calc_thermal("distribution", zone)
+def calc_thermal_fabric_gains(zone=0):
+    calc_thermal("fabricgains", zone)
+def calc_thermal_indirect_gains(zone=0):
+    calc_thermal("indirectgains", zone)
+def calc_thermal_direct_gains(zone=0):
+    calc_thermal("directgains", zone)
+def calc_thermal_ventilation_gains(zone=0):
+    calc_thermal("ventilationgains", zone)   
+def calc_thermal_internal_gains(zone=0):
+    calc_thermal("internalgains", zone)
+def calc_thermal_zonal_gains(zone=0):
+    calc_thermal("zonalgains", zone)
+def calc_thermal_total_gains(zone=0):
+    calc_thermal("totalgains", zone)
+def calc_thermal_passive_gains(zone=0):
+    calc_thermal("passivegains", zone)
+def calc_thermal_adaptability(zone=0):
+    calc_thermal("adaptability", zone)
+def calc_thermal_comparison(zone=0):
+    calc_thermal("comparison", zone)
+def calc_thermal_degree_days(zone=0):
+    calc_thermal("degreedays", zone)
+    
+def calc_resource_consumption(calc_type):
     """
     
     Calculates resource consumption within the model. 
@@ -295,7 +326,7 @@ def calc_resource_consumption(type):
     Parameter(s)
     This command takes the following parameters.
     
-    type 
+    calc_type 
     The type parameter sets the type of resource calculation to be 
     performed, as shown in the following resource calculation types table. 
     
@@ -316,7 +347,7 @@ def calc_resource_consumption(type):
     coal Hourly Coal Use 
 
     """
-    arg_str = p2e._base._util._convert_args_to_string("calc.resources", type)
+    arg_str = p2e._base._util._convert_args_to_string("calc.resources", calc_type)
     p2e._app.Exec(arg_str)
     
 #------------------------------------------------------------------------------ 
@@ -367,68 +398,60 @@ def update_volumes():
     """
     p2e._app.Exec("calc.volumes")  
 
-def calc_shading(cumulative, start_day, stop_day, start_time, stop_time, shading_type="percentage"):
+def calc_shading(calc_type="percentage", cumulative=True, start_day=1, stop_day=365, start_time=0.00, stop_time=23.99):
     """
     
     Calculates the shading mask for the currently selected object. The 
     command suffix refers to the shading information to be calculated, as 
     outlined in the following Available Shading Calculations table. The 
     optional parameters only apply to solar stress calculations. If not 
-    included, these default to the full year (0-365) and all day (0-24). 
+    included, these default to the full year (1-365) and all day (0-24). 
 
     Parameter(s)
     This command takes the following parameters.
     
+    calc_type
+    Can be percentage, total, diffuse or direct. Default is 'percentage'.
+    
     cumulative 
     A boolean value determining if solar radiation should show cumulative 
-    annual results rather than hourly total stress values. 
+    annual results rather than hourly total stress values. Default is True. 
     
     start_day 
     The starting date for the calculation. This is a julian date, a number 
-    between 1 and 365. 
+    between 1 and 365. Default is 1.
     
     stop_day 
     The end date for the calculation. This is a julian date, a number 
-    between 1 and 365. 
+    between 1 and 365. Default is 365.
     
     start_time 
     Determines the starting time for the calculation. This is a decimal 
-    value between 0.00 and 23.99. 
+    value between 0.00 and 23.99. Default is 0.00.
     
     stop_time 
     Determines the end time for the calculation. This is a decimal value 
-    between 0.00 and 23.99.
-    
-    shading_type
-    Can be percentage, total, diffuse or direct. Default is percentage
-    
-    Relevant Data Table(s)
-    
-    Available Thermal Calculations 
-    Token Description 
-    temperatures Hourly temperatures for current day. 
-    gains Hourly heat gains for current day. 
-    loads Monthly heating and cooling loads. 
-    distribution Temperature distribution. 
-    fabricgains Average monthly-hourly fabric heat flow. 
-    indirectgains Average monthly-hourly indirect solar gains. 
-    directgains Average monthly-hourly direct solar gains 
-    ventilationgains Average monthly-hourly ventilation gains. 
-    internalgains Average monthly-hourly internal gains. 
-    zonalgains Average monthly-hourly inter-zonal gains. 
-    totalgains Average monthly-hourly total space gains. 
-    passivegains Passive gains breakdown. 
-    adaptability Passive adaptibility index. 
-    comparison Temperature/gains comparison . 
-    degreedays Monthly degree days. 
+    between 0.00 and 23.99. Default is 23.99.
 
     """
     arg_str = p2e._base._util._convert_args_to_string("calc.shading." + 
-                                                  shading_type,cumulative, 
+                                                  calc_type,cumulative, 
                                                   start_day, stop_day, 
                                                   start_time, stop_time)
     p2e._app.Exec(arg_str)
 
+def calc_shading_percentage(cumulative=True, start_day=1, stop_day=365, start_time=0.00, stop_time=23.99):
+    calc_shading("percentage", cumulative, start_day, stop_day, start_time, stop_time)
+
+def calc_shading_total(cumulative=True, start_day=1, stop_day=365, start_time=0.00, stop_time=23.99):
+    calc_shading("total", cumulative, start_day, stop_day, start_time, stop_time)
+
+def calc_shading_diffuse(cumulative=True, start_day=1, stop_day=365, start_time=0.00, stop_time=23.99):
+    calc_shading("diffuse", cumulative, start_day, stop_day, start_time, stop_time)
+    
+def calc_shading_direct(cumulative=True, start_day=1, stop_day=365, start_time=0.00, stop_time=23.99):
+    calc_shading("direct", cumulative, start_day, stop_day, start_time, stop_time)
+    
 #------------------------------------------------------------------------------     
 #===========================================================================
 # Getters and Setters
