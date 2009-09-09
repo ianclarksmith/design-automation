@@ -12,7 +12,7 @@ class obj_test(unittest.TestCase):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)
+        self.assertEqual(type(planarmesh2),p2r.obj.Mesh) #TODO: Check if it is suppose to return a mesh.
         
     def testPlanarMeshTrfm(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
@@ -54,7 +54,7 @@ class obj_test(unittest.TestCase):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.modf.quads_to_triangles()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)   
+        self.assertEqual(type(planarmesh2),bool)   
         
     def testPlanarMeshIndex(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
