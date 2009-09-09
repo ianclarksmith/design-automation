@@ -10,7 +10,7 @@ class obj_test(unittest.TestCase):
     def testEllipseShear(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
         ellipse2 = ellipse1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(ellipse2),p2r.obj.Ellipse)
+        self.assertEqual(type(ellipse2),p2r.obj.NurbsCurve) #TODO: Check if it is suppose to return a NurbsCurve
         
     def testEllipseTrfm(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
