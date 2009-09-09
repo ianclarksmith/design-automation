@@ -78,29 +78,6 @@ class obj_test(unittest.TestCase):
         arc2 = arc1.eval.evaluate(1)
         self.assertEqual(len(arc2),3) 
     
-    def testArcClosed(self):
-        points = ( (0,0,0), (10,0,0,), (10,10,0),(0,0.5,0))
-        nc1 = p2r.obj.NurbsCurve.create_by_pnts(points, 3)
-        nc2 = nc1.func.close()
-        self.assertEqual(type(nc2),p2r.obj.bool)
-    
-    def testArcExtend(self):
-        ln1 = p2r.obj.Line.create((0,0,0), (10,0,0))
-        ln2 = p2r.obj.Line.create((20,-10,0), (20,20,0))
-        ln3 = ln1.func.extend(1,1,ln2)
-        self.assertEqual(type(ln3),p2r.obj.Line)
-    
-    def testArcExtendLength(self):
-        arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.func.extend_length(2,2,3)
-        #print arc2
-        self.assertEqual(type(arc2),p2r.obj.NurbsCurve) #TODO: to check if it is suppose to return as a nurbscurve
-        
-    def testArcExtendPnt(self):
-        arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.func.extend_pnt(1,(1,1,1))
-        self.assertEqual(type(arc2),p2r.obj.NurbsCurve) #TODO: to check if it is suppose to return as a nurbscurve
-        
     def testArcGroups(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
         arc2 = arc1.grps.groups()
