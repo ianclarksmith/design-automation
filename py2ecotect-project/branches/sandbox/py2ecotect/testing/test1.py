@@ -9,8 +9,10 @@ p2e.app.draw.draw_sphere((0,0,0), 10000)
 
 points = ((0,0,0),(10,0,0),(10,0,10),(5,0,20),(5,0,3),)
 wall = p2e.obj.Wall.create(points)
-wall.state.set_selected(False)
+wall.state.set_selected(True)
 
+points2 = ((0,0,0), (10,0,0), (10,10,0), (0,10,0))
+collector = p2e.obj.SolarCollector.create(points2)
 '''
 wall.trfm.move_by_vec((0,0,10))
 
@@ -20,14 +22,22 @@ roof = p2e.obj.Roof.create(points)
 r2 = roof.dupl.copy_move_by_vec((20,0,0))
 r2.modf.delete()
 '''
+p2e.doc.calculation.calc_solar(period="day", shading=2, ground=1, direct=1)
+
+p2e.doc.weather.load_all('C:\Program Files\Autodesk\Ecotect 2009\Weather Data\Australia-SydneyNSW-1.wea')
+
+p2e.doc.calculation.update_adjacencies(100, True)
+
 p2e.doc.calculation.set_dates(0,365)
 p2e.doc.calculation.set_times(7,19)
 
-p2e.doc.calculation.update_shading_masks(True, 1, 365, 1, 23)
-p2e.doc.calculation.calc_insolation('objects', 0, False, 0)
-print p2e.doc.results.solar_direct(15)
-print p2e.doc.results.insolation_direct()
+p2e.doc.calculation.calc_shading(shading_type='percentage', cumulative=True, start_day=1, stop_day=365, start_time=1, stop_time=23)
 
-print p2e.doc.results.shading_percentange_at_date_time(5, 13)
+p2e.doc.calculation.calc_insolation('objects', 0, False, 0)
+print "solar_direct = ", p2e.doc.results.solar_direct(15)
+print "solar_diffuse = ", p2e.doc.results.solar_diffuse(15)
+print "insolation_diffuse = ", p2e.doc.results.insolation_diffuse()
+
+print "shading_percentange_at_date_time = ", p2e.doc.results.shading_percentange_at_date_time(5, 11)
 
 print "done"

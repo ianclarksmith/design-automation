@@ -55,7 +55,7 @@ def calc_comfort():
     """
     p2e._app.Exec("calc.comfort")
 
-def calc_insolation(target, type, select3D, accumulation, metric = None):
+def calc_insolation(target, type, select_3d, accumulation, metric = None):
     """
     
     Calculates incident solar radiation levels (insolation) over either the 
@@ -127,15 +127,15 @@ def calc_insolation(target, type, select3D, accumulation, metric = None):
         return
     else:
         arg_str = p2e._base._util._convert_args_to_string("calc.insolation", 
-                                                      target, type, select3D, 
+                                                      target, type, select_3d, 
                                                      accumulation, metric)
         p2e._app.Exec(arg_str)
 
-'''
-def calc_insolation_2(period, shading, ground, direct):
+
+def calc_solar(period, shading, ground, direct):
     """
     
-    Calculates resource consumption within the model. 
+    Calculates ??? within the model. 
 
     Parameter(s)
     This command takes the following parameters.
@@ -178,12 +178,12 @@ def calc_insolation_2(period, shading, ground, direct):
 
     """
     try:
-        arg_str = p2e._base._util._convert_args_to_string("calc.insolation", 
+        arg_str = p2e._base._util._convert_args_to_string("calc.solar", 
                                                       period, shading, 
                                                       ground, direct)
         p2e._app.Exec(arg_str)
     except:
-        print "exception occured"'''
+        print "exception occured"
 
 def calc_lighting(target, type, select3D, comparison = 0):
     """
@@ -240,7 +240,7 @@ def calc_lighting(target, type, select3D, comparison = 0):
                                                   comparison)
     p2e._app.Exec(arg_str)
 
-def calc_temperatures(calc_type, zone = 0):
+def calc_thermal(calc_type, zone = 0):
     """
     
     Use these methods to invoke thermal calculations. The command suffixes 
@@ -320,7 +320,7 @@ def calc_resource_consumption(type):
     p2e._app.Exec(arg_str)
     
 #------------------------------------------------------------------------------ 
-def update_adjacencies(sampleSize, shading, ignore = ""):
+def update_adjacencies(sample_size, shading, ignore = ""):
     """
     
     Calculates inter-zonal adjacencies for all currently visible zones.
@@ -334,7 +334,7 @@ def update_adjacencies(sampleSize, shading, ignore = ""):
     This may be useful when you perform a zone-related operation that you 
     know will not affect overshadowing or the thermal validity of spaces. 
     
-    sampleSize 
+    sample_size 
     To deal with geometry of any level of complexity, ECOTECT samples 
     surfaces using pseudo-random points, each located somewhere within a 
     regular grid. Use this parameter to set the size of this grid for each 
@@ -353,7 +353,7 @@ def update_adjacencies(sampleSize, shading, ignore = ""):
                                                     ignore)
     else:
         arg_str = p2e._base._util._convert_args_to_string("calc.adjacencies" , 
-                                                    sampleSize, shading)
+                                                    sample_size, shading)
     p2e._app.Exec(arg_str)
 
 def update_volumes():
@@ -367,8 +367,7 @@ def update_volumes():
     """
     p2e._app.Exec("calc.volumes")  
 
-def update_shading_masks(cumulative, startDay, stopDay, startTime, 
-                       stopTime, shadingType = "percentage"):
+def calc_shading(cumulative, start_day, stop_day, start_time, stop_time, shading_type="percentage"):
     """
     
     Calculates the shading mask for the currently selected object. The 
@@ -384,23 +383,23 @@ def update_shading_masks(cumulative, startDay, stopDay, startTime,
     A boolean value determining if solar radiation should show cumulative 
     annual results rather than hourly total stress values. 
     
-    startDay 
+    start_day 
     The starting date for the calculation. This is a julian date, a number 
     between 1 and 365. 
     
-    stopDay 
+    stop_day 
     The end date for the calculation. This is a julian date, a number 
     between 1 and 365. 
     
-    startTime 
+    start_time 
     Determines the starting time for the calculation. This is a decimal 
     value between 0.00 and 23.99. 
     
-    stopTime 
+    stop_time 
     Determines the end time for the calculation. This is a decimal value 
     between 0.00 and 23.99.
     
-    shadingType
+    shading_type
     Can be percentage, total, diffuse or direct. Default is percentage
     
     Relevant Data Table(s)
@@ -425,9 +424,9 @@ def update_shading_masks(cumulative, startDay, stopDay, startTime,
 
     """
     arg_str = p2e._base._util._convert_args_to_string("calc.shading." + 
-                                                  shadingType,cumulative, 
-                                                  startDay, stopDay, 
-                                                  startTime, stopTime)
+                                                  shading_type,cumulative, 
+                                                  start_day, stop_day, 
+                                                  start_time, stop_time)
     p2e._app.Exec(arg_str)
 
 #------------------------------------------------------------------------------     
@@ -740,7 +739,7 @@ def set_overshadowing_precision(precision):
     low 3 Use single point at object centre. 
     
     """
-    arg_str = p2e._base._util._convert_args_to_string("set.shading.accuracy", accuracy)
+    arg_str = p2e._base._util._convert_args_to_string("set.shading.accuracy", precision)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def shading_mask_angles():
