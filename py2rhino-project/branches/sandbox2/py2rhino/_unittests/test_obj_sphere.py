@@ -5,12 +5,12 @@ class obj_test(unittest.TestCase):
     def testSphereBoxMorph(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
         sphere2 = sphere1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
-        self.assertEqual(type(sphere2),p2r.obj.Sphere)
+        self.assertEqual(type(sphere2),p2r.obj.NurbsSurface)#TODO: Check if the return is suppose to be NurbsSurface
         
     def testSphereShear(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
         sphere2 = sphere1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(sphere2),p2r.obj.Sphere)
+        self.assertEqual(type(sphere2),p2r.obj.NurbsSurface)#TODO: Check if the return is suppose to be NurbsSurface
         
     def testSphereTrfm(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
