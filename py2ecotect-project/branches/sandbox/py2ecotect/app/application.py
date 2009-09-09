@@ -33,7 +33,7 @@ def alert(msg, type = ""):
     A string containing the message to be displayed.
     
     """
-    arg_str = p2e._util._convert_args_to_string("app.alert." + type, msg)
+    arg_str = p2e._base._util._convert_args_to_string("app.alert." + type, msg)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def busy(action, message):
@@ -62,7 +62,7 @@ def busy(action, message):
     using the close action. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("app.busy" + action, 
+    arg_str = p2e._base._util._convert_args_to_string("app.busy" + action, 
                                                   message)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -96,7 +96,7 @@ def character(text):
     selected control. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("app.character", text)
+    arg_str = p2e._base._util._convert_args_to_string("app.character", text)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def exit():
@@ -189,7 +189,7 @@ def key(keyCode):
     VK_SCROLL 145 
     
     """
-    arg_str = p2e._util._convert_args_to_string("app.key", keyCode)
+    arg_str = p2e._base._util._convert_args_to_string("app.key", keyCode)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def maximise(state = 1):
@@ -214,7 +214,7 @@ def maximise(state = 1):
     
     """
 
-    arg_str = p2e._util._convert_args_to_string("app.maximise", state)
+    arg_str = p2e._base._util._convert_args_to_string("app.maximise", state)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def menu(command, tag = 0):
@@ -583,7 +583,7 @@ def menu(command, tag = 0):
     >>> menu("file.export.external")
     
     """
-    arg_str = p2e._util._convert_args_to_string("app.menu", command,tag)
+    arg_str = p2e._base._util._convert_args_to_string("app.menu", command,tag)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def minimise(state = 1):
@@ -609,7 +609,7 @@ def minimise(state = 1):
     
     """
 
-    arg_str = p2e._util._convert_args_to_string("app.minimise", state)
+    arg_str = p2e._base._util._convert_args_to_string("app.minimise", state)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def mouse_event(action, x, y):
@@ -672,7 +672,7 @@ def mouse_event(action, x, y):
     >>> mouseevent("rclick", 100, 150)
     
     """
-    arg_str = p2e._util._convert_args_to_string("app.mouseevent", action, 
+    arg_str = p2e._base._util._convert_args_to_string("app.mouseevent", action, 
                                                   x, y)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -695,7 +695,7 @@ def progress(percent):
     >>> progress(25)
     
     """
-    arg_str = p2e._util._convert_args_to_string("app.progress", percent)
+    arg_str = p2e._base._util._convert_args_to_string("app.progress", percent)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def run(script):
@@ -725,7 +725,7 @@ def run(script):
     >>> run("AcousticRays.scr")
     
     """
-    arg_str = p2e._util._convert_args_to_string("app.run", script)
+    arg_str = p2e._base._util._convert_args_to_string("app.run", script)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def status(msg):
@@ -751,12 +751,12 @@ def status(msg):
     
     """ 
 
-    arg_str = p2e._util._convert_args_to_string("app.status", msg)
+    arg_str = p2e._base._util._convert_args_to_string("app.status", msg)
     p2e._app.Exec(arg_str)
 #===========================================================================
 # Properties
 #===========================================================================
-def get_computer():
+def computer():
     """
     
     Returns the system name of the computer the application is currently 
@@ -774,9 +774,9 @@ def get_computer():
     """
 
     val = p2e._app.Request("get.app.computer")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
-def get_image(type, name = None):
+def image(type, name = None):
     """
     
     Creates an image of the specified item in the system $TEMP directory and 
@@ -817,12 +817,12 @@ def get_image(type, name = None):
     schedule 5 The current schedule 
 
     """
-    arg_str = p2e._util._convert_args_to_string("get.app.image", type, 
+    arg_str = p2e._base._util._convert_args_to_string("get.app.image", type, 
                                                   name)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
-def get_menu_tool(index):
+def menu_tool(index):
     """
     Retrieve the user-defined tool data at the specified position within the 
     Tools menu. Use this command to check for an empty value before adding a 
@@ -845,10 +845,10 @@ def get_menu_tool(index):
     The full pathname to the associated executable file. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("get.app.menu.tool", index)
+    arg_str = p2e._base._util._convert_args_to_string("get.app.menu.tool", index)
     val = p2e._app.Request(arg_str)
     print val
-    return p2e._util._convert_str_to_list(val, str)  
+    return p2e._base._util._convert_str_to_list(val, str)  
 
 def set_menu_tool(index, name_path):
     """
@@ -870,11 +870,11 @@ def set_menu_tool(index, name_path):
     character.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.app.menu.tool", 
+    arg_str = p2e._base._util._convert_args_to_string("set.app.menu.tool", 
                                                   index, name_path)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_menu_wizard(index):
+def menu_wizard(index):
     """
     
     Retrieve the user-defined wizard data at the specified position within 
@@ -898,10 +898,10 @@ def get_menu_wizard(index):
     The full pathname to the associated script file.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.app.menu.wizard", 
+    arg_str = p2e._base._util._convert_args_to_string("get.app.menu.wizard", 
                                                   index)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_list(val, str)  
+    return p2e._base._util._convert_str_to_list(val, str)  
 
 def set_menu_wizard(index, name_path):
     """
@@ -926,11 +926,11 @@ def set_menu_wizard(index, name_path):
     character.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.app.menu.wizard", 
+    arg_str = p2e._base._util._convert_args_to_string("set.app.menu.wizard", 
                                                   index, name_path)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_page ():    
+def page ():    
     """
     
     Gets the currently active page in the ECOTECT application window. The 
@@ -958,7 +958,7 @@ def get_page ():
 
     """
     val = p2e._app.Request("get.app.page")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
 def set_page(page):
     """
@@ -985,10 +985,10 @@ def set_page(page):
     4 REPORT Page 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.app.page", page)
+    arg_str = p2e._base._util._convert_args_to_string("set.app.page", page)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_panel():    
+def panel():    
     """
     Gets the currently active panel in the ECOTECT application window. These 
     correspond to the tabbed panels on the right hand side of the window, as 
@@ -1022,7 +1022,7 @@ def get_panel():
 
     """
     val = p2e._app.Request("get.app.panel")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
 def set_panel(panel):
     """
@@ -1054,7 +1054,7 @@ def set_panel(panel):
     10 Export Manager 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.app.panel", panel)
+    arg_str = p2e._base._util._convert_args_to_string("set.app.panel", panel)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def path():   
@@ -1077,9 +1077,9 @@ def path():
     
     """
     val = p2e._app.Request("get.app.path")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
-def get_registry(key):
+def registry(key):
     """
     
     Use this property to retrieve values from the application's entry within 
@@ -1103,9 +1103,9 @@ def get_registry(key):
     key.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.app.registry", key)
+    arg_str = p2e._base._util._convert_args_to_string("get.app.registry", key)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
 def set_registry(keyvalue):
     """
@@ -1124,11 +1124,11 @@ def set_registry(keyvalue):
     set, separated by an equal '=' character. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.app.registry", 
+    arg_str = p2e._base._util._convert_args_to_string("set.app.registry", 
                                                   keyvalue)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_screen():    
+def screen():    
     """
     
     Retrieve the position and size of the main Windows screen area. 
@@ -1153,9 +1153,9 @@ def get_screen():
     
     """
     val = p2e._app.Request("get.app.screen")
-    return p2e._util._convert_str_to_list(val, int) 
+    return p2e._base._util._convert_str_to_list(val, int) 
 #------------------------------------------------------------------------------ 
-def get_slider_range():
+def slider_range():
     """
     
     Retrieves the range of the main slider. The range defines the minimum 
@@ -1186,7 +1186,7 @@ def get_slider_range():
     
     """
     val = p2e._app.Request("get.app.slider.range")
-    return p2e._util._convert_str_to_list(val, int)  
+    return p2e._base._util._convert_str_to_list(val, int)  
 
 def set_slider_range(min, max, freq, lineSize, pageSize):
     """
@@ -1223,12 +1223,12 @@ def set_slider_range(min, max, freq, lineSize, pageSize):
     set value is used. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.app.slider.range", 
+    arg_str = p2e._base._util._convert_args_to_string("set.app.slider.range", 
                                                  min, max, freq, lineSize, 
                                                  pageSize)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_slider_scale():
+def slider_scale():
     """
     
     Retrieves the current scale factor for the main slider and the 
@@ -1251,7 +1251,7 @@ def get_slider_scale():
     
     """    
     val = p2e._app.Request("get.app.slider.scale")
-    return p2e._util._convert_str_to_list(val, float, str)
+    return p2e._base._util._convert_str_to_list(val, float, str)
     
 def set_slider_scale(scale, hint = None):
     """
@@ -1274,11 +1274,11 @@ def set_slider_scale(scale, hint = None):
     the slider when you move the mouse over the top of it.
     
     """    
-    arg_str = p2e._util._convert_args_to_string("set.app.slider.scale", 
+    arg_str = p2e._base._util._convert_args_to_string("set.app.slider.scale", 
                                                   scale, hint)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_slider_title():
+def slider_title():
     """
     
     Retrieves the current title displayed on the main slider. 
@@ -1294,7 +1294,7 @@ def get_slider_title():
     
     """
     val = p2e._app.Request("get.app.slider.title")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
 def set_slider_title(title):
     """
@@ -1309,11 +1309,11 @@ def set_slider_title(title):
     
     """
     
-    arg_str = p2e._util._convert_args_to_string("set.app.slider.title", 
+    arg_str = p2e._base._util._convert_args_to_string("set.app.slider.title", 
                                                   title)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_username():
+def username():
     """
     
     Returns the login name of the currently logged in user on the computer 
@@ -1330,9 +1330,9 @@ def get_username():
     
     """
     val = p2e._app.Request("get.app.username")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
-def get_web_file(url):
+def web_file(url):
     """
     
     Retrieve the contents of the specified web URL from the internet and 
@@ -1356,11 +1356,11 @@ def get_web_file(url):
     contents. The script will return an error if the download failes.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.app.web.file", url)
+    arg_str = p2e._base._util._convert_args_to_string("get.app.web.file", url)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
-def get_web_line(lineNumber):
+def web_line(lineNumber):
     """
     
     Retrieve individual lines of text from the last call to 
@@ -1384,10 +1384,10 @@ def get_web_line(lineNumber):
     key.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.app.web.line", 
+    arg_str = p2e._base._util._convert_args_to_string("get.app.web.line", 
                                                   lineNumber)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
 def set_web_login(username = None, password = None):
     """
@@ -1410,11 +1410,11 @@ def set_web_login(username = None, password = None):
     The password you require to login.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.app.web.login", 
+    arg_str = p2e._base._util._convert_args_to_string("set.app.web.login", 
                                                   username, password)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_web_page(url, text = False):
+def web_page(url, text = False):
     """
     
     Retrieve the contents of the specified web URL from the internet if you 
@@ -1442,15 +1442,15 @@ def get_web_page(url, text = False):
     
     """
     if text:
-        arg_str = p2e._util._convert_args_to_string("get.app.web.page.text", 
+        arg_str = p2e._base._util._convert_args_to_string("get.app.web.page.text", 
                                                       url)
     else:
-        arg_str = p2e._util._convert_args_to_string("get.app.web.page", 
+        arg_str = p2e._base._util._convert_args_to_string("get.app.web.page", 
                                                       url)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 #------------------------------------------------------------------------------ 
-def get_web_param(name = None, index = None):
+def web_param(name = None, index = None):
     """
     
     Many web-based CGI scripts return a series of parameters in the form 
@@ -1493,17 +1493,17 @@ def get_web_param(name = None, index = None):
     
     """
     if name:
-        arg_str = p2e._util._convert_args_to_string("get.app.web.param", 
+        arg_str = p2e._base._util._convert_args_to_string("get.app.web.param", 
                                                       name)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, str)
+        return p2e._base._util._convert_str_to_type(val, str)
     elif index:
-        arg_str = p2e._util._convert_args_to_string("get.app.web.param.index", 
+        arg_str = p2e._base._util._convert_args_to_string("get.app.web.param.index", 
                                                      index)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, str)
+        return p2e._base._util._convert_str_to_list(val, str)
 #------------------------------------------------------------------------------ 
-def get_window():
+def window():
     """
     
     Retrieve the position and size of the main ECOTECT window displayed 
@@ -1529,7 +1529,7 @@ def get_window():
     
     """
     val = p2e._app.Request("get.app.window")
-    return p2e._util._convert_str_to_list(val, int)
+    return p2e._base._util._convert_str_to_list(val, int)
 
 def set_window(left, top, width, height):
     """
@@ -1560,7 +1560,7 @@ def set_window(left, top, width, height):
     not be changed.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.app.window", left, 
+    arg_str = p2e._base._util._convert_args_to_string("set.app.window", left, 
                                                  top, 
                                                  width, 
                                                  height)

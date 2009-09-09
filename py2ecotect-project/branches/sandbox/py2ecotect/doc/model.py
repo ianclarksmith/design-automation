@@ -185,10 +185,14 @@ def new():
     """
     p2e._app.Exec("model.new")
     
+    
     #Clear model lists
     p2e.doc._zones = []
     p2e.doc._objects = []
     p2e.doc._nodes = []
+    
+    #Update the lists
+    p2e.doc._populate()     
 
 def revert():
     """
@@ -204,7 +208,15 @@ def revert():
     
     """
     p2e._app.Exec("model.revert")
- 
+     
+    #Clear model lists
+    p2e.doc._zones = []
+    p2e.doc._objects = []
+    p2e.doc._nodes = []
+    
+    #Update the lists
+    p2e.doc._populate()     
+    
 def save():
     """
     

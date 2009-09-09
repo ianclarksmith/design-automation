@@ -14,7 +14,7 @@ def copy():
     
     """
     p2e._app.Exec("sunpath.copy")
-#------------------------------------------------------------------------------ 
+
 def copy_bmp():
     """
     
@@ -25,7 +25,7 @@ def copy_bmp():
     
     """
     p2e._app.Exec("sunpath.copy.bmp")
-#------------------------------------------------------------------------------ 
+
 def copy_wmf():
     """
     
@@ -62,9 +62,9 @@ def pan_down(shift = False):
     instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.pandown", shift)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.pandown", shift)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def pan_left(shift = False):
     """
     
@@ -78,9 +78,9 @@ def pan_left(shift = False):
     instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.panleft", shift)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.panleft", shift)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+ 
 def pan_right(shift = False):
     """
     
@@ -94,9 +94,9 @@ def pan_right(shift = False):
     instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.panright", shift)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.panright", shift)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def pan_up(shift = False):
     """
     
@@ -110,7 +110,7 @@ def pan_up(shift = False):
     pan instead.
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.panup", shift)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.panup", shift)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def redraw():
@@ -137,9 +137,9 @@ def save(filename):
     The full path to the location where the file will be stored.
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.save", filename)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.save", filename)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def save_bmp(filename):
     """
     
@@ -153,9 +153,9 @@ def save_bmp(filename):
     The full path to the location where the file will be stored.
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.save.bmp", filename)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.save.bmp", filename)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def save_htb2(filename):
     """
     
@@ -169,9 +169,9 @@ def save_htb2(filename):
     The full path to the location where the file will be stored.
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.save.htb2", filename)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.save.htb2", filename)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def save_shading(filename):
     """
     
@@ -185,9 +185,9 @@ def save_shading(filename):
     The full path to the location where the file will be stored. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.save.shading", filename)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.save.shading", filename)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def save_wmf(filename):
     """
     
@@ -201,7 +201,7 @@ def save_wmf(filename):
     The full path to the location where the file will be stored. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.save.wmf", filename)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.save.wmf", filename)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def show():
@@ -229,9 +229,9 @@ def zoom_in(shift = False):
     zoom instead. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.zoomin", shift)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.zoomin", shift)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def zoom_out(shift = False):
     """
     
@@ -245,12 +245,13 @@ def zoom_out(shift = False):
     zoom instead. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("sunpath.zoomout", shift)
+    arg_str = p2e._base._util._convert_args_to_string("sunpath.zoomout", shift)
     p2e._app.Exec(arg_str)
+#------------------------------------------------------------------------------     
 #===========================================================================
 # Properties
 #===========================================================================
-def get_display():
+def display():
     """
     
     Retrieves the current display and data overlay settings. 
@@ -269,9 +270,9 @@ def get_display():
     
     """
     val = p2e._app.Request("get.sunpath.display")
-    return p2e._util._convert_str_to_list(val, int, int)
+    return p2e._base._util._convert_str_to_list(val, int, int)
 #------------------------------------------------------------------------------ 
-def get_focus():
+def focus():
     """
     
     Retrieves the position of the current SunPath focus point. 
@@ -288,9 +289,9 @@ def get_focus():
     
     """
     val = p2e._app.Request("get.sunpath.focus")
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 #------------------------------------------------------------------------------ 
-def get_point(point):
+def screen_point(sunpath_point):
     """
     
     Translates a point within the Sun-Path diagram into an absolute screen 
@@ -299,7 +300,7 @@ def get_point(point):
     Parameter(s)
     This property takes the following parameters.
     
-    point 
+    sunpath_point 
     A list of two values that represent the X and Y axis position of the 
     point in the Sun-Path diagram. 
     
@@ -310,13 +311,13 @@ def get_point(point):
     The X and Y axis position of the point in absolute screen coordinates.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.sunpath.point", 
-                                                  point[0],
-                                                  point[1])
+    arg_str = p2e._base._util._convert_args_to_string("get.sunpath.point", 
+                                                  sunpath_point[0],
+                                                  sunpath_point[1])
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_list(val, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float)
 #------------------------------------------------------------------------------ 
-def get_pos():
+def pos():
     """
     
     Retrieves the current position of the Sunpath dialog box in your local 
@@ -336,8 +337,8 @@ def get_pos():
     
     """
     val = p2e._app.Request("get.sunpath.pos")
-    return p2e._util._convert_str_to_list(val, int, int)
-#------------------------------------------------------------------------------ 
+    return p2e._base._util._convert_str_to_list(val, int, int)
+
 def set_pos(left, top):
     """
     
@@ -354,11 +355,11 @@ def set_pos(left, top):
     The offset of the dialog box from the top of the screen in pixels
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.sunpath.pos", left, 
+    arg_str = p2e._base._util._convert_args_to_string("set.sunpath.pos", left, 
                                                   top)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_size():
+def size():
     """
     
     Retrieve the size of the Sunpath dialog box. 
@@ -377,8 +378,8 @@ def get_size():
     
     """
     val = p2e._app.Request("get.sunpath.size")
-    return p2e._util._convert_str_to_list(val, int, int)
-#------------------------------------------------------------------------------ 
+    return p2e._base._util._convert_str_to_list(val, int, int)
+
 def set_size(width, height):
     """
     
@@ -394,10 +395,10 @@ def set_size(width, height):
     The new height in pixels. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.sunpath.size", width, height)
+    arg_str = p2e._base._util._convert_args_to_string("set.sunpath.size", width, height)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_visible():
+def visible():
     """
     
     Displays or hides the SunPath Diagram dialog box. 
@@ -414,6 +415,6 @@ def get_visible():
     
     """
     val = p2e._app.Request("get.sunpath.visible")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 #------------------------------------------------------------------------------ 
  

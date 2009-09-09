@@ -1844,7 +1844,7 @@ class _ObjectRootFunc(object):
         """
         vector = p2e._base._util.scale_1000(vector)
         
-        before_extrude_len = p2e.doc.model.get_num_objects()
+        before_extrude_len = p2e.doc.model.number_of_objects()
         
         arg_str = p2e._base._util._convert_args_to_string("object.extrude", 
                                                           self._eco_id, 
@@ -1853,7 +1853,7 @@ class _ObjectRootFunc(object):
                                                           vector[2]*1000)
         p2e._app.Exec(arg_str)
         
-        after_extrude_len = p2e.doc.model.get_num_objects()
+        after_extrude_len = p2e.doc.model.number_of_objects()
         
         for eco_id in range(before_extrude_len, after_extrude_len):
             _ObjectRoot(eco_id, None)
@@ -1888,13 +1888,13 @@ class _ObjectRootFunc(object):
         2 Around the Y axis. 
         
         """
-        before_extrude_len = p2e.doc.model.get_num_objects()
+        before_extrude_len = p2e.doc.model.number_of_objects()
         
         arg_str = p2e._base._util._convert_args_to_string("object.revolve", self._eco_id, 
                                                      axis, angle, segs)
         p2e._app.Exec(arg_str)
         
-        after_extrude_len = p2e.doc.model.get_num_objects()
+        after_extrude_len = p2e.doc.model.number_of_objects()
         
         for eco_id in range(before_extrude_len, after_extrude_len):
             _ObjectRoot(eco_id, None)
