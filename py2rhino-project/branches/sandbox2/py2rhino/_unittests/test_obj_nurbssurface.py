@@ -14,7 +14,7 @@ class obj_test(unittest.TestCase):
         
     def testNurbsSurfaceTrfm(self):
         nurbssurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurbssurface2 = nurbssurface1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        nurbssurface2 = nurbssurface1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
         self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface) 
         
     def testNurbsSurfaceCopyMove(self):
@@ -29,7 +29,7 @@ class obj_test(unittest.TestCase):
         
     def testNurbsSurfaceCopyByOffset(self):
         nurbssurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurbssurface2 = nurbssurface1.dupl.copy_by_offset((0,0,0),1)
+        nurbssurface2 = nurbssurface1.dupl.copy_by_offset(1)
         self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)     
         
     def testNurbsSurfaceGroups(self):
@@ -99,7 +99,7 @@ class obj_test(unittest.TestCase):
         
     def testNurbsSurfaceMatchObjectAttributes(self):
         nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurbssurface2 = p2r.obj.NurbsSurface.create((0,0,0), (1,1,1), 5)
+        nurbssurface2 = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
         match = nurbssurface1.stat.match_object_attributes(nurbssurface2)
         self.assertEqual(type(match),int)  
         
