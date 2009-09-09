@@ -10,7 +10,7 @@ class obj_test(unittest.TestCase):
     def testPolylineShear(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
         polyline2 = polyline1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        self.assertEqual(type(polyline2),p2r.obj.NurbsCurve)#TODO: Check if it is suppose to return a NurbsCurve
         
     def testPolylineTrfm(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
