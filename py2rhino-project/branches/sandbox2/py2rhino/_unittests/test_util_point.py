@@ -63,6 +63,6 @@ class obj_test(unittest.TestCase):
     def testPointXform(self):
         pt1 = (0,0,1)
         planesurface1 = p2r.util.point.transform(pt1,((1,0,0,0), (0,1,0,0),(0,0,1,0),(0,0,0,1)))
-        self.assertEqual(type(planesurface1),float) 
+        self.assertEqual(type(planesurface1[0]),float) 
 if __name__ == '__main__':
     unittest.main()
