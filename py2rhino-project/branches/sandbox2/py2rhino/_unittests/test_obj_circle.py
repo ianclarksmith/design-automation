@@ -10,12 +10,12 @@ class obj_test(unittest.TestCase):
     def testCircleShear(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
         circle2 = circle1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(circle2),p2r.obj.Circle)
+        self.assertEqual(type(circle2),p2r.obj.NurbsCurve)
         
     def testCircleTrfm(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
-        circle2 = circle1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
-        self.assertEqual(type(circle2),p2r.obj.Circle)
+        circle2 = circle1.defm.transform(((0,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
+        self.assertEqual(type(circle2),p2r.obj.NurbsCurve)
 
     def testCircleCopySub(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
