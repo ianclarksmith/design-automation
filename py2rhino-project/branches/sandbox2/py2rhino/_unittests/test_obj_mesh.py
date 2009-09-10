@@ -14,6 +14,12 @@ class obj_test(unittest.TestCase):
         mesh2 = mesh1.defm.shear((0,0,0),(10,10,10),45)
         self.assertEqual(type(mesh2),p2r.obj.Mesh)
                 
+    def testMeshTransform(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
+        mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
+        mesh2 = mesh1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        self.assertEqual(type(mesh2),p2r.obj.Line) 
+                    
     def testMeshCopyMove(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
         mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
