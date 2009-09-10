@@ -300,7 +300,7 @@ class obj_test(unittest.TestCase):
         
     def testCircleRemap(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
-        circle2 = circle1.trfm.remap((0,0,0),(1,1,1))
+        circle2 = circle1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(circle2),p2r.obj.Circle)  
         
     def testCircleRotate(self):
