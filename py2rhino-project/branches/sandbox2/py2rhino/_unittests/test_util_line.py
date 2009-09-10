@@ -41,6 +41,10 @@ class obj_test(unittest.TestCase):
         pl1 = (1,0,0)
         pt = p2r.util.line.intersect_pln(line1,pl1)
         self.assertEqual(type(pt), list)
-        
+
+    def testLineTransform(self):        
+        line1 = ((5,0,0), (10,0,10))
+        vector1 = p2r.util.line.xform(line1,((1,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
+        self.assertEqual(type(vector1[0]),float)         
 if __name__ == '__main__':
     unittest.main()
