@@ -242,7 +242,7 @@ class obj_test(unittest.TestCase):
         
     def testConeRemap(self):
         cone1 = p2r.obj.Cone.create((0,0,0), (1,1,1), 5)
-        cone2 = cone1.trfm.remap((0,0,0),(1,1,1))
+        cone2 = cone1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(cone2),p2r.obj.Cone)  
         
     def testConeRotate(self):
