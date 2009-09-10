@@ -14,7 +14,7 @@ class obj_test(unittest.TestCase):
         
     def testNurbsCurveTrfm(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
-        nurbscurve2 = nurbscurve1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        nurbscurve2 = nurbscurve1.defm.transform(((0,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve) 
         
     def testNurbsCurveCopySub(self):
@@ -343,7 +343,7 @@ class obj_test(unittest.TestCase):
         
     def testNurbsCurveRemap(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
-        nurbscurve2 = nurbscurve1.trfm.remap((0,0,0),(1,1,1))
+        nurbscurve2 = nurbscurve1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveRotate(self):
