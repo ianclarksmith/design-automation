@@ -267,7 +267,7 @@ class obj_test(unittest.TestCase):
         
     def testBoxRemap(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
-        box2 = box1.trfm.remap((0,0,0),(1,1,1))
+        box2 = box1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(box2),p2r.obj.Box)  
         
     def testBoxRotate(self):
