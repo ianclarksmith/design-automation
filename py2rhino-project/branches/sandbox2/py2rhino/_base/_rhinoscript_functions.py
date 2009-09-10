@@ -3939,14 +3939,14 @@ class _RhinoscriptFunctions(IRhinoScript):
     def transform_object(self, object, matrix, copy):
 
         magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
-        flattened = (object, flatten_params(matrix), copy)
-
+        flattened = (object, matrix, copy)
+        print flattened
         return self._ApplyTypes_(272, 1, (VT_VARIANT, 0), magic, u"TransformObject", None, *flattened)
 
     def transform_objects(self, objects, matrix, copy):
 
         magic = ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
-        flattened = (flatten_params(objects), flatten_params(matrix), copy)
+        flattened = (objects, flatten_params(matrix), copy)
 
         return self._ApplyTypes_(302, 1, (VT_VARIANT, 0), magic, u"TransformObjects", None, *flattened)
 
