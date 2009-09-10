@@ -64,7 +64,7 @@ class obj_test(unittest.TestCase):
         self.assertEqual(type(vector1[0]),float) 
         
     def testVectorTransform(self):        
-        vector1 = p2r.util.vector.transform(((0,0,0),(0,1,0),(1,0,0)),((0,0,0,0),(0,1,0,0),(0,2,0,0),(0,3,0,0)))
+        vector1 = p2r.util.vector.transform(((0,0,0),(0,1,0),(1,0,0)),((1,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
         self.assertEqual(type(vector1[0]),float)         
         
     def testVectorUnitize(self):
