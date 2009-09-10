@@ -13,7 +13,7 @@ class obj_test(unittest.TestCase):
         arc2 = arc1.defm.shear((0,0,0),(10,10,10),45)
         self.assertEqual(type(arc2),p2r.obj.NurbsCurve)
         
-    def testArcTansform(self):
+    def testArcTransform(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
         arc2 = arc1.defm.transform(((0,0,0,0),(0,1,0,0),(0,2,0,0),(0,3,0,0)))
         self.assertEqual(type(arc2),p2r.obj.NurbsSurface)
@@ -268,7 +268,9 @@ class obj_test(unittest.TestCase):
         
     def testArcRemap(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.trfm.remap((0,0,0),(1,1,1))
+        planesurface1 = ((0,0,0),(0,1,0),(1,0,0))
+        planesurface2 = ((1,1,1),(1,0,1),(0,0,1))
+        arc2 = arc1.trfm.remap(planesurface1,planesurface2)
         self.assertEqual(type(arc2),p2r.obj.Arc)  
         
     def testArcRotate(self):
