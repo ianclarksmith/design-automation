@@ -68,7 +68,7 @@ class obj_test(unittest.TestCase):
         self.assertEqual(type(vector1[0]),float)         
         
     def testVectorUnitize(self):
-        vector1 = p2r.util.vector.unitize(((0,0,0),(0,1,0),(1,0,0)))
-        self.assertEqual(type(vector1),float) 
+        vector1 = p2r.util.vector.unitize((0,0,1))
+        self.assertEqual(type(vector1[0]),float) 
 if __name__ == '__main__':
     unittest.main()
