@@ -226,7 +226,7 @@ def grid_slice_axis():
     val = p2e._app.Request("get.grid.axis")
     return p2e._base._util._convert_str_to_type(val, int)
 
-def get_grid_slice_axis(axis):
+def set_grid_slice_axis(axis):
     """
     
     Sets the grid axis, being the axis within which the 2D slice has been 

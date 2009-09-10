@@ -24,7 +24,7 @@ roof = p2e.obj.Roof.create(points)
 r2 = roof.dupl.copy_move_by_vec((20,0,0))
 r2.modf.delete()
 '''
-p2e.doc.calculation.calc_solar(period="day", shading=2, ground=1, direct=1)
+p2e.doc.calculation.calc_solar_exposure_one_day(shading=2, ground=1, direct=1)
 
 p2e.doc.weather.load_all('C:\Program Files\Autodesk\Ecotect 2009\Weather Data\Australia-SydneyNSW-1.wea')
 
