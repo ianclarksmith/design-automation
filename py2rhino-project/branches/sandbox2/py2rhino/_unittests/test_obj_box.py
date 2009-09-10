@@ -5,12 +5,17 @@ class obj_test(unittest.TestCase):
     def testBoxMorph(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
         box2 = box1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
-        self.assertEqual(type(box2),p2r.obj.Box)
+        self.assertEqual(type(box2),p2r.obj.NurbsSurface)#TODO: Check if the return is suppose to be NurbsSurface
         
     def testBoxShear(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
         box2 = box1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(box2),p2r.obj.Box)
+        self.assertEqual(type(box2),p2r.obj.NurbsSurface) #TODO: Check if the return is suppose to be NurbsSurface
+        
+    def testBoxTransform(self):
+        box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
+        box2 = box1.defm.transform(((0,0,0,0),(0,1,0,0),(0,2,0,0),(0,3,0,0)))
+        self.assertEqual(type(box2),p2r.obj.NurbsSurface)#TODO: Check if the return is suppose to be NurbsSurface
         
     def testBoxCopyMove(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
