@@ -2783,9 +2783,12 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def line_transform(self, line, xform):
 
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
-        flattened = (flatten_params(line), flatten_params(xform))
-
+        #magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
+        #flattened = (flatten_params(line), flatten_params(xform))
+        
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_VARIANT, 1))
+        flattened = (flatten_params(line), xform)
+        
         return self._ApplyTypes_(897, 1, (VT_VARIANT, 0), magic, u"LineTransform", None, *flattened)
 
     def move_plane(self, plane, origin):
@@ -2846,8 +2849,11 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def plane_transform(self, plane, xform):
 
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
-        flattened = (flatten_params(plane), flatten_params(xform))
+        #magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
+        #flattened = (flatten_params(plane), flatten_params(xform))
+        
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_VARIANT, 1))
+        flattened = (flatten_params(plane), xform)        
 
         return self._ApplyTypes_(801, 1, (VT_VARIANT, 0), magic, u"PlaneTransform", None, *flattened)
 
@@ -4136,8 +4142,11 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def point_array_transform(self, points, xform):
 
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
-        flattened = (flatten_params(points), flatten_params(xform))
+        #magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
+        #flattened = (flatten_params(points), flatten_params(xform))
+        
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_VARIANT, 1))
+        flattened = (flatten_params(points), xform)     
 
         return self._ApplyTypes_(802, 1, (VT_VARIANT, 0), magic, u"PointArrayTransform", None, *flattened)
 
@@ -4171,8 +4180,11 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def point_transform(self, point, xform):
 
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
-        flattened = (flatten_params(point), flatten_params(xform))
+        #magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
+        #flattened = (flatten_params(point), flatten_params(xform))
+        
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_VARIANT, 1))
+        flattened = (flatten_params(point), xform)        
 
         return self._ApplyTypes_(671, 1, (VT_VARIANT, 0), magic, u"PointTransform", None, *flattened)
 
@@ -4290,8 +4302,11 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def vector_transform(self, vector, xform):
 
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
-        flattened = (flatten_params(vector), flatten_params(xform))
+        #magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
+        #flattened = (flatten_params(vector), flatten_params(xform))
+        
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_VARIANT, 1))
+        flattened = (flatten_params(vector), xform)
 
         return self._ApplyTypes_(800, 1, (VT_VARIANT, 0), magic, u"VectorTransform", None, *flattened)
 
