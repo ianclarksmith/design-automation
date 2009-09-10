@@ -373,7 +373,7 @@ def rotate(plane, angle, axis):
     """
     return _base._rsf.rotate_plane(plane, angle, axis)
 
-def world_x_y_plane():
+def world_x_y_pln():
 
     """
     
@@ -396,7 +396,7 @@ def world_x_y_plane():
     """
     return _base._rsf.world_x_y_plane()
 
-def world_y_z_plane():
+def world_y_z_pln():
 
     """
     
@@ -419,7 +419,7 @@ def world_y_z_plane():
     """
     return _base._rsf.world_y_z_plane()
 
-def world_z_x_plane():
+def world_z_x_pln():
 
     """
     
