@@ -3100,6 +3100,8 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_I2, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_I2, 1))
         flattened = (flatten_params(vertices), flatten_params(face_vertices), flatten_params(vertex_normals), flatten_params(texture_coordinates), flatten_params(vertex_colors))
+        #flattened = (vertices, flatten_params(face_vertices), flatten_params(vertex_normals), flatten_params(texture_coordinates), flatten_params(vertex_colors))
+        
 
         return self._ApplyTypes_(494, 1, (VT_VARIANT, 0), magic, u"AddMesh", None, *flattened)
 
@@ -3940,7 +3942,7 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
         flattened = (object, matrix, copy)
-        print flattened
+
         return self._ApplyTypes_(272, 1, (VT_VARIANT, 0), magic, u"TransformObject", None, *flattened)
 
     def transform_objects(self, objects, matrix, copy):
