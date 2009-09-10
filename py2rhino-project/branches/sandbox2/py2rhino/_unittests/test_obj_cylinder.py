@@ -251,7 +251,7 @@ class obj_test(unittest.TestCase):
         
     def testCylinderRemap(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
-        cylinder2 = cylinder1.trfm.remap((0,0,0),(1,1,1))
+        cylinder2 = cylinder1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(cylinder2),p2r.obj.Cylinder)  
         
     def testCylinderRotate(self):
