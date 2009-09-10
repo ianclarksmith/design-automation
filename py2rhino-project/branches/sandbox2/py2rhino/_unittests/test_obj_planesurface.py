@@ -14,8 +14,8 @@ class obj_test(unittest.TestCase):
         
     def testPlaneSurfaceTrfm(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
-        planesurface2 = planesurface1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
-        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface) 
+        planesurface2 = planesurface1.defm.transform(((0,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
+        self.assertEqual(type(planesurface2),p2r.obj.NurbsSurface) 
         
     def testPlaneSurfaceCopyMove(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
@@ -221,7 +221,7 @@ class obj_test(unittest.TestCase):
         
     def testPlaneSurfaceRemap(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
-        planesurface2 = planesurface1.trfm.remap((0,0,0),(1,1,1))
+        planesurface2 = planesurface1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
         
     def testPlaneSurfaceRotate(self):
