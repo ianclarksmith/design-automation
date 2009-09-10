@@ -47,6 +47,10 @@ class obj_test(unittest.TestCase):
         planesurface1 = p2r.util.plane.intersect_2_plns(((0,0,0),(0,1,0),(1,0,0)),((0,0,0), (1,0,0),(1,1,0)))
         self.assertEqual(type(planesurface1[0][0]),float) 
 
+    def testPlaneXform(self):
+        planesurface1 = p2r.util.plane.xform(((0,0,0),(0,1,0),(1,0,0)),((1,0,0,0), (0,1,0,0),(0,0,1,0),(0,0,0,1)))
+        self.assertEqual(type(planesurface1),float) 
+        
     def testPlaneRotate(self):
         planesurface1 = p2r.util.plane.rotate(((0,0,0),(0,1,0),(1,0,0)),45,(1,0,0))
         self.assertEqual(type(planesurface1[0][0]),float) 
