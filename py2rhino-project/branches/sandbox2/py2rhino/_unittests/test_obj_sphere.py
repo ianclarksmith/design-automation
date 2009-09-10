@@ -14,8 +14,8 @@ class obj_test(unittest.TestCase):
         
     def testSphereTrfm(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
-        sphere2 = sphere1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
-        self.assertEqual(type(sphere2),p2r.obj.Sphere) 
+        sphere2 = sphere1.defm.transform(((0,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
+        self.assertEqual(type(sphere2),p2r.obj.NurbsSurface) 
         
     def testSphereCopyMove(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
@@ -30,12 +30,7 @@ class obj_test(unittest.TestCase):
     def testSphereEvaluate(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
         sphere2 = sphere1.eval.evaluate(1)
-        self.assertEqual(len(sphere2),3) 
-
-    def testSphereEvalDeriv(self):
-        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
-        sphere2 = sphere1.eval.evaluate_derivatives(1,1)
-        self.assertEqual(type(sphere2),list)   
+        self.assertEqual(len(sphere2),3)  
 
     def testSphereEvalFrame(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
@@ -221,7 +216,7 @@ class obj_test(unittest.TestCase):
         
     def testSphereRemap(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
-        sphere2 = sphere1.trfm.remap((0,0,0),(1,1,1))
+        sphere2 = sphere1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(sphere2),p2r.obj.Sphere)  
         
     def testSphereRotate(self):
