@@ -49,22 +49,22 @@ class obj_test(unittest.TestCase):
 
     def testPlaneXform(self):
         planesurface1 = p2r.util.plane.xform(((0,0,0),(0,1,0),(1,0,0)),((1,0,0,0), (0,1,0,0),(0,0,1,0),(0,0,0,1)))
-        self.assertEqual(type(planesurface1),float) 
+        self.assertEqual(type(planesurface1[0][0]),float) 
         
     def testPlaneRotate(self):
         planesurface1 = p2r.util.plane.rotate(((0,0,0),(0,1,0),(1,0,0)),45,(1,0,0))
         self.assertEqual(type(planesurface1[0][0]),float) 
 
     def testPlaneworldXYPlane(self):
-        planesurface1 = p2r.util.plane.world_x_y_plane()
+        planesurface1 = p2r.util.plane.world_x_y_pln()
         self.assertEqual(type(planesurface1[0][0]),float) 
 
     def testPlaneworldYZPlane(self):
-        planesurface1 = p2r.util.plane.world_y_z_plane()
+        planesurface1 = p2r.util.plane.world_y_z_pln()
         self.assertEqual(type(planesurface1[0][0]),float) 
 
     def testPlaneworldZXPlane(self):
-        planesurface1 = p2r.util.plane.world_z_x_plane()
+        planesurface1 = p2r.util.plane.world_z_x_pln()
         self.assertEqual(type(planesurface1[0][0]),float) 
                 
 if __name__ == '__main__':
