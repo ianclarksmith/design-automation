@@ -14,8 +14,8 @@ class obj_test(unittest.TestCase):
         
     def testPolylineTrfm(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
-        self.assertEqual(type(polyline2),p2r.obj.Polyline) 
+        polyline2 = polyline1.defm.transform(((0,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
+        self.assertEqual(type(polyline2),p2r.obj.NurbsCurve) 
         
     def testPolylineCopySub(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
@@ -262,7 +262,7 @@ class obj_test(unittest.TestCase):
         
     def testPolylineRemap(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.trfm.remap((0,0,0),(1,1,1))
+        polyline2 = polyline1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(polyline2),p2r.obj.Polyline)  
         
     def testPolylineRotate(self):
