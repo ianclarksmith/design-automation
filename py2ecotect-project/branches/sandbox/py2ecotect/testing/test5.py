@@ -32,4 +32,12 @@ p2e.doc.calculation.update_adjacencies(sample_size=50, shading=False)
 
 print z2.prop.surface_area()
 
+z2.prop.set_surface_area(10)
+
+print z2.prop.surface_area()
+
+p2e.doc.calculation.update_adjacencies(sample_size=50, shading=False)
+
+print z2.prop.surface_area()
+
 print "done"
