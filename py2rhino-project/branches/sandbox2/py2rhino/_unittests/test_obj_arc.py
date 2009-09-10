@@ -15,8 +15,8 @@ class obj_test(unittest.TestCase):
         
     def testArcTransform(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.defm.transform(((0,0,0,0),(0,1,0,0),(0,2,0,0),(0,3,0,0)))
-        self.assertEqual(type(arc2),p2r.obj.NurbsSurface)
+        arc2 = arc1.defm.transform(((0,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
+        self.assertEqual(type(arc2),p2r.obj.NurbsCurve)
         
     def testArcCopySub(self):
         arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
