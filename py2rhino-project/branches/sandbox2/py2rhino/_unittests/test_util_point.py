@@ -59,5 +59,10 @@ class obj_test(unittest.TestCase):
         nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
         pt = p2r.util.point.pull_points(nurvesurface1,(0,0,0))
         self.assertEqual(type(pt[0][0]),float)   
+        
+    def testPointXform(self):
+        pt1 = (0,0,1)
+        planesurface1 = p2r.util.point.transform(pt1,((1,0,0,0), (0,1,0,0),(0,0,1,0),(0,0,0,1)))
+        self.assertEqual(type(planesurface1),float) 
 if __name__ == '__main__':
     unittest.main()
