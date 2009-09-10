@@ -25,7 +25,7 @@ z3.func.extrude_by_vec((0,0,5))
 
 p2e.doc.select.none()
 p2e.app.view.fit_grid()
-
+'''
 print z2.prop.surface_area()
 
 p2e.doc.calculation.update_adjacencies(sample_size=50, shading=False)
@@ -39,5 +39,5 @@ print z2.prop.surface_area()
 p2e.doc.calculation.update_adjacencies(sample_size=50, shading=False)
 
 print z2.prop.surface_area()
-
+'''
 print "done"
