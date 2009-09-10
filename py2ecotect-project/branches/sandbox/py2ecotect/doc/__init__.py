@@ -1,8 +1,9 @@
 import py2ecotect as p2e
 
-#from py2ecotect.doc.select import Select 
+
 #from py2ecotect.doc.rays import Rays
 
+from py2ecotect.doc import select
 from py2ecotect.doc import selection
 from py2ecotect.doc import calculation
 from py2ecotect.doc import results
@@ -11,13 +12,13 @@ from py2ecotect.doc import weather
 from py2ecotect.doc import model
 from py2ecotect.doc import attribute
 from py2ecotect.doc import grid
+from py2ecotect.doc import grid3d
 from py2ecotect.doc import project
-
+from py2ecotect.doc import project_data
 
 #from py2ecotect.doc.ray import Ray
-#from py2ecotect.doc.grid3d import Grid3D
 #from py2ecotect.doc.masks import Masks
-#from py2ecotect.doc.project_data import Project_Data
+
 
 from py2ecotect._base import _util
 

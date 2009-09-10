@@ -872,7 +872,7 @@ def prev_node(object, node):
     
     """
     args = p2e._base._util._convert_args_to_string("get.model.prevnode", 
-                                             object.eco_id, node.eco_id)
+                                             object._eco_id, node._eco_id)
     val = p2e._app.Request(args)
     return p2e._base._util._convert_str_to_type(val, int)        
 
@@ -972,7 +972,7 @@ def prev_object(startat, type, flag, tag, zone):
     else:
         args = p2e._base._util._convert_args_to_string("get.model.prevobject", 
                                                  startat, type, flag, tag, 
-                                                 zone.eco_id)
+                                                 zone._eco_id)
     val = p2e._app.Request(args)
     return p2e._base._util._convert_str_to_type(val, int)       
 #------------------------------------------------------------------------------ 
@@ -1000,7 +1000,7 @@ def next_node(object, node):
     
     """
     args = p2e._base._util._convert_args_to_string("get.model.nextnode", 
-                                             object.eco_id, node.eco_id)
+                                             object._eco_id, node._eco_id)
     val = p2e._app.Request(args)
     return p2e._base._util._convert_str_to_type(val, int)       
 
@@ -1100,7 +1100,7 @@ def next_object(startat, type, flag, tag, zone):
     else:
         args = p2e._base._util._convert_args_to_string("get.model.nextobject", 
                                                  startat, type, flag, tag, 
-                                                 zone.eco_id)
+                                                 zone._eco_id)
     val = p2e._app.Request(args)
     return p2e._base._util._convert_str_to_type(val, int)          
 

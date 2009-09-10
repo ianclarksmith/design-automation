@@ -417,7 +417,7 @@ def gains_zonal(zone, hour):
 def solar_absorbed(hour):
     """
     
-    Returns the radiation value after a calc.solar.day calculation for the 
+    Returns the radiation value after a calc_solar_exposure_day calculation for the 
     amount of radiation absorbed by the surface (W). 
 
     Parameter(s)
@@ -441,7 +441,7 @@ def solar_absorbed(hour):
 def solar_angle(hour):
     """
     
-    Returns the radiation value after a calc.solar.day calculation for the 
+    Returns the radiation value after a calc_solar_exposure_day calculation for the 
     angle of incidence (degrees). 
 
     Parameter(s)
@@ -465,7 +465,7 @@ def solar_angle(hour):
 def solar_area(hour):
     """
     
-    Returns the radiation value after a calc.solar.day calculation for the 
+    Returns the radiation value after a calc_solar_exposure_day calculation for the 
     area of collector surface (m^2). 
 
     Parameter(s)
@@ -489,7 +489,7 @@ def solar_area(hour):
 def solar_available(hour):
     """
     
-    Returns the available radiation value after a calc.solar.day calculation 
+    Returns the available radiation value after a calc_solar_exposure_day calculation 
     for the amount of available solar radiation from the weather file, 
     given in (W). 
 
@@ -513,7 +513,7 @@ def solar_available(hour):
 def solar_diffuse(hour):
     """
     
-    Returns solar radiation value after a calc.solar.day calculation for 
+    Returns solar radiation value after a calc_solar_exposure_day calculation for 
     the amount of diffuse radiation incident on surface (W). 
 
     Parameter(s)
@@ -536,7 +536,7 @@ def solar_diffuse(hour):
 def solar_direct(hour):
     """
     
-    Returns solar radiation value after a calc.solar.day calculation for 
+    Returns solar radiation value after a calc_solar_exposure_day calculation for 
     the amount of direct radiation incident on surface (W). 
 
     Parameter(s)
@@ -560,7 +560,7 @@ def solar_direct(hour):
 def solar_global(hour):
     """
     
-    Returns the radiation value after a calc.solar.day calculation for the 
+    Returns the radiation value after a calc_solar_exposure_day calculation for the 
     total global horizontal radiation from Sun (W). 
 
     Parameter(s)
@@ -584,7 +584,7 @@ def solar_global(hour):
 def solar_incident(hour):
     """
     
-    Returns the radiation value after a calc.solar.day calculation for the 
+    Returns the radiation value after a calc_solar_exposure_day calculation for the 
     amount of radiation incident on the surface (W). 
 
     Parameter(s)
@@ -608,7 +608,7 @@ def solar_incident(hour):
 def solar_reflected(hour):
     """
     
-    Returns the radiation value after a calc.solar.day calculation for the 
+    Returns the radiation value after a calc_solar_exposure_day calculation for the 
     amount of reflected incident radiation (W). 
 
     Parameter(s)
@@ -632,7 +632,7 @@ def solar_reflected(hour):
 def solar_shading(hour):
     """
     
-    Returns the radiation value after a calc.solar.day calculation for the 
+    Returns the radiation value after a calc_solar_exposure_day calculation for the 
     percentage of surface shading (%). 
 
     Parameter(s)
@@ -656,7 +656,7 @@ def solar_shading(hour):
 def solar_transmitted(hour):
     """
     
-    Returns the radiation value after a calc.solar.day calculation for the 
+    Returns the radiation value after a calc_solar_exposure_day calculation for the 
     amount of radiation transmitted through the surface (W). 
 
     Parameter(s)
@@ -738,8 +738,8 @@ def insolation_diffuse():
     
     Returns the diffuse solar radiation component as a single decimal value 
     in Watts per square metre. This is only valid after a shading 
-    calculation has been performed (see the calc.shading.percentage method 
-    and set.model.time properties for more information). 
+    calculation has been performed (see the calculation.calc_shading_percentage method 
+    and model.set_time for more information). 
 
     Parameter(s)
     There are no parameters for this property.
@@ -759,8 +759,8 @@ def insolation_direct():
     
     Returns the current direct solar radiation component as a single 
     decimal value in Watts per square metre. This is only valid after a 
-    shading calculation has been performed (see the calc.shading.percentage 
-    method and set.model.time properties for more information). 
+    shading calculation has been performed (see the calculation.calc_shading_percentage method 
+    and model.set_time for more information). 
 
     Parameter(s)
     There are no parameters for this property.

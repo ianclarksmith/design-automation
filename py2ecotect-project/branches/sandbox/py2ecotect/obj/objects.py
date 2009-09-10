@@ -527,7 +527,7 @@ class _ObjectRootState(object):
         An instance of the zone class.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.zone", self._eco_id, zone.eco_id())
+        arg_str = p2e._base._util._convert_args_to_string("set.object.zone", self._eco_id, zone._eco_id)
         p2e._app.Exec(arg_str)
        
 #==============================================================================
