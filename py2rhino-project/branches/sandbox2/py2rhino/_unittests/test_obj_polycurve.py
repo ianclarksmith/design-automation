@@ -232,7 +232,7 @@ class obj_test(unittest.TestCase):
         arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
         arc2 = p2r.obj.Line.create((10,0,0), (20,20,0))
         polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
-        polycurve2 = polycurve1.trfm.remap((0,0,0),(1,1,1))
+        polycurve2 = polycurve1.trfm.remap(((0,0,0),(0,1,0),(1,0,0)),((1,1,1),(1,0,1),(0,0,1)))
         self.assertEqual(type(polycurve2),p2r.obj.PolyCurve)  
         
     def testPolyCurveRotate(self):
