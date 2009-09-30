@@ -1,5 +1,4 @@
 
-
 class Arc():
 
         create = """
@@ -398,6 +397,7 @@ class NurbsCurve():
         This function calls the Rhinoscript function: AddInterpCrvOnSrfUV
 
         """
+        create_interp_crv_ed = True
         create_interp_crv = """
         Factory method:
         Adds an interpolated curve object to  the document.  Options exist to make a periodic curve or to specify the tangent at the endpoints.  The resulting curve is a non-rational NURBS curve of the specified degree.
@@ -406,22 +406,18 @@ class NurbsCurve():
         ==========
         points  (List of float, Required) - An list containing 3-D points to interpolate.  For periodic curves, if the final point is a duplicate of the initial point, it is ignored. Note, the number of control points must be >= (intDegree+1).
         degree  (integer, Optional) - The degree of the curve.  If omitted, degree = 3 is used.  The degree of the curve must be >=1.  Periodic curves must have a degree >= 2.  For intKnotStyle = 1 or 2, the degree must be 3.  For intKnotStyle = 4 or 5, the degree must be odd.
-        knot_style  (integer, Optional) - The knot style to use, and whether the curve should be periodic.  If omitted, uniform knots (0) are created.
-		Value
-		Description
-		0
-		Uniform knots.  Parameter spacing between consecutive knots is 1.0.
-		1
-		Chord length spacing.  Requires dblDegree = 3 with arrCV1 and arrCVn1 specified.
-		2
-		Sqrt (chord length).  Requires dblDegree = 3 with arrCV1 and arrCVn1 specified.
-		3
-		Periodic with uniform spacing.
-		4
-		Periodic with chord length spacing.  Requires an odd degree value.
-		5
+        knot_style  (integer, Optional) - The knot style to use, and whether the curve should be periodic.  If omitted, uniform knots (0) are created. The possible knot simplify methods are listed in the table for knot_style.
         start_tan  (List of float, Optional) - A 3-D vector that specifies a tangency condition at the beginning of the curve. If the curve is to periodic, this argument must be omitted.
         end_tan  (List of float, Optional) - A 3-D vector that specifies a tangency condition at the end of the curve. If the curve is to periodic, this argument must be omitted.
+
+        Table: knot_style
+        Value, Description
+        0, Uniform knots.  Parameter spacing between consecutive knots is 1.0.
+        1, Chord length spacing.  Requires dblDegree = 3 with arrCV1 and arrCVn1 specified.
+        2, Sqrt (chord length).  Requires dblDegree = 3 with arrCV1 and arrCVn1 specified.
+        3, Periodic with uniform spacing.
+        4, Periodic with chord length spacing.  Requires an odd degree value.
+        5, Periodic with sqrt (chord length) spacing.  Requires an odd degree value.
 
         Returns
         =======
@@ -433,6 +429,7 @@ class NurbsCurve():
         This function calls the Rhinoscript function: AddInterpCurve
 
         """
+        create_interp_crv_ex_ed = True
         create_interp_crv_ex = """
         Factory method:
         Adds an interpolated curve object to  the document similar to Rhino's InterpCrv command.
@@ -441,17 +438,16 @@ class NurbsCurve():
         ==========
         points  (List of float, Required) - An list containing 3-D points to interpolate. Note, the number of control points must be >= (intDegree+1).
         degree  (integer, Optional) - The degree of the curve.  If omitted, degree = 3 is used.  The degree of the curve must be >=1.  Periodic curves must have a degree >= 2.  For intKnotStyle = 1 or 2, the degree must be 3.
-        knot_style  (integer, Optional) - The knot style to use. If omitted, a knot style = 0 is used. The knot style determines how an interpolated curve will be parameterized.
-		Value
-		Description
-		0
-		Uniform.  The knot spacing is always 1 and is not based on the physical spacing of points.
-		1
-		Chord. The spacing between the points is used for the knot spacing
-		2
-        sharp  (boolean, Optional) - If True, when you create a closed curve, it will have a kink at the start/end point. If False (default), a smooth closure will be created.
+        knot_style  (integer, Optional) - The knot style to use. If omitted, a knot style = 0 is used. The knot style determines how an interpolated curve will be parameterized. The possible knot simplify methods are listed in the table for knot_style.
+		sharp  (boolean, Optional) - If True, when you create a closed curve, it will have a kink at the start/end point. If False (default), a smooth closure will be created.
         start_tangent  (List of float, Optional) - A 3-D vector that specifies a tangency condition at the beginning of the curve.
         end_tangent  (List of float, Optional) - A 3-D vector that specifies a tangency condition at the end of the curve.
+        
+        Table: knot_style
+        Value, Description
+		0, Uniform.  The knot spacing is always 1 and is not based on the physical spacing of points.
+		1, Chord. The spacing between the points is used for the knot spacing
+		2, Square Root Chord. The square root of the spacing between points is used for the knot spacing.
 
         Returns
         =======
@@ -744,6 +740,7 @@ class NurbsSurface():
         This function calls the Rhinoscript function: AddEdgeSrf
 
         """
+        create_by_loft_ed = True
         create_by_loft = """
         Factory method:
         Adds a surface created by lofting curves to the document.
@@ -756,28 +753,26 @@ class NurbsSurface():
         section_curves  (list of curve object, Required) - An ordered list of strings identifying the curve objects to loft.
         start_point  (List of float, Optional) - The starting point of the loft.
         end_point  (List of float, Optional) - The ending point of the loft.
-        srf_type  (integer, Optional) - The type of loft. The default loft type is Normal (0). The possible loft types are as follows:
-		Value
-		Description
-		0
-		Normal. Uses chord-length parameterization in the loft direction.
-		1
-		Loose. The surface is allowed to move away from the original curves to make a smoother surface. The surface control points are created at the same locations as the control points of the loft input curves.
-		2
-		Straight. The sections between the curves are straight. This is also known as a ruled surface.
-		3
-		Tight. The surface sticks closely to the original curves. Uses square root of chord-length parameterization in the loft direction.
-		4
-        style  (integer, Optional) - The simplify method of the loft. The default value is None (0). The possible loft simplify methods are as follows:
-		Value
-		Description
-		0
-		None. Does not simplify.
-		1
-		Rebuild. Rebuilds the shape curves before lofting.
-		2
-        value  (integer, Optional) - A value based on the specified intStyle. If intStyle=1 (Rebuild), then nValue is the number of control point used to rebuild. If intstyle=1 is specified and this argument is omitted, then curves will be rebuilt using 10 control points. If intStyle=2 (Refit), then nValue is the tolerance used to rebuild. If intstyle=2 is specified and this argument is omitted, then the document's absolute tolerance us used for refitting.
+        srf_type  (integer, Optional) - The type of loft. The default loft type is Normal (0). The possible loft types are listed in the table for srf_type.
+		style  (integer, Optional) - The simplify method of the loft. The default value is None (0). The possible loft simplify methods are listed in the table for style.
+		value  (integer, Optional) - A value based on the specified intStyle. If intStyle=1 (Rebuild), then nValue is the number of control point used to rebuild. If intstyle=1 is specified and this argument is omitted, then curves will be rebuilt using 10 control points. If intStyle=2 (Refit), then nValue is the tolerance used to rebuild. If intstyle=2 is specified and this argument is omitted, then the document's absolute tolerance us used for refitting.
         closed  (boolean, Optional) - Creates a closed surface, continuing the surface past the last curve around to the first curve. Available when you have selected three shape curves. The default value is not to create a closed surface (False).
+        
+		Table: srf_type
+		Value, Description
+		0, Normal. Uses chord-length parameterization in the loft direction.
+		1, Loose. The surface is allowed to move away from the original curves to make a smoother surface. The surface control points are created at the same locations as the control points of the loft input curves.
+		2, Straight. The sections between the curves are straight. This is also known as a ruled surface.
+		3, Tight. The surface sticks closely to the original curves. Uses square root of chord-length parameterization in the loft direction.
+		4, Developable. Creates a separate developable surface or polysurface from each pair of curves.
+		
+		Table: style
+		Value, Description
+		0, None. Does not simplify.
+		1, Rebuild. Rebuilds the shape curves before lofting.
+		2, Refit. Refits the shape curves to a specified tolerance.
+
+		
 
         Returns
         =======
@@ -1051,6 +1046,7 @@ class NurbsSurface():
         This function calls the Rhinoscript function: ExtrudeCurveStraight
 
         """
+        create_by_extrude_crv_tapered_ed = True
         create_by_extrude_crv_tapered = """
         Factory method:
         Creates a surface by extruding a curve to a taper. Unlike Lofts and Sweeps, the initial orientation of the profile curve is maintained through the extrusion.
@@ -1062,18 +1058,15 @@ class NurbsSurface():
         direction  (List of float, Required) - A 3-D vector that specifies the extrusion direction.
         base_point  (List of float, Required) - A 3-D point that specifies the base point of the extrusion.
         angle  (float, Required) - The angle of the extrusion.
-        corner_type  (integer, Optional) - The corner type of the extrusion, where:
-		Value
-		Description
-		0 (Default)
-		No corner
-		1
-		Sharp - Offsets and extends curves with a straight line until they intersect.
-		2
-		Round - Offsets and fillets curves with an arc of radius equal to the offset distance.
-		3
-		Smooth - Offsets and connects curves with a smooth (G1 continuity) curve.
-		4
+        corner_type  (integer, Optional) - The corner type of the extrusion are listed in the table for corner_type.
+        
+        Table: corner_type
+		Value, Description
+		0 (Default), No corner
+		1, Sharp - Offsets and extends curves with a straight line until they intersect.
+		2, Round - Offsets and fillets curves with an arc of radius equal to the offset distance.
+		3, Smooth - Offsets and connects curves with a smooth (G1 continuity) curve.
+		4, Chamfer - Offsets and connects curves with a straight line between their endpoints.
 
         Returns
         =======
@@ -1442,6 +1435,7 @@ class _ArcDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
+        copy_by_offset_ed = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -1450,18 +1444,15 @@ class _ArcDupl():
         direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
         distance  (float, Required) - The distance of the offset.
         normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used. The possible style elements are listed in the table for style.
+        
+        Table: style
+		Value, Description
+		0, None
+		1, Sharp (Default)
+		2, Round
+		3, Smooth
+		4, Chamfer
 
         Returns
         =======
@@ -1530,26 +1521,27 @@ class _ArcModf():
         This function calls the Rhinoscript function: CloseCurve
 
         """
+        extend_ed = True
         extend = """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
+        crv_type  (integer, Required) - Type of extension. The possible curve types are listed in the table for crv_type.
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table for side.
         objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+        
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1,  Extend from the end of the curve.
+				
 
         Returns
         =======
@@ -1561,28 +1553,27 @@ class _ArcModf():
         This function calls the Rhinoscript function: ExtendCurve
 
         """
+        extend_length_ed = True
         extend_length = """
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-		Extend from the end of the curve.
-		2
+        crv_type  (integer, Required) - Type of extension. The possible style types are listed in the table for crv_type.
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table for side.        
         length  (float, Required) - The distance to extend the curve.
+
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
+		2, Extend from both the start and the end of the curve.
 
         Returns
         =======
@@ -1594,18 +1585,20 @@ class _ArcModf():
         This function calls the Rhinoscript function: ExtendCurveLength
 
         """
+        extend_pnt_ed = True
         extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
         Parameters
         ==========
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-        point  (List of float, Required) - The 3-D point.
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table for side.  
+		point  (List of float, Required) - The 3-D point.
+		
+		
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
 
         Returns
         =======
@@ -1783,6 +1776,7 @@ class _CircleDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
+        copy_by_offset_ed = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -1791,18 +1785,15 @@ class _CircleDupl():
         direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
         distance  (float, Required) - The distance of the offset.
         normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used. The possible style types are listed in the table for style.
+		
+		Table: style
+		Value, Description
+		0, None
+		1, Sharp (Default)
+		2, Round
+		3, Smooth
+		4, Chamfer
 
         Returns
         =======
@@ -2531,28 +2522,22 @@ class _CurveRootFuncClsd():
         This function calls the Rhinoscript function: CurveBooleanUnion
 
         """
+        containment_ed=True
         containment = """
         Determines the relationship between the regions bounded by two coplanar simple closed curves.
 
         Parameters
         ==========
         curve  (curve object, Required) - The object identifier of the second planar, closed curve.
-        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
-		Element
-		Type
-		Description
-		0
-		Array
-		Required.  The construction plane's origin (3-D point).
-		1
-		Array
-		Required.  The construction plane's X axis direction (3-D vector).
-		2
-		Array
-		Required.  The construction plane's Y axis direction (3-D vector).
-		3
-		Array
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are listed in the table for plane.
         tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+		
+		Table: plane
+		Element,Type, Description
+		0, Array, Required.  The construction plane's origin (3-D point).
+		1, Array, Required.  The construction plane's X axis direction (3-D vector).
+		2, Array, Required.  The construction plane's Y axis direction (3-D vector).
+		3, Array, Optional.  The construction plane's Z axis direction (3-D vector). 
 
         Returns
         =======
@@ -2705,6 +2690,7 @@ class _CurveRootModf():
         This function calls the Rhinoscript function: ReverseCurve
 
         """
+        simplify_ed = True
         simplify = """
         Simplify curve replaces the curve with a geometrically equivalent polycurve. The polycurve will have the following properties:
 		1.  All the polycurve segments are lines, polylines, arcs, or NURBS curves.
@@ -2716,22 +2702,17 @@ class _CurveRootModf():
 
         Parameters
         ==========
-        flags  (integer, Optional) - The simplification methods to use. By default, all methods are used (intFlags = 0). The possible options are as follows:
-		Value
-		Description
-		0
-		Use all methods.
-		1
-		Do not split NURBS curves at fully multiple knots.
-		2
-		Do not replace segments with IsCurveLinear = True with line curves.
-		4
-		Do not replace segments with IsArc = True with arc curves.
-		8
-		Do not replace rational NURBS curves with constant denominator with an equivalent non-rational NURBS curve.
-		16
-		Do not adjust curves at G1-joins.
-		32
+        flags  (integer, Optional) - The simplification methods to use. By default, all methods are used (intFlags = 0). The possible options are listed in the table flags.
+        
+        Table: flags
+		Value, Description
+		0, Use all methods.
+		1, Do not split NURBS curves at fully multiple knots.
+		2, Do not replace segments with IsCurveLinear = True with line curves.
+		4, Do not replace segments with IsArc = True with arc curves.
+		8, Do not replace rational NURBS curves with constant denominator with an equivalent non-rational NURBS curve.
+		16, Do not adjust curves at G1-joins.
+		32, Do not merge adjacent co-linear lines or co-circular arcs or combine consecutive line segments into a polyline.
 
         Returns
         =======
@@ -2781,23 +2762,21 @@ class _CurveRootProp():
         This function calls the Rhinoscript function: CurveDim
 
         """
+        discontinuity_ed = True
         discontinuity = """
         Search for a derivatitive, tangent, or curvature discontinuity in a curve object.
 
         Parameters
         ==========
-        style  (integer, Required) - The type of continuity to test for.  The types of continuity are as follows:
-		Value
-		Description
-		1
-		C0 - Continuous function
-		2
-		C1 - Continuous first derivative
-		3
-		C2 - Continuous first and second derivative
-		4
-		G1 - Continuous unit tangent
-		5
+        style  (integer, Required) - The type of continuity to test for.  The types of continuity are listed in the table style.
+        
+        Table: style
+		Value, Description
+		1, C0 - Continuous function
+		2, C1 - Continuous first derivative
+		3, C2 - Continuous first and second derivative
+		4, G1 - Continuous unit tangent
+		5, G2 - Continuous unit tangent and curvature
 
         Returns
         =======
@@ -3049,22 +3028,21 @@ class _CurveRootPropOpen():
 
 
 class _CurveRootStat():
-
+        
+        arrowsPed=True
         arrows = """
         Enables or disabled a curve object's annotation arrows.
 
         Parameters
         ==========
-        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are as follows:
-		Value
-		Description
-		0
-		No annotation arrows
-		1
-		Display an annotation arrow at the starting point of the curve
-		2
-		Display an annotation arrow at the ending point of the curve
-		3
+        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are listed in the table style.
+        
+        Table: style
+		Value, Description
+		0, No annotation arrows
+		1, Display an annotation arrow at the starting point of the curve
+		2, Display an annotation arrow at the ending point of the curve
+		3, Display an annotation arrow at both the starting point and the ending point of the curve
 
         Returns
         =======
@@ -3115,26 +3093,20 @@ class _CurveRootTest():
         This function calls the Rhinoscript function: IsCurveClosed
 
         """
+        in_plane_ed=True
         in_plane = """
         Test a curve to see if it lies in a specific plane.
 
         Parameters
         ==========
-        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
-		Element
-		Type
-		Description
-		0
-		Array
-		Required.  The construction plane's origin (3-D point).
-		1
-		Array
-		Required.  The construction plane's X axis direction (3-D vector).
-		2
-		Array
-		Required.  The construction plane's Y axis direction (3-D vector).
-		3
-		Array
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are listed on the table plane:
+
+		Table: plane
+		Element, Type, Description
+		0, Array, Required.  The construction plane's origin (3-D point).
+		1, Array, Required.  The construction plane's X axis direction (3-D vector).
+		2, Array, Required.  The construction plane's Y axis direction (3-D vector).
+		3, Array, Optional.  The construction plane's Z axis direction (3-D vector). 
 
         Returns
         =======
@@ -3231,28 +3203,22 @@ class _CurveRootTest():
         This function calls the Rhinoscript function: IsPointOnCurve
 
         """
+        planar_crv_collision_ed = True
         planar_crv_collision = """
         Determines if two coplanar curves intersect.
 
         Parameters
         ==========
         curve  (curve object, Required) - The object identifier of the second planar curve.
-        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
-		Element
-		Type
-		Description
-		0
-		Array
-		Required.  The construction plane's origin (3-D point).
-		1
-		Array
-		Required.  The construction plane's X axis direction (3-D vector).
-		2
-		Array
-		Required.  The construction plane's Y axis direction (3-D vector).
-		3
-		Array
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are listed in the table plane:
         tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+		
+		Table: plane
+		Element, Type, Description
+		0, Array, Required.  The construction plane's origin (3-D point).
+		1, Array, Required.  The construction plane's X axis direction (3-D vector).
+		2, Array, Required.  The construction plane's Y axis direction (3-D vector).
+		3, Array, Optional.  The construction plane's Z axis direction (3-D vector). 
 
         Returns
         =======
@@ -3506,6 +3472,7 @@ class _EllipseDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
+        copy_by_offset = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -3514,18 +3481,15 @@ class _EllipseDupl():
         direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
         distance  (float, Required) - The distance of the offset.
         normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used. The possible style types are listed in the table for style.  
+		
+		Table: style
+		Value, Description
+		0, None
+		1, Sharp (Default)
+		2, Round
+		3, Smooth
+		4, Chamfer
 
         Returns
         =======
@@ -3676,18 +3640,14 @@ class _EllipticalArcDupl():
         direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
         distance  (float, Required) - The distance of the offset.
         normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used. The possible style types are listed in the table for style. 
+        
+		Value, Description
+		0, None
+		1, Sharp (Default)
+		2, Round
+		3, Smooth
+		4, Chamfer
 
         Returns
         =======
@@ -3756,27 +3716,27 @@ class _EllipticalArcModf():
         This function calls the Rhinoscript function: CloseCurve
 
         """
+        extend_ed = True
         extend = """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
+        crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table for side.
         objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
 
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
+        
         Returns
         =======
         object - The extended object if successful.
@@ -3787,28 +3747,27 @@ class _EllipticalArcModf():
         This function calls the Rhinoscript function: ExtendCurve
 
         """
+        extend_length_ed = True
         extend_length = """
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-		Extend from the end of the curve.
-		2
+        crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
+        side  (integer, Required) - The size to extent. The possible side elements are listed in the table for side.
         length  (float, Required) - The distance to extend the curve.
+        
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
+		2, Extend from both the start and the end of the curve.        
 
         Returns
         =======
@@ -3820,18 +3779,19 @@ class _EllipticalArcModf():
         This function calls the Rhinoscript function: ExtendCurveLength
 
         """
+        extend_pnt = True
         extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
         Parameters
         ==========
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
+        side  (integer, Required) - The size to  extent. The possible size elements are listed in the table for size.
         point  (List of float, Required) - The 3-D point.
+        
+        Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
 
         Returns
         =======
@@ -3900,6 +3860,7 @@ class _LineDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
+        copy_by_offset = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -3908,18 +3869,15 @@ class _LineDupl():
         direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
         distance  (float, Required) - The distance of the offset.
         normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used. The possible style types are listed in the table for style.  
+        
+        Table: style
+		Value, Description
+		0, None
+		1, Sharp (Default)
+		2, Round
+		3, Smooth
+		4, Chamfer
 
         Returns
         =======
@@ -3971,26 +3929,26 @@ class _LineDupl():
 
 class _LineModf():
 
+        extend_ed = True
         extend = """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
+        crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
+        side  (integer, Required) - The size to extent. The possible side elements are listed in the table for side.
         objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+        
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
 
         Returns
         =======
@@ -4002,27 +3960,27 @@ class _LineModf():
         This function calls the Rhinoscript function: ExtendCurve
 
         """
+        extend_length = True
         extend_length = """
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-		Extend from the end of the curve.
-		2
+        crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
+        side  (integer, Required) - The size to extent. The possible side elements are listed in the table for side.
+        
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+		Table: side
+		Value,Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
+		2, Extend from both the start and the end of the curve.
+		
         length  (float, Required) - The distance to extend the curve.
 
         Returns
@@ -4035,18 +3993,18 @@ class _LineModf():
         This function calls the Rhinoscript function: ExtendCurveLength
 
         """
+        extend_pnt = True
         extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
         Parameters
         ==========
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-        point  (List of float, Required) - The 3-D point.
+        side  (integer, Required) - The size to extent. The possible side elements are listed in the table for side.
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
+		
+		point  (List of float, Required) - The 3-D point.
 
         Returns
         =======
@@ -4163,24 +4121,13 @@ class _MeshRootDefm():
         This function calls the Rhinoscript function: ShearObject
 
         """
+        transform = True
         transform = """
         Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
-		1
-		0
-		0
-		dX
-		0
-		1
-		0
-		dY
-		0
-		0
-		1
-		dZ
-		0
-		0
-		0
-		1
+		1,0,0,dX
+		0,1,0,dY
+		0,0,1,dZ
+		0,0,0,1
 
         Parameters
         ==========
@@ -4581,17 +4528,18 @@ class _MeshRootProp():
         This function calls the Rhinoscript function: MeshFaceVertices
 
         """
+        faces = True
         faces = """
         Returns the face vertices of a mesh object.
 
         Parameters
         ==========
-        face_type  (boolean, Optional) - The face type to be returned.  If omitted, both triangles and quads are returned (True)
-		Value
-		Description
-		True
-		Both triangles and quads.
-		False
+        face_type  (boolean, Optional) - The face type to be returned.  If omitted, both triangles and quads are returned (True). The face type elements are listed in the table face_type.
+        
+        Table: face_type
+		Value, Description
+		True, Both triangles and quads.
+		False, Only triangles
 
         Returns
         =======
@@ -4958,6 +4906,7 @@ class _NurbsCurveDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
+        copy_by_offset_ed = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -4966,18 +4915,15 @@ class _NurbsCurveDupl():
         direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
         distance  (float, Required) - The distance of the offset.
         normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used. The possible style types are listed in the table for style.  
+        
+        Table: style
+		Value, Description
+		0, None
+		1, Sharp (Default)
+		2, Round
+		3, Smooth
+		4, Chamfer
 
         Returns
         =======
@@ -5082,26 +5028,26 @@ class _NurbsCurveModf():
         This function calls the Rhinoscript function: CloseCurve
 
         """
+        extend = True
         extend = """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
+        crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
+        side  (integer, Required) - The size to extent. The possible side elements are listed in the table for side.  
         objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+        
+        Table: crv_type
+		Value,Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+        Table: side
+		Value,Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
 
         Returns
         =======
@@ -5113,28 +5059,27 @@ class _NurbsCurveModf():
         This function calls the Rhinoscript function: ExtendCurve
 
         """
+        extend_length_ed = True
         extend_length = """
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-		Extend from the end of the curve.
-		2
-        length  (float, Required) - The distance to extend the curve.
+        crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table for side. 
+        length  (float, Required) - The distance to extend the curve. 
+        
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+				
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
+		2, Extend from both the start and the end of the curve.
 
         Returns
         =======
@@ -5146,18 +5091,19 @@ class _NurbsCurveModf():
         This function calls the Rhinoscript function: ExtendCurveLength
 
         """
+        extend_pnt_ed = True
         extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
         Parameters
         ==========
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table for side.  
         point  (List of float, Required) - The 3-D point.
+        
+        Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
 
         Returns
         =======
@@ -5317,6 +5263,7 @@ class _ObjectRootMtrl():
         This function calls the Rhinoscript function: ObjectMaterialIndex
 
         """
+        source_ed = True
         source = """
         Returns or modifies the rendering material source of an object.
 		Rendering materials are stored in Rhino's rendering material table.  This table is conceptually an array.  Render materials associated with objects and layers are specified by zero based indices into this array.
@@ -5328,16 +5275,14 @@ class _ObjectRootMtrl():
 
         Parameters
         ==========
-        source  (integer, Optional) - The new rendering material source.  If omitted, the current material source is returned.  Note, if arrObjects is specified, intSource is required.
-		Value
-		Description
-		0
-		Material from layer
-		1
-		Material from object
-		2
-		<unused>
-		3
+        source  (integer, Optional) - The new rendering material source.  If omitted, the current material source is returned.  Note, if arrObjects is specified, intSource is required. The possible source elements are listed in the table for source. 
+		
+		Table: sources
+		Value, Description
+		0, Material from layer
+		1, Material from object
+		2, <unused>
+		3, Material from parent
 
         Returns
         =======
@@ -5374,6 +5319,7 @@ class _ObjectRootProp():
         This function calls the Rhinoscript function: ObjectColor
 
         """
+        color_source_ed = True
         color_source = """
         Returns or modifies the color source of an object.   The color used to display objects is specified in one of four ways:
 		1. Color from layer.  The object's layer determines the object's color.
@@ -5383,16 +5329,14 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        source  (integer, Optional) - The new color source.  If omitted, the current color source is returned.  Note, if arrObjects is specified, intSource is required.
-		Value
-		Description
-		0
-		Color from layer
-		1
-		Color from object
-		2
-		Color from material
-		3
+        source  (integer, Optional) - The new color source.  If omitted, the current color source is returned.  Note, if arrObjects is specified, intSource is required.  The possible source elements are listed in the table for source.
+		
+		Table: source
+		Value, Description
+		0, Color from layer
+		1, Color from object
+		2, Color from material
+		3, Color from parent
 
         Returns
         =======
@@ -5444,6 +5388,7 @@ class _ObjectRootProp():
         This function calls the Rhinoscript function: ObjectLinetype
 
         """
+        linetype_source_ed = True
         linetype_source = """
         Returns or modifies the linetype source of an object.   The linetype used to display objects is specified in one of three ways:
 		1. Linetype from layer.  The object's layer determines the object's linetype.
@@ -5452,16 +5397,14 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        source  (integer, Optional) - The new linetype source.  If omitted, the current linetype source is returned.  Note, if arrObjects is specified, intSource is required.
-		Value
-		Description
-		0
-		Layer.  Use the object's layer linetype.
-		1
-		Object.  Use the object's linetype.
-		2
-		<unused>
-		3
+        source  (integer, Optional) - The new linetype source.  If omitted, the current linetype source is returned.  Note, if arrObjects is specified, intSource is required. The possible source elements are listed in the table for source.
+		
+		Table: source
+		Value, Description
+		0, Layer.  Use the object's layer linetype.
+		1, Object.  Use the object's linetype.
+		2, <unused>
+		3, Parent.  Use the parent object's linetype.
 
         Returns
         =======
@@ -5512,6 +5455,7 @@ class _ObjectRootProp():
         This function calls the Rhinoscript function: ObjectPrintColor
 
         """
+        print_color_source_ed = True
         print_color_source = """
         Returns or modifies the print color source of an object.  The color used to print objects is specified in one of four ways:
 		1. Print color from layer.  Use the print color assigned to the object's layer.
@@ -5521,16 +5465,14 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        source  (integer, Optional) - The new print color source.  If omitted, the current print color source is returned.  Note, if arrObjects is specified, intSource is required.
-		Value
-		Description
-		0
-		Print color by layer.
-		1
-		Print color by object.
-		2
-		Print color by display.
-		3
+        source  (integer, Optional) - The new print color source.  If omitted, the current print color source is returned.  Note, if arrObjects is specified, intSource is required. The possible source elements are listed in the table for source.
+        
+        Table: source
+		Value, Description
+		0, Print color by layer.
+		1, Print color by object.
+		2, Print color by display.
+		3, Print color by parent.
 
         Returns
         =======
@@ -5563,6 +5505,7 @@ class _ObjectRootProp():
         This function calls the Rhinoscript function: ObjectPrintWidth
 
         """
+        print_width_source_ed = True
         print_width_source = """
         Returns or modifies the print width source of an object.  The width used to print objects is specified in one of three ways:
 		1. Print width from layer.  Use the print width assigned to the object's layer.
@@ -5571,16 +5514,14 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        source  (integer, Optional) - The new print width source.  If omitted, the current print width source is returned.  Note, if arrObjects is specified, intSource is required.
-		Value
-		Description
-		0
-		Print width by layer.
-		1
-		Print width by object.
-		2
-		<unused>
-		3
+        source  (integer, Optional) - The new print width source.  If omitted, the current print width source is returned.  Note, if arrObjects is specified, intSource is required. The possible source elements are listed in the table for source.
+        
+        Table: source
+		Value, Description
+		0, Print width by layer.
+		1, Print width by object.
+		2, <unused>
+		3, Print width by parent.
 
         Returns
         =======
@@ -5598,21 +5539,21 @@ class _ObjectRootProp():
 
 class _ObjectRootRndr():
 
+        add_mesh_ed = True
         add_mesh = """
         Adds custom render mesh parameters to a meshable object, such as a surface or a polysurface.  If an object has custom render mesh parameters and they are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
         ==========
-        quality  (integer, Optional) - The initial settings of the new custom render mesh parameters. The available options are as follows:
-		Value
-		Description
-		0
-		Jagged and faster.  Objects may look jagged, but they should shade and render relatively quickly.
-		1
-		Smooth and slower.  Objects should look smooth, but they may take a very long time to shade and render.
-		2 (Default)
+        quality  (integer, Optional) - The initial settings of the new custom render mesh parameters. The available options are listed in the table quality.
         enable  (boolean, Optional) - Enable the custom render mesh parameters.  If omitted, the newly added parameters will be enabled (True).
+        
+        Table: quality
+		Value, Description
+		0, Jagged and faster.  Objects may look jagged, but they should shade and render relatively quickly.
+		1, Smooth and slower.  Objects should look smooth, but they may take a very long time to shade and render.
+		2 (Default), Use the document's current render mesh parameters.
 
         Returns
         =======
@@ -7094,6 +7035,7 @@ class _PolylineDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
+        copy_by_offset = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -7103,17 +7045,14 @@ class _PolylineDupl():
         distance  (float, Required) - The distance of the offset.
         normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
         style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
+        
+        Table : style
+		Value,Description
+		0,None
+		1,Sharp (Default)
+		2,Round
+		3,Smooth
+		4,Chamfer
 
         Returns
         =======
@@ -7182,26 +7121,26 @@ class _PolylineModf():
         This function calls the Rhinoscript function: CloseCurve
 
         """
+        extend_ed = True
         extend = """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
+        crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
+        side  (integer, Required) - The size to extent. The possible side elements are listed in the table side.
         objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+        
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
 
         Returns
         =======
@@ -7213,28 +7152,27 @@ class _PolylineModf():
         This function calls the Rhinoscript function: ExtendCurve
 
         """
+        extend_length_ed = True
         extend_length = """
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
         Parameters
         ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-		Extend from the end of the curve.
-		2
+        crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table side.
         length  (float, Required) - The distance to extend the curve.
+        
+        Table: crv_type
+		Value, Description
+		0, Line - Creates an line extension tangent to the original curve.
+		1, Arc - Creates an arc extension tangent to the original curve.
+		2, Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+		
+		Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
+		2, Extend from both the start and the end of the curve.
 
         Returns
         =======
@@ -7246,17 +7184,19 @@ class _PolylineModf():
         This function calls the Rhinoscript function: ExtendCurveLength
 
         """
+        extend_pnt_ed = True
         extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
         Parameters
         ==========
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table side.
+        
+        Table: side
+		Value, Description
+		0, Extend from the start of the curve.
+		1, Extend from the end of the curve.
+		
         point  (List of float, Required) - The 3-D point.
 
         Returns
@@ -7400,24 +7340,13 @@ class _SurfaceRootDefm():
         This function calls the Rhinoscript function: ShearObject
 
         """
+        transform_ed = True
         transform = """
         Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
-		1
-		0
-		0
-		dX
-		0
-		1
-		0
-		dY
-		0
-		0
-		1
-		dZ
-		0
-		0
-		0
-		1
+		1,0,0,dX
+		0,1,0,dY
+		0,0,1,dZ
+		0,0,0,1
 
         Parameters
         ==========
@@ -7823,20 +7752,20 @@ class _SurfaceRootModf():
         This function calls the Rhinoscript function: RemoveSurfaceKnot
 
         """
+        reverse_ed = True
         reverse = """
         Reverses the U and V directions of a surface object. This feature can also be found in Rhino's Dir command.
 		To reverse the normal direction of a surface, use the FlipSurface method.
 
         Parameters
-        ==========
-        direction  (integer, Required) - The direction to reverse. Values can be added together so as to reverse more than one direction.
-		Value
-		Description
-		1
-		Reverse the surface in the U direction.
-		2
-		Reverse the surface in the V direction.
-		4
+        ========== table direction.
+        direction  (integer, Required) - The direction to reverse. Values can be added together so as to reverse more than one direction. The possible value are listed in the
+
+        Table: direction
+		Value, Description
+		1, Reverse the surface in the U direction.
+		2, Reverse the surface in the V direction.
+		4, Swap, or transpose, the U and V directions of the surface.
 
         Returns
         =======
@@ -8056,21 +7985,20 @@ class _SurfaceRootProp():
         This function calls the Rhinoscript function: SurfaceEditPoints
 
         """
+        isocurve_density_ed = True
         isocurve_density = """
         Returns or sets the isocurve density of a surface or polysurface object. An isoparametric curve is a curve of constant U or V value on a surface. Rhino uses isocurves and surface edge curves to visualize the shape of a NURBS surface.
 
         Parameters
         ==========
-        density  (integer, Optional) - The isocurve wireframe density.  The possible values are as follows:
-		Value
-		Description
-		-1
-		Hides surface isocurves.
-		0
-		Display boundary and knot wires.
-		1
-		Display boundary and knot wires and one interior wire if there are no interior knots.
-		>= 2
+        density  (integer, Optional) - The isocurve wireframe density.  The possible values are listed in the table density.
+        
+        Table: density
+		Value, Description
+		-1, Hides surface isocurves.
+		0, Display boundary and knot wires.
+		1, Display boundary and knot wires and one interior wire if there are no interior knots.
+		>= 2, Display boundary and knot wires and (N+1) interior wires.
 
         Returns
         =======
@@ -8632,7 +8560,6 @@ class _TorusDupl():
 
 
 class _TorusProp():
-
         torus_definition = """
         Returns the definition of a torus surface.
 
