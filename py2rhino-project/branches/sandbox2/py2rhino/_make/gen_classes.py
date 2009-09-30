@@ -80,7 +80,7 @@ def get_data_dictionary():
 #===============================================================================
 # Write the classes
 #===============================================================================
-def write_rhinoscript_classes(data_dict):
+def write_obj_classes(data_dict):
     
     #---------------------------------------------------------------------------
     def write_class_header_and_init(class_name, parent_class_list, module_name, class_dict, f):
@@ -454,7 +454,7 @@ def write_rhinoscript_classes(data_dict):
 #===============================================================================
 if __name__ == '__main__':
     data_dict = get_data_dictionary()
-    write_rhinoscript_classes(data_dict)
+    write_obj_classes(data_dict)
 
     print "done generating classes"
     
