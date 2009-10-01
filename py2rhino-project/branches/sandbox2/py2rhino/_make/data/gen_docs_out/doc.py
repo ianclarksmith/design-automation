@@ -11,7 +11,7 @@ class block():
 
         Returns
         =======
-        number - The number of block definitions that contain the specified block definition if successful.
+        integer - The number of block definitions that contain the specified block definition if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -45,7 +45,7 @@ class block():
 
         Returns
         =======
-        number - The number of block definitions in the document.
+        integer - The number of block definitions in the document.
         None - On error.
 
         Rhinoscript
@@ -81,7 +81,7 @@ class block():
 
         Returns
         =======
-        number - The number of instances of the block in the document if successful.
+        integer - The number of instances of the block in the document if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -183,7 +183,7 @@ class block():
 
         Returns
         =======
-        number - The number of objects that make up the block definition if successful.
+        integer - The number of objects that make up the block definition if successful.
         None - If not successful, or on error.
 
         Rhinoscript
