@@ -2549,28 +2549,22 @@ class _CurveRootFuncClsd():
         This function calls the Rhinoscript function: PlanarClosedCurveContainment
 
         """
+        pnt_inside_ed = True
         pnt_inside = """
         Determines if a point is inside of a closed curve, on  a closed curve, or outside of a closed curve.
 
         Parameters
         ==========
         point  (List of float, Required) - A 3-D point to test.
-        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
-		Element
-		Type
-		Description
-		0
-		Array
-		Required.  The construction plane's origin (3-D point).
-		1
-		Array
-		Required.  The construction plane's X axis direction (3-D vector).
-		2
-		Array
-		Required.  The construction plane's Y axis direction (3-D vector).
-		3
-		Array
-        tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are for plane.
+		tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+
+		Table: plame
+		Element,Type,Description
+		0, Array, Required.  The construction plane's origin (3-D point).
+		1, Array, Required.  The construction plane's X axis direction (3-D vector).
+		2, Array, Required.  The construction plane's Y axis direction (3-D vector).
+		3, Array, Optional.  The construction plane's Z axis direction (3-D vector). 
 
         Returns
         =======
@@ -2702,7 +2696,7 @@ class _CurveRootModf():
 
         Parameters
         ==========
-        flags  (integer, Optional) - The simplification methods to use. By default, all methods are used (intFlags = 0). The possible options are listed in the table flags.
+        flags  (integer, Optional) - The simplification methods to use. By default, all methods are used (intFlags = 0). The possible options are listed in the table for flags.
         
         Table: flags
 		Value, Description
@@ -2768,7 +2762,7 @@ class _CurveRootProp():
 
         Parameters
         ==========
-        style  (integer, Required) - The type of continuity to test for.  The types of continuity are listed in the table style.
+        style  (integer, Required) - The type of continuity to test for.  The types of continuity are listed in the table for style.
         
         Table: style
 		Value, Description
@@ -3035,7 +3029,7 @@ class _CurveRootStat():
 
         Parameters
         ==========
-        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are listed in the table style.
+        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are listed in the table for style.
         
         Table: style
 		Value, Description
@@ -3210,7 +3204,7 @@ class _CurveRootTest():
         Parameters
         ==========
         curve  (curve object, Required) - The object identifier of the second planar curve.
-        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are listed in the table plane:
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are listed in the table for plane.
         tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
 		
 		Table: plane
@@ -3472,7 +3466,7 @@ class _EllipseDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
-        copy_by_offset = True
+        copy_by_offset_ed = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -3632,6 +3626,7 @@ class _EllipticalArcDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
+        copy_by_offset_ed = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -3779,7 +3774,7 @@ class _EllipticalArcModf():
         This function calls the Rhinoscript function: ExtendCurveLength
 
         """
-        extend_pnt = True
+        extend_pnt_ed = True
         extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
@@ -3860,7 +3855,7 @@ class _LineDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
-        copy_by_offset = True
+        copy_by_offset_ed = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -3960,7 +3955,7 @@ class _LineModf():
         This function calls the Rhinoscript function: ExtendCurve
 
         """
-        extend_length = True
+        extend_length_ed = True
         extend_length = """
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
@@ -3993,7 +3988,7 @@ class _LineModf():
         This function calls the Rhinoscript function: ExtendCurveLength
 
         """
-        extend_pnt = True
+        extend_pnt_ed = True
         extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
@@ -4121,7 +4116,7 @@ class _MeshRootDefm():
         This function calls the Rhinoscript function: ShearObject
 
         """
-        transform = True
+        transform_ed = True
         transform = """
         Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
 		1,0,0,dX
@@ -4528,13 +4523,13 @@ class _MeshRootProp():
         This function calls the Rhinoscript function: MeshFaceVertices
 
         """
-        faces = True
+        faces_ed = True
         faces = """
         Returns the face vertices of a mesh object.
 
         Parameters
         ==========
-        face_type  (boolean, Optional) - The face type to be returned.  If omitted, both triangles and quads are returned (True). The face type elements are listed in the table face_type.
+        face_type  (boolean, Optional) - The face type to be returned.  If omitted, both triangles and quads are returned (True). The face type elements are listed in the table for face_type.
         
         Table: face_type
 		Value, Description
@@ -5028,7 +5023,7 @@ class _NurbsCurveModf():
         This function calls the Rhinoscript function: CloseCurve
 
         """
-        extend = True
+        extend_ed = True
         extend = """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
@@ -5546,7 +5541,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        quality  (integer, Optional) - The initial settings of the new custom render mesh parameters. The available options are listed in the table quality.
+        quality  (integer, Optional) - The initial settings of the new custom render mesh parameters. The available options are listed in the table for quality.
         enable  (boolean, Optional) - Enable the custom render mesh parameters.  If omitted, the newly added parameters will be enabled (True).
         
         Table: quality
@@ -5735,19 +5730,19 @@ class _ObjectRootRndr():
         This function calls the Rhinoscript function: ObjectMeshMinInitialGridQuads
 
         """
+        quality_ed = True
         quality = """
         Returns or sets the render mesh quality of an object's custom render mesh parameters.
 
         Parameters
         ==========
-        quality  (integer, Optional) - The render mesh quality, either:
-		Value
-		Description
-		0
-		Jagged and faster.  Objects may look jagged, but they should shade and render relatively quickly.
-		1
-		Smooth and slower.  Objects should look smooth, but they may take a very long time to shade and render.
-		2 (Default)
+        quality  (integer, Optional) - The render mesh quality elements are listed in the table for quality.
+        
+        Table: quality
+		Value, Description
+		0, Jagged and faster.  Objects may look jagged, but they should shade and render relatively quickly.
+		1, Smooth and slower.  Objects should look smooth, but they may take a very long time to shade and render.
+		2 (Default), Use the document's current render mesh parameters.
 
         Returns
         =======
@@ -5760,23 +5755,21 @@ class _ObjectRootRndr():
         This function calls the Rhinoscript function: ObjectMeshQuality
 
         """
+        settings_ed = True;
         settings = """
         Returns or sets the render mesh settings of an object's custom render mesh parameters.
 
         Parameters
         ==========
-        settings  (integer, Optional) - The render mesh settings, which is a bit-coded number that allows or disallows certain features.  The bits can be added together in any combination to form a value between 0 and 15.  The bit values are as follows:
-		Value
-		Description
-		0
-		No settings enabled.
-		1
-		Refine mesh enabled.
-		2
-		Jagged seams enabled.
-		4
-		Simple planes enabled.
-		8
+        settings  (integer, Optional) - The render mesh settings, which is a bit-coded number that allows or disallows certain features.  The bits can be added together in any combination to form a value between 0 and 15.  The bit values are listed in the table for settings.
+		
+		Table: settings
+		Value,	Description
+		0, No settings enabled.
+		1, Refine mesh enabled.
+		2, Jagged seams enabled.
+		4, Simple planes enabled.
+		8, Pack textures enabled
 
         Returns
         =======
@@ -6000,18 +5993,19 @@ class _ObjectRootTest():
         This function calls the Rhinoscript function: IsObjectHidden
 
         """
+        is_in_box_ed = True
         is_in_box = """
         Verifies an object's bounding box is inside of another bounding box.
 
         Parameters
         ==========
         box  (List of float, Required) - The bounding box to test against. A bounding box is an list of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.
-        mode  (boolean, Optional) - The test mode.
-		Value
-		Description
-		True (Default)
-		The object's bounding box must be contained by the test bounding box. In other words, test.min <= object.min and object.max <= test.max.
-		False
+        mode  (boolean, Optional) - The test mode. The test values are listed in the table for mode.
+        
+        Table: mode        
+		Value, Description
+		True (Default), The object's bounding box must be contained by the test bounding box. In other words, test.min <= object.min and object.max <= test.max.
+		False, The object's bounding box must be contained by or intersect with the test bounding box.
 
         Returns
         =======
@@ -6224,6 +6218,7 @@ class _ObjectRootTrfm():
         This function calls the Rhinoscript function: MoveObject
 
         """
+        orient_ed = True
         orient = """
         Orients a single object based on input points.
 
@@ -6231,12 +6226,12 @@ class _ObjectRootTrfm():
         ==========
         reference  (List of float, Required) - An list of 3-D reference points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
         target  (List of float, Required) - An list of 3-D target points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
-        flags  (integer, Optional) - The orient flags.  Values can be added together to specify multiple options.
-		Value
-		Description
-		1
-		Copy object.  The default is not to copy the object.
-		2
+        flags  (integer, Optional) - The orient flags.  Values can be added together to specify multiple options. The values for the flags are listed in the table for flags.
+		
+		Table: flags
+		Value, Description
+		1, Copy object.  The default is not to copy the object.
+		2, Scale object.  The default is not to scale the object.  Note, the scale option only applies if both arrReference and arrTarget contain only two 3-D points.
 
         Returns
         =======
@@ -6348,21 +6343,20 @@ class _ObjectRootUtil():
         This function calls the Rhinoscript function: ObjectDescription
 
         """
+        dump_ed = True
         dump = """
         Returns a detailed description of an object.
 
         Parameters
         ==========
-        type  (integer, Optional) - The acceptable values are as follows:
-		Value
-		Description
-		0 (Default)
-		Returns both geometry and attribute details. This is equivalent to the results of the What command.
-		1
-		Returns geometry details.
-		2
-		Returns attribute details.
-		3
+        type  (integer, Optional) - The acceptable values are listed in the table for type.
+        
+        Table: type
+		Value, Description
+		0 (Default), Returns both geometry and attribute details. This is equivalent to the results of the What command.
+		1, Returns geometry details.
+		2, Returns attribute details.
+		3, Returns detailed technical information about the data structure of the object. This is equivalent to the results of the List command.
 
         Returns
         =======
@@ -6543,6 +6537,7 @@ class _PolyCurveDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
+        copy_by_offset_ed = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -6551,18 +6546,15 @@ class _PolyCurveDupl():
         direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
         distance  (float, Required) - The distance of the offset.
         normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used. The possible style types are listed in the table for style. 
+		
+		Table: style
+		Value, Description
+		0, None
+		1, Sharp (Default)
+		2, Round
+		3, Smooth
+		4, Chamfer
 
         Returns
         =======
@@ -7035,7 +7027,7 @@ class _PolylineDupl():
         This function calls the Rhinoscript function: CopyObject
 
         """
-        copy_by_offset = True
+        copy_by_offset_ed = True
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -7128,7 +7120,7 @@ class _PolylineModf():
         Parameters
         ==========
         crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
-        side  (integer, Required) - The size to extent. The possible side elements are listed in the table side.
+        side  (integer, Required) - The size to extent. The possible side elements are listed in the table for side.
         objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
         
         Table: crv_type
@@ -7159,7 +7151,7 @@ class _PolylineModf():
         Parameters
         ==========
         crv_type  (integer, Required) - Type of extension. The possible extension types are listed in the table for crv_type.
-        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table side.
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table for side.
         length  (float, Required) - The distance to extend the curve.
         
         Table: crv_type
@@ -7190,7 +7182,7 @@ class _PolylineModf():
 
         Parameters
         ==========
-        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table side.
+        side  (integer, Required) - The size to  extent. The possible side elements are listed in the table for side.
         
         Table: side
 		Value, Description
@@ -7991,7 +7983,7 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        density  (integer, Optional) - The isocurve wireframe density.  The possible values are listed in the table density.
+        density  (integer, Optional) - The isocurve wireframe density.  The possible values are listed in the table for density.
         
         Table: density
 		Value, Description
