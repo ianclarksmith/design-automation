@@ -171,22 +171,21 @@ class line():
 
 class plane():
 
+        distance_to_pln_ed = True
         distance_to_pln = """
         Returns the distance from a 3-D point to a plane.
 
         Parameters
         ==========
-        plane  (List of float, Required) - The plane.  The elements of a plane list are as follows:
-		Element
-		Description
-		0
-		Required.  The plane's origin (3-D point).
-		1
-		Required.  The plane's X axis direction (3-D vector).
-		2
-		Required.  The plane's Y axis direction (3-D vector).
-		3
+        plane  (List of float, Required) - The plane.  The elements of a plane list are in the table for plane.
         point  (List of float, Required) - The 3-D point.
+        
+        Table: plane
+		Element, Description
+		0, Required.  The plane's origin (3-D point).
+		1, Required.  The plane's X axis direction (3-D vector).
+		2, Required.  The plane's Y axis direction (3-D vector).
+		3, Optional.  The plane's Z axis direction (3-D vector). 
 
         Returns
         =======
@@ -198,22 +197,21 @@ class plane():
         This function calls the Rhinoscript function: DistanceToPlane
 
         """
+        evaluate_ed = True;
         evaluate = """
         Evaluates a plane at a U,V parameter.
 
         Parameters
         ==========
-        plane  (List of float, Required) - The plane.  The elements of a plane list are as follows:
-		Element
-		Description
-		0
-		Required.  The plane's origin (3-D point).
-		1
-		Required.  The plane's X axis direction (3-D vector).
-		2
-		Required.  The plane's Y axis direction (3-D vector).
-		3
+        plane  (List of float, Required) - The plane.  The elements of a plane list are in the table for plane.
         parameter  (List of float, Required) - An list containing the U,V parameter to evaluate.
+		
+		Table: plane
+		Element, Description
+		0, Required.  The plane's origin (3-D point).
+		1, Required.  The plane's X axis direction (3-D vector).
+		2, Required.  The plane's Y axis direction (3-D vector).
+		3, Optional.  The plane's Z axis direction (3-D vector). 
 
         Returns
         =======
@@ -244,22 +242,22 @@ class plane():
         This function calls the Rhinoscript function: IntersectPlanes
 
         """
+        move_ed = True
         move = """
         Moves the origin of a plane.
 
         Parameters
         ==========
-        plane  (List of float, Required) - The plane.  The elements of a plane list are as follows:
-		Element
-		Description
-		0
-		Required.  The plane's origin (3-D point).
-		1
-		Required.  The plane's X axis direction (3-D vector).
-		2
-		Required.  The plane's Y axis direction (3-D vector).
-		3
+        plane  (List of float, Required) - The plane.  The elements of a plane list are listed in the table for plane.
         origin  (List of float, Required) - A 3-D point identifying the new origin location.
+		
+		Table: plane
+		Element, Description
+		0, Required.  The plane's origin (3-D point).
+		1, Required.  The plane's X axis direction (3-D vector).
+		2, Required.  The plane's Y axis direction (3-D vector).
+		3, Optional.  The plane's Z axis direction (3-D vector). 
+
 
         Returns
         =======
@@ -271,23 +269,22 @@ class plane():
         This function calls the Rhinoscript function: MovePlane
 
         """
+        closest_pnt_ed = True
         closest_pnt = """
         Returns the point on a plane that is closest to a test point.
 
         Parameters
         ==========
-        plane  (List of float, Required) - The plane. The elements of a plane list are as follows:
-		Element
-		Description
-		0
-		Required.  The plane's origin (3-D point).
-		1
-		Required.  The plane's X axis direction (3-D vector).
-		2
-		Required.  The plane's Y axis direction (3-D vector).
-		3
+        plane  (List of float, Required) - The plane. The elements of a plane list are listed in the table for plane.
         point  (List of float, Required) - The 3-D point to test.
         return_point  (boolean, Optional) - If omitted or True, then the point on the plane that is closest to the test point is returned. If False, then the parameter of the point on the plane that is closest to the test point is returned.
+        		
+		Table: plane
+		Element, Description
+		0, Required.  The plane's origin (3-D point).
+		1, Required.  The plane's X axis direction (3-D vector).
+		2, Required.  The plane's Y axis direction (3-D vector).
+		3, Optional.  The plane's Z axis direction (3-D vector). 
 
         Returns
         =======
@@ -343,6 +340,7 @@ class plane():
         This function calls the Rhinoscript function: PlaneFitFromPoints
 
         """
+        from_frame_ed = True
         from_frame = """
         Construct a plane from a point, and two vectors in the plane.
 
@@ -350,7 +348,7 @@ class plane():
         ==========
         origin  (List of float, Required) - A 3-D point identifying the origin of the plane.
         xaxis  (List of float, Required) - A non-zero 3-D vector in the plane that determines the X axis direction.
-        yaxis  (List of float, Required) - A non-zero 3-D vector not parallel to arrXaxis that is used to determine the Y axis direction. Note, arrYaxis does not have to be perpendicular to arrXaxis.
+        yaxis  (List of float, Required) - A non-zero 3-D vector not parallel to xaxis that is used to determine the Y axis direction. Note, yaxis does not have to be perpendicular to xaxis.
 
         Returns
         =======
@@ -435,24 +433,23 @@ class plane():
         This function calls the Rhinoscript function: PlaneTransform
 
         """
+        rotate = True
         rotate = """
         Rotates a plane.
 
         Parameters
         ==========
-        plane  (List of float, Required) - The plane.  The elements of a plane list are as follows:
-		Element
-		Description
-		0
-		Required.  The plane's origin (3-D point).
-		1
-		Required.  The plane's X axis direction (3-D vector).
-		2
-		Required.  The plane's Y axis direction (3-D vector).
-		3
+        plane  (List of float, Required) - The plane.  The elements of a plane list are listed in the table for plane.
         angle  (float, Required) - The rotation angle in degrees.
         axis  (List of float, Required) - A non-zero 3-D vector identifying the axis of rotation.
 
+        Table: plane
+		Element, Description
+		0, Required.  The plane's origin (3-D point).
+		1, Required.  The plane's X axis direction (3-D vector).
+		2, Required.  The plane's Y axis direction (3-D vector).
+		3, Optional.  The plane's Z axis direction (3-D vector). 
+		
         Returns
         =======
         list - The plane if successful.  The elements of a plane list are as follows:
