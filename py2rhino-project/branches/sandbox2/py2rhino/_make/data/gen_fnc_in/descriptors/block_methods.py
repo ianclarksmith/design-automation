@@ -1,10 +1,10 @@
 #The data below will be used to generate the Rhinoscript function wrappers
 
 #===============================================================================
-# Vector
+# 
 #===============================================================================
 class block(object):    
-    folder = "doc"
+    folder = "ent"
 
     class Functions(object):
 

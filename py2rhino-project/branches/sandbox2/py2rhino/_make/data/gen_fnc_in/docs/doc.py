@@ -1,43 +1,755 @@
 
 
-class block():
+class object_type():
 
-        container_count = """
-        Returns the number of block definitions that contain a specified block definition.
+        is_clipping_plane = """
+        Verifies that an object is a clipping plane object.
 
         Parameters
         ==========
-        block_name  (string, Required) - The name of an existing block definition.
+        object  (string, Required) - The object's identifier.
 
         Returns
         =======
-        number - The number of block definitions that contain the specified block definition if successful.
+        boolean - True if successful, otherwise False.
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: IsClippingPlane
+
+        """
+        is_point = """
+        Verifies an object is a point object.
+
+        Parameters
+        ==========
+        object  (string, Required) - The object's identifier.
+
+        Returns
+        =======
+        boolean - True if successful, otherwise False.
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: IsPoint
+
+        """
+        is_point_cloud = """
+        Verifies an object is a point cloud object.
+
+        Parameters
+        ==========
+        object  (string, Required) - The object's identifier.
+
+        Returns
+        =======
+        boolean - True if successful, otherwise False.
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: IsPointCloud
+
+        """
+        is_text = """
+        Verifies an object is a text object.
+
+        Parameters
+        ==========
+        object  (string, Required) - The object's identifier.
+
+        Returns
+        =======
+        boolean - True if successful, otherwise False.
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: IsText
+
+        """
+        is_text_dot = """
+        Verifies an object is a text dot object.
+
+        Parameters
+        ==========
+        object  (string, Required) - The object's identifier.
+
+        Returns
+        =======
+        boolean - True if successful, otherwise False.
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: IsTextDot
+
+        """
+
+
+class select():
+
+        all_objects = """
+        Returns the identifiers of all objects in the document.
+
+        Parameters
+        ==========
+        select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
         None - If not successful, or on error.
 
         Rhinoscript
         ===========
-        This function calls the Rhinoscript function: BlockContainerCount
+        This function calls the Rhinoscript function: AllObjects
 
         """
-        containers = """
-        Returns the names of the block definitions that contain a specified block definition.
+        first_object = """
+        Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.
 
         Parameters
         ==========
-        block_name  (string, Required) - The name of an existing block definition.
+        select  (boolean, Optional) - Select the object.  If omitted, the object is not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
 
         Returns
         =======
-        list - A list of block definition names if successful.
+        string - The object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
         ===========
-        This function calls the Rhinoscript function: BlockContainers
+        This function calls the Rhinoscript function: FirstObject
 
         """
-        count = """
-        Returns the number of block definitions in the document.
+        get_crv_object = """
+        Prompts the user to pick, or select, a single curve object.
+
+        Parameters
+        ==========
+        message  (string, Optional) - A prompt or message.
+        pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+        select  (boolean, Optional) - Select the picked objects.  If omitted, the objects that are picked are not selected (False).
+
+        Returns
+        =======
+        list - A list of selection information if successful. The list will contain the following information:
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: GetCurveObject
+
+        """
+        get_object = """
+        Prompts the user to pick, or select, a single object.
+
+        Parameters
+        ==========
+        message  (string, Optional) - A prompt or message.
+        type  (integer, Optional) - The type or types of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
+		Value
+		Description
+		0
+		All objects (default)
+		1
+		Point
+		2
+		Point cloud
+		4
+		Curve
+		8
+		Surface or single-face brep
+		16
+		Polysurface or multiple-face
+		32
+		Mesh
+		256
+		Light
+		512
+		Annotation
+		4096
+		Instance or block reference
+		8192
+		Text dot object
+		16384
+		Grip object
+		32768
+		Detail
+		65536
+		Hatch
+		131072
+		Morph control
+		134217728
+		Cage
+		268435456
+		Phantom
+		536870912
+        pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+        select  (boolean, Optional) - Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
+        objects  (List of string, Optional) - An list of strings identifying the objects that are allowed to be selected.
+
+        Returns
+        =======
+        string - The picked object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: GetObject
+
+        """
+        get_object_ex = """
+        Prompts the user to pick, or select, a single object.
+
+        Parameters
+        ==========
+        message  (string, Optional) - A prompt or message.
+        type  (integer, Optional) - The type or types of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
+		Value
+		Description
+		0
+		All objects (default)
+		1
+		Point
+		2
+		Point cloud
+		4
+		Curve
+		8
+		Surface or single-face brep
+		16
+		Polysurface or multiple-face
+		32
+		Mesh
+		256
+		Light
+		512
+		Annotation
+		4096
+		Instance or block reference
+		8192
+		Text dot object
+		16384
+		Grip object
+		32768
+		Detail
+		65536
+		Hatch
+		131072
+		Morph control
+		134217728
+		Cage
+		268435456
+		Phantom
+		536870912
+        pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+        select  (boolean, Optional) - Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
+        objects  (List of string, Optional) - An list of strings identifying the objects that are allowed to be selected.
+
+        Returns
+        =======
+        list - A list of selection information if successful. The list will contain the following information:
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: GetObjectEx
+
+        """
+        get_objects = """
+        Prompts the user to pick or select one or more objects.
+
+        Parameters
+        ==========
+        message  (string, Optional) - A prompt or message.
+        type  (integer, Optional) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
+		Value
+		Description
+		0
+		All objects (default)
+		1
+		Point
+		2
+		Point cloud
+		4
+		Curve
+		8
+		Surface or single-face brep
+		16
+		Polysurface or multiple-face
+		32
+		Mesh
+		256
+		Light
+		512
+		Annotation
+		4096
+		Instance or block reference
+		8192
+		Text dot object
+		16384
+		Grip object
+		32768
+		Detail
+		65536
+		Hatch
+		131072
+		Morph control
+		134217728
+		Cage
+		268435456
+		Phantom
+		536870912
+        group  (boolean, Optional) - Honor object grouping.  If omitted and the user picks a group, the entire group will be picked (True). Note, if intType is set to a value other than 0 (All objects), then group selection will be disabled.
+        pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+        select  (boolean, Optional) - Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
+        objects  (List of string, Optional) - An list of strings identifying the objects that are allowed to be selected.
+
+        Returns
+        =======
+        list - A list of strings identifying the picked objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: GetObjects
+
+        """
+        get_objects_ex = """
+        Prompts the user to pick or select one or more objects.
+
+        Parameters
+        ==========
+        message  (string, Optional) - A prompt or message.
+        type  (integer, Optional) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
+		Value
+		Description
+		0
+		All objects (default)
+		1
+		Point
+		2
+		Point cloud
+		4
+		Curve
+		8
+		Surface or single-face brep
+		16
+		Polysurface or multiple-face
+		32
+		Mesh
+		256
+		Light
+		512
+		Annotation
+		4096
+		Instance or block reference
+		8192
+		Text dot object
+		16384
+		Grip object
+		32768
+		Detail
+		65536
+		Hatch
+		131072
+		Morph control
+		134217728
+		Cage
+		268435456
+		Phantom
+		536870912
+        group  (boolean, Optional) - Honor object grouping.  If omitted and the user picks a group, the entire group will be picked (True). Note, if intType is set to a value other than 0 (All objects), then group selection will be disabled.
+        pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+        select  (boolean, Optional) - Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
+        objects  (List of string, Optional) - An list of strings identifying the objects that are allowed to be selected.
+
+        Returns
+        =======
+        list - A list that contains lists of selection information if successful. The list of selection information will contain the following:
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: GetObjectsEx
+
+        """
+        get_point_coords = """
+        Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.
+
+        Parameters
+        ==========
+        message  (string, Optional) - A prompt or message.
+        pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+
+        Returns
+        =======
+        list - A list of 3-D points, one for each selected point object, if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: GetPointCoordinates
+
+        """
+        get_srf_object = """
+        Prompts the user to pick, or select, a single surface object.
+
+        Parameters
+        ==========
+        message  (string, Optional) - A prompt or message.
+        pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+        select  (boolean, Optional) - Select the picked objects.  If omitted, the objects that are picked are not selected (False).
+
+        Returns
+        =======
+        list - A list of selection information if successful. The list will contain the following information:
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: GetSurfaceObject
+
+        """
+        hidden_objects = """
+        Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+
+        Parameters
+        ==========
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: HiddenObjects
+
+        """
+        invert_selected_objects = """
+        Inverts the current object selection.  The identifiers of the newly selected objects are returned.
+
+        Parameters
+        ==========
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the newly selected objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: InvertSelectedObjects
+
+        """
+        last_created_objects = """
+        Returns the identifiers of the objects that were most recently created or changed by scripting a Rhino command using the Command function.  It is important to call this function immediately after calling the Command function as only the most recently created or changed object identifiers will be returned.
+
+        Parameters
+        ==========
+        select  (boolean, Optional) - Select the object.  If omitted, the object is not selected (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the most recently created or changed objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: LastCreatedObjects
+
+        """
+        last_object = """
+        Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
+
+        Parameters
+        ==========
+        select  (boolean, Optional) - Select the object.  If omitted, the object is not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        string - The object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: LastObject
+
+        """
+        locked_objects = """
+        Returns the identifiers of all locked objects in the document.  Visible objects are visible and can be snapped to, but they cannot be selected.
+
+        Parameters
+        ==========
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: LockedObjects
+
+        """
+        next_object = """
+        Returns the identifier of the next object in the document.
+
+        Parameters
+        ==========
+        object  (string, Required) - The identifier of the object from which to get the next object.
+        select  (boolean, Optional) - Select the object.  If omitted, the object is not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        string - The object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: NextObject
+
+        """
+        normal_objects = """
+        Returns the identifiers of all normal objects in the document.  Normal objects are visible, can be snapped to, and are independent of selection state.
+
+        Parameters
+        ==========
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: NormalObjects
+
+        """
+        objects_by_color = """
+        Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+
+        Parameters
+        ==========
+        color  (integer, Required) - An RGB color value.
+        select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ObjectsByColor
+
+        """
+        objects_by_group = """
+        Returns the identifiers of all objects based on the objects' group name.
+
+        Parameters
+        ==========
+        group  (string, Required) - The name of a group of objects.
+        select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ObjectsByGroup
+
+        """
+        objects_by_layer = """
+        Returns the identifiers of all objects based on the objects' layer.
+
+        Parameters
+        ==========
+        layer  (string, Required) - The name of a layer.
+        select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ObjectsByLayer
+
+        """
+        objects_by_name = """
+        Returns the identifiers of all objects based on the objects' user-assigned name.
+
+        Parameters
+        ==========
+        name  (string, Required) - The name of an object or objects.
+        select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ObjectsByName
+
+        """
+        objects_by_type = """
+        Returns the identifiers of all objects based on the objects' geometry type.
+
+        Parameters
+        ==========
+        type  (integer, Required) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
+		Value
+		Description
+		0
+		All objects
+		1
+		Point
+		2
+		Point cloud
+		4
+		Curve
+		8
+		Surface or single-face brep
+		16
+		Polysurface or multiple-face
+		32
+		Mesh
+		256
+		Light
+		512
+		Annotation
+		4096
+		Instance or block reference
+		8192
+		Text dot object
+		16384
+		Grip object
+		32768
+		Detail
+		65536
+		Hatch
+		131072
+		Morph control
+		134217728
+		Cage
+		268435456
+		Phantom
+		536870912
+        select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ObjectsByType
+
+        """
+        objects_by_url = """
+        Returns the identifiers of all objects based on the objects' user-assigned URL.
+
+        Parameters
+        ==========
+        url  (string, Required) - The URL of an object or objects.
+        select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ObjectsByURL
+
+        """
+        prev_selected_objects = """
+        Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
+
+        Parameters
+        ==========
+        select  (boolean, Optional) - Select the object.  If omitted, the object is not selected (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the previously selected objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: PrevSelectedObjects
+
+        """
+        reference_objects = """
+        Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
+
+        Parameters
+        ==========
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ReferenceObjects
+
+        """
+        selected_objects = """
+        Returns the identifiers of all objects that are currently selected.
+
+        Parameters
+        ==========
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
+
+        Returns
+        =======
+        list - A list of strings identifying the objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SelectedObjects
+
+        """
+        unselect_all_objects = """
+        Unselects all objects in the document.
 
         Parameters
         ==========
@@ -45,403 +757,49 @@ class block():
 
         Returns
         =======
-        number - The number of block definitions in the document.
-        None - On error.
+        number - The number of objects that were unselected.
 
         Rhinoscript
         ===========
-        This function calls the Rhinoscript function: BlockCount
+        This function calls the Rhinoscript function: UnselectAllObjects
 
         """
-        description = """
-        Returns or sets the description of a block definition.
+        unselected_objects = """
+        Returns the identifiers of all objects that are currently unselected.
 
         Parameters
         ==========
-        block_name  (string, Required) - The name of an existing block definition.
-        text  (string, Optional) - The new description.  If omitted, the current description is returned.
+        select  (boolean, Optional) - Select the objects.  If omitted, the object is not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
 
         Returns
         =======
-        string - If a description is not specified,  the current description if successful.
-        string - If a description is specified, the previous description if successful.
+        list - A list of strings identifying the objects if successful.
         None - If not successful, or on error.
 
         Rhinoscript
         ===========
-        This function calls the Rhinoscript function: BlockDescription
+        This function calls the Rhinoscript function: UnselectedObjects
 
         """
-        instance_count = """
-        Counts the number of instances of the block in the document.  Nested instances are not included in the count.
+        visible_objects = """
+        Returns the identifiers of all objects that are visible in a specified view.
 
         Parameters
         ==========
-        block_name  (string, Required) - The name of an existing block definition.
+        view  (string, Optional) - The title of the view.  If omitted, the current active view is used.
+        select  (boolean, Optional) - Select the objects.  If omitted, the object is not selected (False).
+        include_lights  (boolean, Optional) - Include light objects.  If omitted, light objects are not returned (False).
+        include_grips  (boolean, Optional) - Include grips objects.  If omitted, grips objects are not returned (False).
 
         Returns
         =======
-        number - The number of instances of the block in the document if successful.
+        list - A list of strings identifying the objects if successful.
         None - If not successful, or on error.
 
         Rhinoscript
         ===========
-        This function calls the Rhinoscript function: BlockInstanceCount
-
-        """
-        instance_insert_point = """
-        Returns the insertion point of a block instance.
-
-        Parameters
-        ==========
-        block_id  (string, Required) - The identifier of an existing block insertion object.
-
-        Returns
-        =======
-        list - A 3-D point if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockInstanceInsertPoint
-
-        """
-        instance_name = """
-        Returns the block name of a block instance.
-
-        Parameters
-        ==========
-        block_id  (string, Required) - The identifier of an existing block insertion object.
-
-        Returns
-        =======
-        string - The block name if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockInstanceName
-
-        """
-        instance_xform = """
-        Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
-
-        Parameters
-        ==========
-        block_id  (string, Required) - The identifier of an existing block insertion object.
-
-        Returns
-        =======
-        list - A transformation matrix (4x4 list of numbers) if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockInstanceXform
-
-        """
-        instances = """
-        Returns the identifiers of the inserted instances of a block.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        list - A list of strings identifying the instances of a block if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockInstances
-
-        """
-        names = """
-        Returns the names of all block definitions in the document.
-
-        Parameters
-        ==========
-        sort  (boolean, Optional) - Return a sorted list of block definition names.
-
-        Returns
-        =======
-        list - A list of block definition names if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockNames
-
-        """
-        object_count = """
-        Returns the number of objects that make up a block definition.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        number - The number of objects that make up the block definition if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockObjectCount
-
-        """
-        objects = """
-        Returns the identifiers of the objects that make up a block definition.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        list - A list of strings identifying the objects that make up a block definition if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockObjects
-
-        """
-        path = """
-        Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        string - The path to the linked block file is successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockPath
-
-        """
-        url = """
-        Returns or sets the URL of a block definition.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-        url  (string, Optional) - The new URL.  If omitted, the current URL is returned.
-
-        Returns
-        =======
-        string - If a URL is not specified,  the current URL if successful.
-        string - If a URL is specified, the previous URL if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockURL
-
-        """
-        url_tag = """
-        Returns or sets the URL tag, or description, of a block definition.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-        url  (string, Optional) - The new URL tag.  If omitted, the current URL tag is returned.
-
-        Returns
-        =======
-        string - If a URL tag is not specified,  the current URL tag if successful.
-        string - If a URL tag is specified, the previous URL tag if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BlockURLTag
-
-        """
-        delete = """
-        Deletes a block definition and all of it's inserted instances.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        boolean - True or false indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: DeleteBlock
-
-        """
-        explode_instance = """
-        Explodes a block instance into it's geometric components.  The exploded objects are added to the document.
-
-        Parameters
-        ==========
-        block_id  (string, Required) - The identifier of an existing block definition.
-
-        Returns
-        =======
-        list - A list of strings identifying the newly exploded objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ExplodeBlockInstance
-
-        """
-        insert = """
-        Inserts a block whose definition already exists in the document.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of the block definition to insert.
-        insertion_point  (List of float, Required) - The 3-D insertion point of the block.
-        scale  (List of float, Optional) - An list of three numbers that identify the x,y,z scale factors. If omitted, the block is not scaled.
-        angle  (float, Optional) - The rotation angle in degrees. If omitted, the block is not rotated.
-        normal  (List of float, Optional) - A 3-D vector identifying the axis of rotation. If omitted and dblAngle is specified, the world Z axis is used.
-
-        Returns
-        =======
-        string - The newly inserted block instance, if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: InsertBlock
-
-        """
-        insert_by_xform = """
-        Inserts a block whose definition already exists in the document.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of the block definition to insert.
-        xform  (List of float, Required) - 4x4 transformation matrix to apply.
-
-        Returns
-        =======
-        string - The newly inserted block instance, if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: InsertBlock
-
-        """
-        is_block = """
-        Verifies the existence of a block definition in the document.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        boolean - True or false indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsBlock
-
-        """
-        is_embedded = """
-        Verifies that a block definition is embedded, or linked, from an external file.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        boolean - True or false indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsBlockEmbedded
-
-        """
-        is_in_use = """
-        Verifies that a block definition is being used by an inserted instance.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-        where  (integer, Optional) - Where to look, where:
-		0 (Default)
-		Check for top level references in active document
-		1
-		Check for top level and nested references in active document
-		2
-
-        Returns
-        =======
-        boolean - True or false indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsBlockInUse
-
-        """
-        is_instance = """
-        Verifies an object is a block instance.
-
-        Parameters
-        ==========
-        block_id  (string, Required) - The identifier of an existing block definition.
-
-        Returns
-        =======
-        boolean - True or false indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsBlockInstance
-
-        """
-        is_reference = """
-        Verifies that a block definition is from a reference file.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        boolean - True or false indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsBlockReference
-
-        """
-        rename = """
-        Renames an existing block definition.
-
-        Parameters
-        ==========
-        old_block_name  (string, Required) - The name of an existing block definition.
-        new_block_name  (string, Required) - The new block definition name.
-
-        Returns
-        =======
-        string - The new block definition name if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: RenameBlock
+        This function calls the Rhinoscript function: VisibleObjects
 
         """

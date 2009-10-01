@@ -1,97 +1,12 @@
+# Auto-generated wrapper for Rhino4 RhinoScript functions
 
+import pythoncom
+from py2rhino import _base
 
-class object_type():
+def all_objects(select=pythoncom.Empty, include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
 
-        is_clipping_plane = """
-        Verifies that an object is a clipping plane object.
-
-        Parameters
-        ==========
-        object  (string, Required) - The object's identifier.
-
-        Returns
-        =======
-        boolean - True if successful, otherwise False.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsClippingPlane
-
-        """
-        is_point = """
-        Verifies an object is a point object.
-
-        Parameters
-        ==========
-        object  (string, Required) - The object's identifier.
-
-        Returns
-        =======
-        boolean - True if successful, otherwise False.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsPoint
-
-        """
-        is_point_cloud = """
-        Verifies an object is a point cloud object.
-
-        Parameters
-        ==========
-        object  (string, Required) - The object's identifier.
-
-        Returns
-        =======
-        boolean - True if successful, otherwise False.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsPointCloud
-
-        """
-        is_text = """
-        Verifies an object is a text object.
-
-        Parameters
-        ==========
-        object  (string, Required) - The object's identifier.
-
-        Returns
-        =======
-        boolean - True if successful, otherwise False.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsText
-
-        """
-        is_text_dot = """
-        Verifies an object is a text dot object.
-
-        Parameters
-        ==========
-        object  (string, Required) - The object's identifier.
-
-        Returns
-        =======
-        boolean - True if successful, otherwise False.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsTextDot
-
-        """
-
-
-class select():
-
-        all_objects = """
+    """
+    
         Returns the identifiers of all objects in the document.
 
         Parameters
@@ -109,8 +24,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: AllObjects
 
-        """
-        first_object = """
+        
+    """
+    return _base._rsf.all_objects(select, include_lights, include_grips)
+
+def first_object(select=pythoncom.Empty, include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.
 
         Parameters
@@ -128,8 +49,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: FirstObject
 
-        """
-        get_crv_object = """
+        
+    """
+    return _base._rsf.first_object(select, include_lights, include_grips)
+
+def get_crv_object(message=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty):
+
+    """
+    
         Prompts the user to pick, or select, a single curve object.
 
         Parameters
@@ -147,8 +74,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: GetCurveObject
 
-        """
-        get_object = """
+        
+    """
+    return _base._rsf.get_curve_object(message, pre_select, select)
+
+def get_object(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
+
+    """
+    
         Prompts the user to pick, or select, a single object.
 
         Parameters
@@ -205,8 +138,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: GetObject
 
-        """
-        get_object_ex = """
+        
+    """
+    return _base._rsf.get_object(message, type, pre_select, select, objects)
+
+def get_object_ex(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
+
+    """
+    
         Prompts the user to pick, or select, a single object.
 
         Parameters
@@ -263,8 +202,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: GetObjectEx
 
-        """
-        get_objects = """
+        
+    """
+    return _base._rsf.get_object_ex(message, type, pre_select, select, objects)
+
+def get_objects(message=pythoncom.Empty, type=pythoncom.Empty, group=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
+
+    """
+    
         Prompts the user to pick or select one or more objects.
 
         Parameters
@@ -322,8 +267,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: GetObjects
 
-        """
-        get_objects_ex = """
+        
+    """
+    return _base._rsf.get_objects(message, type, group, pre_select, select, objects)
+
+def get_objects_ex(message=pythoncom.Empty, type=pythoncom.Empty, group=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
+
+    """
+    
         Prompts the user to pick or select one or more objects.
 
         Parameters
@@ -381,8 +332,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: GetObjectsEx
 
-        """
-        get_point_coords = """
+        
+    """
+    return _base._rsf.get_objects_ex(message, type, group, pre_select, select, objects)
+
+def get_point_coords(message=pythoncom.Empty, pre_select=pythoncom.Empty):
+
+    """
+    
         Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.
 
         Parameters
@@ -399,8 +356,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: GetPointCoordinates
 
-        """
-        get_srf_object = """
+        
+    """
+    return _base._rsf.get_point_coordinates(message, pre_select)
+
+def get_srf_object(message=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty):
+
+    """
+    
         Prompts the user to pick, or select, a single surface object.
 
         Parameters
@@ -418,8 +381,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: GetSurfaceObject
 
-        """
-        hidden_objects = """
+        
+    """
+    return _base._rsf.get_surface_object(message, pre_select, select)
+
+def hidden_objects(include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
         Parameters
@@ -436,8 +405,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: HiddenObjects
 
-        """
-        invert_selected_objects = """
+        
+    """
+    return _base._rsf.hidden_objects(include_lights, include_grips)
+
+def invert_selected_objects(include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Inverts the current object selection.  The identifiers of the newly selected objects are returned.
 
         Parameters
@@ -454,8 +429,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: InvertSelectedObjects
 
-        """
-        last_created_objects = """
+        
+    """
+    return _base._rsf.invert_selected_objects(include_lights, include_grips)
+
+def last_created_objects(select=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of the objects that were most recently created or changed by scripting a Rhino command using the Command function.  It is important to call this function immediately after calling the Command function as only the most recently created or changed object identifiers will be returned.
 
         Parameters
@@ -471,8 +452,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: LastCreatedObjects
 
-        """
-        last_object = """
+        
+    """
+    return _base._rsf.last_created_objects(select)
+
+def last_object(select=pythoncom.Empty, include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
 
         Parameters
@@ -490,8 +477,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: LastObject
 
-        """
-        locked_objects = """
+        
+    """
+    return _base._rsf.last_object(select, include_lights, include_grips)
+
+def locked_objects(include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all locked objects in the document.  Visible objects are visible and can be snapped to, but they cannot be selected.
 
         Parameters
@@ -508,8 +501,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: LockedObjects
 
-        """
-        next_object = """
+        
+    """
+    return _base._rsf.locked_objects(include_lights, include_grips)
+
+def next_object(object, select=pythoncom.Empty, include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifier of the next object in the document.
 
         Parameters
@@ -528,8 +527,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: NextObject
 
-        """
-        normal_objects = """
+        
+    """
+    return _base._rsf.next_object(object, select, include_lights, include_grips)
+
+def normal_objects(include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all normal objects in the document.  Normal objects are visible, can be snapped to, and are independent of selection state.
 
         Parameters
@@ -546,8 +551,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: NormalObjects
 
-        """
-        objects_by_color = """
+        
+    """
+    return _base._rsf.normal_objects(include_lights, include_grips)
+
+def objects_by_color(color, select=pythoncom.Empty, include_lights=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
         Parameters
@@ -565,8 +576,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: ObjectsByColor
 
-        """
-        objects_by_group = """
+        
+    """
+    return _base._rsf.objects_by_color(color, select, include_lights)
+
+def objects_by_group(group, select=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects based on the objects' group name.
 
         Parameters
@@ -583,8 +600,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: ObjectsByGroup
 
-        """
-        objects_by_layer = """
+        
+    """
+    return _base._rsf.objects_by_group(group, select)
+
+def objects_by_layer(layer, select=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects based on the objects' layer.
 
         Parameters
@@ -601,8 +624,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: ObjectsByLayer
 
-        """
-        objects_by_name = """
+        
+    """
+    return _base._rsf.objects_by_layer(layer, select)
+
+def objects_by_name(name, select=pythoncom.Empty, include_lights=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects based on the objects' user-assigned name.
 
         Parameters
@@ -620,8 +649,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: ObjectsByName
 
-        """
-        objects_by_type = """
+        
+    """
+    return _base._rsf.objects_by_name(name, select, include_lights)
+
+def objects_by_type(type, select=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects based on the objects' geometry type.
 
         Parameters
@@ -675,8 +710,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: ObjectsByType
 
-        """
-        objects_by_url = """
+        
+    """
+    return _base._rsf.objects_by_type(type, select)
+
+def objects_by_url(url, select=pythoncom.Empty, include_lights=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects based on the objects' user-assigned URL.
 
         Parameters
@@ -694,8 +735,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: ObjectsByURL
 
-        """
-        prev_selected_objects = """
+        
+    """
+    return _base._rsf.objects_by_u_r_l(url, select, include_lights)
+
+def prev_selected_objects(select=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
 
         Parameters
@@ -711,8 +758,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: PrevSelectedObjects
 
-        """
-        reference_objects = """
+        
+    """
+    return _base._rsf.prev_selected_objects(select)
+
+def reference_objects(include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
 
         Parameters
@@ -729,8 +782,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: ReferenceObjects
 
-        """
-        selected_objects = """
+        
+    """
+    return _base._rsf.reference_objects(include_lights, include_grips)
+
+def selected_objects(include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects that are currently selected.
 
         Parameters
@@ -747,8 +806,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: SelectedObjects
 
-        """
-        unselect_all_objects = """
+        
+    """
+    return _base._rsf.selected_objects(include_lights, include_grips)
+
+def unselect_all_objects():
+
+    """
+    
         Unselects all objects in the document.
 
         Parameters
@@ -763,8 +828,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: UnselectAllObjects
 
-        """
-        unselected_objects = """
+        
+    """
+    return _base._rsf.unselect_all_objects()
+
+def unselected_objects(select=pythoncom.Empty, include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects that are currently unselected.
 
         Parameters
@@ -782,8 +853,14 @@ class select():
         ===========
         This function calls the Rhinoscript function: UnselectedObjects
 
-        """
-        visible_objects = """
+        
+    """
+    return _base._rsf.unselected_objects(select, include_lights, include_grips)
+
+def visible_objects(view=pythoncom.Empty, select=pythoncom.Empty, include_lights=pythoncom.Empty, include_grips=pythoncom.Empty):
+
+    """
+    
         Returns the identifiers of all objects that are visible in a specified view.
 
         Parameters
@@ -802,4 +879,6 @@ class select():
         ===========
         This function calls the Rhinoscript function: VisibleObjects
 
-        """
+        
+    """
+    return _base._rsf.visible_objects(view, select, include_lights, include_grips)
