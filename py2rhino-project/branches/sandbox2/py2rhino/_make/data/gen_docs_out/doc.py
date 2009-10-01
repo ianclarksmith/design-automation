@@ -1,7 +1,8 @@
 
 
 class block():
-
+        
+        container_count_ed = True
         container_count = """
         Returns the number of block definitions that contain a specified block definition.
 
@@ -36,6 +37,7 @@ class block():
         This function calls the Rhinoscript function: BlockContainers
 
         """
+        count_ed = True
         count = """
         Returns the number of block definitions in the document.
 
@@ -72,6 +74,7 @@ class block():
         This function calls the Rhinoscript function: BlockDescription
 
         """
+        instance_count_ed = True
         instance_count = """
         Counts the number of instances of the block in the document.  Nested instances are not included in the count.
 
@@ -174,6 +177,7 @@ class block():
         This function calls the Rhinoscript function: BlockNames
 
         """
+        object_count_ed = True
         object_count = """
         Returns the number of objects that make up a block definition.
 
