@@ -370,13 +370,17 @@ class block():
         This function calls the Rhinoscript function: IsBlockEmbedded
 
         """
+        is_in_use_ed = True;
         is_in_use = """
         Verifies that a block definition is being used by an inserted instance.
 
         Parameters
         ==========
         block_name  (string, Required) - The name of an existing block definition.
-        where  (integer, Optional) - Where to look, where:
+        where  (integer, Optional) - Where to look. The values for where elements are listed in the table for where.
+
+        Table: where
+        Value, Description
 		0 (Default), Check for top level references in active document
 		1, Check for top level and nested references in active document
 		2, Check for references in other instance definitions
