@@ -1079,7 +1079,7 @@ def path():
     val = p2e._app.Request("get.app.path")
     return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
-def registry(key):
+def registry_key(key):
     """
     
     Use this property to retrieve values from the application's entry within 
@@ -1107,7 +1107,7 @@ def registry(key):
     val = p2e._app.Request(arg_str)
     return p2e._base._util._convert_str_to_type(val, str)
 
-def set_registry(keyvalue):
+def set_registry_key(keyvalue):
     """
     Use this property to set a value in the application's Windows registry 
     entry. Such values are stored on a per-user basic and this property only 
