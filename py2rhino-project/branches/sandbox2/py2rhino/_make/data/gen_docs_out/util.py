@@ -189,7 +189,7 @@ class plane():
 
         Returns
         =======
-        number - The distance if successful.
+        float - The distance if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -552,6 +552,7 @@ class point():
         This function calls the Rhinoscript function: PointArrayBoundingBox
 
         """
+        points_closest_point_ed = True
         points_closest_point = """
         Finds the point in an array of 3-D points that is closest to a test point.
 
@@ -562,7 +563,7 @@ class point():
 
         Returns
         =======
-        number - The index of the element in the point list that is closest to the test point if successful.
+        float - The index of the element in the point list that is closest to the test point if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -949,6 +950,8 @@ class vector():
         This function calls the Rhinoscript function: VectorLength
 
         """
+        
+        multiply_ed = True
         multiply = """
         Multiplies two 3-D vectors.
 
@@ -959,7 +962,7 @@ class vector():
 
         Returns
         =======
-        number - The resulting inner (dot) product if successful.
+        float - The resulting inner (dot) product if successful.
         None - On error.
 
         Rhinoscript
