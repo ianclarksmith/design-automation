@@ -306,7 +306,7 @@ class block():
         insertion_point  (List of float, Required) - The 3-D insertion point of the block.
         scale  (List of float, Optional) - An list of three numbers that identify the x,y,z scale factors. If omitted, the block is not scaled.
         angle  (float, Optional) - The rotation angle in degrees. If omitted, the block is not rotated.
-        normal  (List of float, Optional) - A 3-D vector identifying the axis of rotation. If omitted and dblAngle is specified, the world Z axis is used.
+        normal  (List of float, Optional) - A 3-D vector identifying the axis of rotation. If omitted and Angle is specified, the world Z axis is used.
 
         Returns
         =======
@@ -377,11 +377,9 @@ class block():
         ==========
         block_name  (string, Required) - The name of an existing block definition.
         where  (integer, Optional) - Where to look, where:
-		0 (Default)
-		Check for top level references in active document
-		1
-		Check for top level and nested references in active document
-		2
+		0 (Default), Check for top level references in active document
+		1, Check for top level and nested references in active document
+		2, Check for references in other instance definitions
 
         Returns
         =======
