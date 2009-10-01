@@ -126,6 +126,7 @@ def write_modules(data_dict, docs_dict):
             w(f, '():', tabs=0, nle=1)
         
         #write the documentation
+        #print sub_folder_name, module_name, method_name
         doc = docs_dict[sub_folder_name][module_name][method_name]
         w(f, '"""', nls=1, tabs=1)
         w(f, doc, tabs=1)
@@ -175,6 +176,7 @@ def write_modules(data_dict, docs_dict):
         elif len(return_type) < 3:
             return_type = return_type[0]
         else:
+            print method_name, "returns ", return_type
             raise Exception('Method does not have the right number of returns')
         
         if return_type == None:
@@ -184,7 +186,7 @@ def write_modules(data_dict, docs_dict):
         elif return_type.startswith('array_of') and (return_type[9:] in simple_types or return_type[9:] == 'number'):
             w(f, ('return _base._rsf.',function_name,'(', args, ')'), tabs=1)
         else:
-            print return_type
+            print method_name, "returns ", return_type
             raise Exception('The function returns something very strange')
 
     #---------------------------------------------------------------------------

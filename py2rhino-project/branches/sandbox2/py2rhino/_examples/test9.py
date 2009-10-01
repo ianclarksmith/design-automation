@@ -1,23 +1,21 @@
 import py2rhino as p2r
+    
+pline = p2r.obj.Polyline.create([(0,0,0), (20,0,0), (10,10,0) ])
 
-#print p2r.obj.Ellipse.create(( (0,0,0), (1,0,0), (0,0,1)), 10, 5)
-#p2r.obj.Cylinder.create((0,0,0), (0,0,20), 5, True)
+cir1 = p2r.obj.Circle.create_by_3pt((0,0,0), (15,-10,0), (30,0,0))
+cir2 = p2r.obj.Circle.create_by_3pt((0,0,0), (15,-20,0), (30,0,0))
 
-c = p2r.obj.Cylinder.create_by_plane( ( (20,0,0),(2,0,0),(0,0,12) ), 18, 2, True )
+srfs = p2r.obj.NurbsSurface.create_by_planar_crv(cir1)
 
-class B(object): 
-    def test_b(self): 
-        pass 
- 
-class A(object): 
-    def __init__(self): 
-        self.b = B() 
- 
-x = A() 
-x.b.test_b() #code completion works fine here... 
- 
-def test3(): 
-    y = A() 
-    assert isinstance(y, A)
-    #code completion does not work here... 
+grp = p2r.ent.Group.create()
+print grp._name
+grp.objs.add_objects([cir1, cir2])
 
+lay = p2r.ent.Layer.create()
+
+blocks = p2r.doc.block.blocks()
+p2r.ent.BlockInstance.create(blocks[0], (0,0,0))
+print lay
+print srfs
+
+print "done"
