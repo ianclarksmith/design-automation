@@ -306,7 +306,7 @@ class plane():
         plane  (List of float, Required) - The plane. The elements of a plane are listed in the table for plane.
 		
 		Table: plane
-		Element,Description
+		Element, Description
 		0, Required.  The plane's origin (3-D point).
 		1, Required.  The plane's X axis direction (3-D vector).
 		2, Required.  The plane's Y axis direction (3-D vector).
