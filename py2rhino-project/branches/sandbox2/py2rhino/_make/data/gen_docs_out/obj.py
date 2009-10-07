@@ -2208,6 +2208,7 @@ class _CurveRootFunc():
         This function calls the Rhinoscript function: CurveContourPoints
 
         """
+        crv_intersection_ed = True
         crv_intersection = """
         Calculates the intersection of two curve objects.
 
@@ -2218,13 +2219,20 @@ class _CurveRootFunc():
 
         Returns
         =======
-        list - A two-dimensional list of intersection information if successful.  The list will contain one or more of the following elements:
-        number - The intersection event type, either Point (1) or Overlap (2).
-        number - If the event type is Point (1), then the first curve parameter.
-        number - If the event type is Point (1), then the first curve parameter.
-        number - If the event type is Point (1), then the second curve parameter.
-        number - If the event type is Point (1), then the second curve parameter.
+        list - A two-dimensional list of intersection information if successful.  The list will contain one or more of the elements in the table for intersection.
         None - If not successful, or on error.
+        
+        Table: intersection
+        Element, Type, Description
+        (n, 0), number, The intersection event type, either Point (1) or Overlap (2).
+        (n, 1), array, If the event type is Point (1), then the intersection point on the first curve. If the event type is Overlap (2), then intersection start point on the first curve.
+        (n, 2), array, If the event type is Point (1), then the intersection point on the first curve. If the event type is Overlap (2), then intersection end point on the first curve.
+        (n, 3), array, If the event type is Point (1), then the intersection point on the second curve. If the event type is Overlap (2), then intersection start point on the second curve.
+        (n, 4), array, If the event type is Point (1), then the intersection point on the second curve. If the event type is Overlap (2), then intersection end point on the second curve.
+        (n, 5), number, If the event type is Point (1), then the first curve parameter. If the event type is Overlap (2), then the start value of the first curve parameter range.
+        (n, 6), number, If the event type is Point (1), then the first curve parameter. If the event type is Overlap (2), then the start value of the first curve parameter range.
+        (n, 7), number, If the event type is Point (1), then the second curve parameter. If the event type is Overlap (2), then the start value of the second curve parameter range.
+        (n, 8), number, If the event type is Point (1), then the second curve parameter. If the event type is Overlap (2), then the end value of the second curve parameter range.
 
         Rhinoscript
         ===========
@@ -2289,6 +2297,7 @@ class _CurveRootFunc():
         This function calls the Rhinoscript function: CurveRadius
 
         """
+        srf_intersection_ed = True
         srf_intersection = """
         Calculates the intersection of a curve object with a surface object. Note, this function works on the untrimmed portion of the surface.
 
@@ -2300,15 +2309,22 @@ class _CurveRootFunc():
 
         Returns
         =======
-        list - A two-dimensional list of intersection information if successful.  The list will contain one or more of the following elements:
-        number - The intersection event type, either Point (1) or Overlap (2).
-        number - If the event type is Point (1), then the curve parameter.
-        number - If the event type is Point (1), then the curve parameter.
-        number - If the event type is Point (1), then the U surface parameter.
-        number - If the event type is Point (1), then the V surface parameter.
-        number - If the event type is Point (1), then the U surface parameter.
-        number - If the event type is Point (1), then the V surface parameter.
+        list - A two-dimensional list of intersection information if successful.  The list will contain one or more elements in the table for intersection.
         None - If not successful, or on error.
+        
+        Table: intersection
+        Element, Type, Description
+        (n, 0), number, The intersection event type, either Point (1) or Overlap (2).
+        (n, 1), array, If the event type is Point (1), then the intersection point on the curve. If the event type is Overlap (2), then intersection start point on the curve.
+        (n, 2), array, If the event type is Point (1), then the intersection point on the curve. If the event type is Overlap (2), then intersection end point on the curve.
+        (n, 3), array, If the event type is Point (1), then the intersection point on the surface. If the event type is Overlap (2), then intersection start point on the surface.
+        (n, 4), array, If the event type is Point (1), then the intersection point on the surface. If the event type is Overlap (2), then intersection end point on the surface.
+        (n, 5), number, If the event type is Point (1), then the curve parameter. If the event type is Overlap (2), then the start value of the curve parameter range.
+        (n, 6), number, If the event type is Point (1), then the curve parameter. If the event type is Overlap (2),  then the end value of the curve parameter range.
+        (n, 7), number, If the event type is Point (1), then the U surface parameter. If the event type is Overlap (2), then the U surface parameter for curve at (n, 5).
+        (n, 8), number, If the event type is Point (1), then the V surface parameter. If the event type is Overlap (2), then the V surface parameter for curve at (n, 5).
+        (n, 9), number, If the event type is Point (1), then the U surface parameter. If the event type is Overlap (2), then the U surface parameter for curve at (n, 6).
+        (n, 10), number, If the event type is Point (1), then the V surface parameter. If the event type is Overlap (2), then the V surface parameter for curve at (n, 6).       
 
         Rhinoscript
         ===========
@@ -7581,6 +7597,7 @@ class _SurfaceRootFunc():
         This function calls the Rhinoscript function: SurfaceClosestPoint
 
         """
+        intersect_2_srfs_ed = True
         intersect_2_srfs = """
         Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
 
@@ -7592,17 +7609,30 @@ class _SurfaceRootFunc():
 
         Returns
         =======
-        list - If create is not specified or is equal to False, a list numbers identifying the intersection event type if successful.  The list will contain one or more of the following intersection event types:
-        list - If create is specified and is equal to True, a two-dimensional list of intersection information if successful.  The list will contain one or more of the following elements:
-        number - The intersection event type.  See the above table for details.
-        string - The intersection curve or point object that was created.
+        list - If create is not specified or is equal to False, a list numbers identifying the intersection event type if successful.  The list will contain one or more of the intersection event types in the table for event.
+        list - If create is specified and is equal to True, a two-dimensional list of intersection information if successful.  The list will contain one or more of the elements in the table for List1.
         None - If not successful, or on error.
+        
+        Table: event
+        Type, Description
+        1, Transverse surface-surface intersection curve.
+        2, Tangent surface-surface intersection curve.
+        3, Overlap surface-surface intersection curve.
+        4, Transverse surface-surface intersection point.
+        5, Tangent surface-surface intersection point.
+        
+        Table: List1
+        Element, Type, Description
+        (n, 0), number, The intersection event type.  See the above table for details.
+        (n, 1), string - The intersection curve or point object that was created.
+        
 
         Rhinoscript
         ===========
         This function calls the Rhinoscript function: SurfaceSurfaceIntersection
 
         """
+        intersect_2_srfs_test_ed = True
         intersect_2_srfs_test = """
         Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
 
@@ -7614,12 +7644,23 @@ class _SurfaceRootFunc():
 
         Returns
         =======
-        list - If create is not specified or is equal to False, a list numbers identifying the intersection event type if successful.  The list will contain one or more of the following intersection event types:
-        list - If create is specified and is equal to True, a two-dimensional list of intersection information if successful.  The list will contain one or more of the following elements:
-        number - The intersection event type.  See the above table for details.
-        string - The intersection curve or point object that was created.
+        list - If create is not specified or is equal to False, a list numbers identifying the intersection event type if successful.  The list will contain one or more of the intersection event types in the table for event.
+        list - If create is specified and is equal to True, a two-dimensional list of intersection information if successful.  The list will contain one or more of the elements in the table for List1.
         None - If not successful, or on error.
 
+        Table: event
+        Type, Description
+        1, Transverse surface-surface intersection curve.
+        2, Tangent surface-surface intersection curve.
+        3, Overlap surface-surface intersection curve.
+        4, Transverse surface-surface intersection point.
+        5, Tangent surface-surface intersection point.
+        
+        Table: List1
+        Element, Type, Description
+        (n, 0), number, The intersection event type.  See the above table for details.
+        (n, 1), string - The intersection curve or point object that was created.
+        
         Rhinoscript
         ===========
         This function calls the Rhinoscript function: SurfaceSurfaceIntersection
