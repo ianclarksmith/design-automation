@@ -432,7 +432,7 @@ class plane():
         This function calls the Rhinoscript function: PlaneTransform
 
         """
-        rotate = True
+        rotate_ed = True
         rotate = """
         Rotates a plane.
 
