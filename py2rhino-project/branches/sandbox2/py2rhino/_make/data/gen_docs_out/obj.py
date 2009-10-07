@@ -1944,7 +1944,7 @@ class _ConeDupl():
 
 class _ConeProp():
 
-        cone_def = True
+        cone_def_ed = True
         cone_def = """
         Returns the definition of a cone surface.
 
@@ -2040,7 +2040,7 @@ class _CurveRootDefm():
 
 class _CurveRootEval():
 
-        curvature = True
+        curvature_ed = True
         curvature = """
         Returns the curvature of a curve at a parameter.  See the Rhino help file for details on curve curvature.
 
@@ -7073,12 +7073,12 @@ class _PolylineDupl():
         style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
         
         Table : style
-		Value,Description
-		0,None
-		1,Sharp (Default)
-		2,Round
-		3,Smooth
-		4,Chamfer
+		Value, Description
+		0, None
+		1, Sharp (Default)
+		2, Round
+		3, Smooth
+		4, Chamfer
 
         Returns
         =======
@@ -8029,8 +8029,8 @@ class _SurfaceRootProp():
 
         Returns
         =======
-        float - The density is not specified, then the current isocurve density if successful.
-        float - The density is specified, then the previous isocurve density if successful.
+        int - The density is not specified, then the current isocurve density if successful.
+        int - The density is specified, then the previous isocurve density if successful.
         None - If not successful, or on error.
 
         Rhinoscript
