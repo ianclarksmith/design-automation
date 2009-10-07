@@ -296,22 +296,21 @@ class plane():
         This function calls the Rhinoscript function: PlaneClosestPoint
 
         """
+        equation_ed = True
         equation = """
         Returns the equation of  a plane. The standard equation of a plane with a non-zero normal vector is as follows:
 		Ax + By + Cz + D = 0
 
         Parameters
         ==========
-        plane  (List of float, Required) - The plane. The elements of a plane list are as follows:
-		Element
-		Description
-		0
-		Required.  The plane's origin (3-D point).
-		1
-		Required.  The plane's X axis direction (3-D vector).
-		2
-		Required.  The plane's Y axis direction (3-D vector).
-		3
+        plane  (List of float, Required) - The plane. The elements of a plane are listed in the table for plane.
+		
+		Table: plane
+		Element,Description
+		0, Required.  The plane's origin (3-D point).
+		1, Required.  The plane's X axis direction (3-D vector).
+		2, Required.  The plane's Y axis direction (3-D vector).
+		3, Optional.  The plane's Z axis direction (3-D vector). 
 
         Returns
         =======
