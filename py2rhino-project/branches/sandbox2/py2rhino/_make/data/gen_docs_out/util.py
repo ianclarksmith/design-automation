@@ -757,6 +757,7 @@ class point():
 
 class vector():
 
+        is_parallel_to_ed = True
         is_parallel_to = """
         Compares two vectors to see if they are parallel.
 
@@ -767,8 +768,14 @@ class vector():
 
         Returns
         =======
-        number - The result of the comparison if successful. The possible results are as follows:
+        int - The result of the comparison if successful. The possible results are listed in the table for comparison.
         None - On error.
+        
+        Table: comparison
+        Value, Description
+        -1, The vectors are anti-parallel.
+        0, The vectors are not parallel.
+        1, The vectors are parallel.
 
         Rhinoscript
         ===========
