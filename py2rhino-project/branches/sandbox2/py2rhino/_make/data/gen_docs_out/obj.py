@@ -1615,6 +1615,7 @@ class _ArcModf():
 
 class _ArcProp():
 
+        angle_ed = True
         angle = """
         Returns the angle of an arc curve object.
 
@@ -1624,7 +1625,7 @@ class _ArcProp():
 
         Returns
         =======
-        number - The angle in degrees if successful.
+        float - The angle in degrees if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -1664,6 +1665,7 @@ class _ArcProp():
         This function calls the Rhinoscript function: ArcMidPoint
 
         """
+        radius_ed = True
         radius = """
         Returns the radius of an arc curve object.
 
@@ -1673,7 +1675,7 @@ class _ArcProp():
 
         Returns
         =======
-        number - The radius of the arc if successful.
+        float - The radius of the arc if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -1863,6 +1865,7 @@ class _CircleProp():
         This function calls the Rhinoscript function: CircleCenterPoint
 
         """
+        circumference_ed = True
         circumference = """
         Returns the circumference of a circle curve object.
 
@@ -1872,7 +1875,7 @@ class _CircleProp():
 
         Returns
         =======
-        number - The circumference of the circle if successful.
+        float - The circumference of the circle if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -1880,6 +1883,7 @@ class _CircleProp():
         This function calls the Rhinoscript function: CircleCircumference
 
         """
+        radius_ed = True
         radius = """
         Returns the radius of a circle curve object.
 
@@ -1889,7 +1893,7 @@ class _CircleProp():
 
         Returns
         =======
-        number - The radius of the circle if successful.
+        float - The radius of the circle if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -1940,6 +1944,7 @@ class _ConeDupl():
 
 class _ConeProp():
 
+        cone_def = True
         cone_def = """
         Returns the definition of a cone surface.
 
@@ -1951,8 +1956,8 @@ class _ConeProp():
         =======
         list - A list containing the definition of the cone if successful.  The elements of the list are as follows:
         list - The plane of the cone.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
-        number - The height of the cone.
-        number - The radius of the cone.
+        float - The height of the cone.
+        float - The radius of the cone.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2008,24 +2013,13 @@ class _CurveRootDefm():
         This function calls the Rhinoscript function: ShearObject
 
         """
+        transform_ed = True
         transform = """
         Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
-		1
-		0
-		0
-		dX
-		0
-		1
-		0
-		dY
-		0
-		0
-		1
-		dZ
-		0
-		0
-		0
-		1
+		1,0,0,dX
+		0,1,0,dY
+		0,0,1,dZ
+		0,0,0,1
 
         Parameters
         ==========
@@ -2046,6 +2040,7 @@ class _CurveRootDefm():
 
 class _CurveRootEval():
 
+        curvature = True
         curvature = """
         Returns the curvature of a curve at a parameter.  See the Rhino help file for details on curve curvature.
 
@@ -2056,7 +2051,7 @@ class _CurveRootEval():
         Returns
         =======
         list - A list of curvature information if successful.  The list will contain the following information:
-        number - Radius of curvature
+        float - Radius of curvature
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2176,6 +2171,7 @@ class _CurveRootFunc():
         This function calls the Rhinoscript function: CurveArcLengthPoint
 
         """
+        closest_pnt_ed = True
         closest_pnt = """
         Returns the parameter of the point on a curve that is closest to a test point.
 
@@ -2185,7 +2181,7 @@ class _CurveRootFunc():
 
         Returns
         =======
-        number - The parameter of the closest point on the curve if successful.
+        float - The parameter of the closest point on the curve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2275,6 +2271,7 @@ class _CurveRootFunc():
         This function calls the Rhinoscript function: CurveDirectionsMatch
 
         """
+        radius_ed = True
         radius = """
         Returns the radius of curvature at a point on a curve.
 
@@ -2284,7 +2281,7 @@ class _CurveRootFunc():
 
         Returns
         =======
-        number - The radius of curvature at the point on the curve if successful.
+        float - The radius of curvature at the point on the curve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2436,6 +2433,7 @@ class _CurveRootFunc():
 
 class _CurveRootFuncClsd():
 
+        area_ed = True
         area = """
         Returns that area of closed planar curves. The results are based on the current drawing units.
 
@@ -2446,8 +2444,8 @@ class _CurveRootFuncClsd():
         Returns
         =======
         list - A list of area information if successful.  The list will contain the following information:
-        number - The area. If more than one curve was specified, the value will be the cumulative area.
-        number - The absolute (+/-) error bound for the area.
+        float - The area. If more than one curve was specified, the value will be the cumulative area.
+        float - The absolute (+/-) error bound for the area.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2723,6 +2721,7 @@ class _CurveRootModf():
 
 class _CurveRootProp():
 
+        degree_ed = True
         degree = """
         Returns the degree of a curve object.
 
@@ -2732,7 +2731,7 @@ class _CurveRootProp():
 
         Returns
         =======
-        number - The degree of the curve if successful.
+        float - The degree of the curve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2740,6 +2739,7 @@ class _CurveRootProp():
         This function calls the Rhinoscript function: CurveDegree
 
         """
+        dim_ed = True
         dim = """
         Returns the dimension of a curve object.
 
@@ -2749,7 +2749,7 @@ class _CurveRootProp():
 
         Returns
         =======
-        number - The dimension of the curve if successful.
+        float - The dimension of the curve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2835,6 +2835,7 @@ class _CurveRootProp():
         This function calls the Rhinoscript function: CurveEndPoint
 
         """
+        knot_count_ed = True
         knot_count = """
         Returns the knot count of a curve object.
 
@@ -2844,7 +2845,7 @@ class _CurveRootProp():
 
         Returns
         =======
-        number - The number of knots if successful.
+        int - The number of knots if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2869,6 +2870,7 @@ class _CurveRootProp():
         This function calls the Rhinoscript function: CurveKnots
 
         """
+        length_ed = True
         length = """
         Returns the length of a curve object.
 
@@ -2878,7 +2880,7 @@ class _CurveRootProp():
 
         Returns
         =======
-        number - The length of the curve if successful.
+        float - The length of the curve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2937,6 +2939,7 @@ class _CurveRootProp():
         This function calls the Rhinoscript function: CurvePlane
 
         """
+        control_pnt_count_ed = True
         control_pnt_count = """
         Returns the control points count of a curve object.
 
@@ -2946,7 +2949,7 @@ class _CurveRootProp():
 
         Returns
         =======
-        number - The number of control points if successful.
+        int - The number of control points if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -3041,8 +3044,8 @@ class _CurveRootStat():
 
         Returns
         =======
-        number - If style is not specified, the current annotation arrow style if successful.
-        number - If style is specified, the previous annotation arrow style if successful.
+        int - If style is not specified, the current annotation arrow style if successful.
+        int - If style is specified, the previous annotation arrow style if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -3390,6 +3393,7 @@ class _CylinderDupl():
 
 class _CylinderProp():
 
+        cylinder_def_ed = True 
         cylinder_def = """
         Returns the definition of a cylinder surface.
 
@@ -3401,8 +3405,8 @@ class _CylinderProp():
         =======
         list - A list containing the definition of the cylinder if successful.  The elements of the list are as follows:
         list - The base plane of the cylinder.
-        number - The height of the cylinder.
-        number - The radius of the cylinder.
+        float - The height of the cylinder.
+        float - The radius of the cylinder.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -3908,7 +3912,7 @@ class _LineDupl():
 
         Parameters
         ==========
-        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        interval  (List of integer, Required) - An list of two  identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
         delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
@@ -4127,7 +4131,7 @@ class _MeshRootDefm():
 
         Parameters
         ==========
-        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
+        matrix  (List of string, Required) - The transformation matrix (4x4 list of s).
         copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
 
         Returns
@@ -4144,6 +4148,7 @@ class _MeshRootDefm():
 
 class _MeshRootFunc():
 
+        curve_intersection_ed = True
         curve_intersection = """
         Calculates the intersection of a curve object and a mesh object.
 
@@ -4157,7 +4162,7 @@ class _MeshRootFunc():
         list - If return_faces is either omitted or False, then a list intersection points, if successful.
         list - If return_faces is True, then a one-dimensional list containing information about each intersection if successful.  Each list element is a one-dimensional list that contains the following two elements:
         list - The 3-D intersection point.
-        number - The mesh face index on which the intersection point lies.
+        int - The mesh face index on which the intersection point lies.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4182,6 +4187,7 @@ class _MeshRootFunc():
         This function calls the Rhinoscript function: ExplodeMeshes
 
         """
+        closest_point_ed = True
         closest_point = """
         Returns the point on a mesh that is closest to a test point.
 
@@ -4194,7 +4200,7 @@ class _MeshRootFunc():
         =======
         list - A list containing the results of the calculation, if successful. The list elements are as follows:
         list - The 3-D point on the mesh object.
-        number - The index of the mesh face on which the 3-D point lies.
+        int - The index of the mesh face on which the 3-D point lies.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4274,6 +4280,7 @@ class _MeshRootFunc():
         This function calls the Rhinoscript function: SplitDisjointMesh
 
         """
+        unify_normals_ed = True
         unify_normals = """
         Fixes inconsistencies in the directions of faces of a mesh object.
 
@@ -4283,7 +4290,7 @@ class _MeshRootFunc():
 
         Returns
         =======
-        number - The number of faces that were modified if successful.
+        int - The number of faces that were modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4402,6 +4409,7 @@ class _MeshRootModf():
 
 class _MeshRootProp():
 
+        disjoint_mesh_count_ed = True
         disjoint_mesh_count = """
         Returns the number of meshes that could be created by calling SplitDisjointMesh.
 
@@ -4411,7 +4419,7 @@ class _MeshRootProp():
 
         Returns
         =======
-        number - The number of meshes that could be created if successful.
+        int - The number of meshes that could be created if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4473,6 +4481,7 @@ class _MeshRootProp():
         This function calls the Rhinoscript function: MeshFaceCenters
 
         """
+        face_count_ed = True
         face_count = """
         Returns the total face count of a mesh object.
 
@@ -4482,7 +4491,7 @@ class _MeshRootProp():
 
         Returns
         =======
-        number - The number of mesh faces if successful
+        int - The number of mesh faces if successful
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4547,6 +4556,7 @@ class _MeshRootProp():
         This function calls the Rhinoscript function: MeshFaces
 
         """
+        quad_count_ed = True
         quad_count = """
         Returns the number of quad faces of a mesh object.
 
@@ -4556,7 +4566,7 @@ class _MeshRootProp():
 
         Returns
         =======
-        number - The number of quad mesh faces if successful
+        int - The number of quad mesh faces if successful
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4581,6 +4591,7 @@ class _MeshRootProp():
         This function calls the Rhinoscript function: MeshTextureCoordinates
 
         """
+        triangle_count_ed = True
         triangle_count = """
         Returns the number of triangular faces of a mesh object.
 
@@ -4590,7 +4601,7 @@ class _MeshRootProp():
 
         Returns
         =======
-        number - The number of triangular mesh faces if successful
+        int - The number of triangular mesh faces if successful
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4616,6 +4627,7 @@ class _MeshRootProp():
         This function calls the Rhinoscript function: MeshVertexColors
 
         """
+        vertex_count_ed = True
         vertex_count = """
         Returns the vertex count of a mesh object.
 
@@ -4625,7 +4637,7 @@ class _MeshRootProp():
 
         Returns
         =======
-        number - The number of mesh vertices if successful
+        int - The number of mesh vertices if successful
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5219,6 +5231,7 @@ class _ObjectRootGrps():
 
 class _ObjectRootModf():
 
+        delete_ed = True
         delete = """
         Deletes one or more objects from the document.
 
@@ -5228,7 +5241,7 @@ class _ObjectRootModf():
 
         Returns
         =======
-        number - The number of objects deleted if successful.
+        int - The number of objects deleted if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5240,6 +5253,7 @@ class _ObjectRootModf():
 
 class _ObjectRootMtrl():
 
+        index_ed = True
         index = """
         Returns the material index of an object.
 		Rendering materials are stored in Rhino's rendering material table.  This table is conceptually an array.  Render materials associated with objects and layers are specified by zero based indices into this array.
@@ -5251,7 +5265,7 @@ class _ObjectRootMtrl():
 
         Returns
         =======
-        number - The rendering material index if successful.
+        int - The rendering material index if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5282,9 +5296,9 @@ class _ObjectRootMtrl():
 
         Returns
         =======
-        number - If a rendering material source is not specified,  the current rendering material source if successful.
-        number - If a rendering material source is specified, the previous rendering material source if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        int - If a rendering material source is not specified,  the current rendering material source if successful.
+        int - If a rendering material source is specified, the previous rendering material source if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5296,6 +5310,7 @@ class _ObjectRootMtrl():
 
 class _ObjectRootProp():
 
+        color_ed = True
         color = """
         Returns or modifies the color of an object.  Object colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
@@ -5305,9 +5320,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a color value is not specified,  the current color value if successful.
-        number - If a color value is specified, the previous color value if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        int - If a color value is not specified,  the current color value if successful.
+        int - If a color value is specified, the previous color value if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5336,9 +5351,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a color source is not specified,  the current color source if successful.
-        number - If a color source is specified, the previous color source if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        int - If a color source is not specified,  the current color source if successful.
+        int - If a color source is specified, the previous color source if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5346,6 +5361,7 @@ class _ObjectRootProp():
         This function calls the Rhinoscript function: ObjectColorSource
 
         """
+        layer_ed = True
         layer = """
         Returns or modifies the layer of an object.
 
@@ -5355,9 +5371,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a layer is not specified,  the object's current layer if successful.
-        number - If a layer is specified, the object's previous layer if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        float - If a layer is not specified,  the object's current layer if successful.
+        float - If a layer is specified, the object's previous layer if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5365,6 +5381,7 @@ class _ObjectRootProp():
         This function calls the Rhinoscript function: ObjectLayer
 
         """
+        linetype_ed = True
         linetype = """
         Returns or modifies the linetype of an object.
 
@@ -5374,9 +5391,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a linetype is not specified,  the object's current linetype if successful.
-        number - If a linetype is specified, the object's previous linetype if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        float - If a linetype is not specified,  the object's current linetype if successful.
+        float - If a linetype is specified, the object's previous linetype if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5404,9 +5421,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a linetype source is not specified,  the current linetype source if successful.
-        number - If a linetype source is specified, the previous linetype source if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        int - If a linetype source is not specified,  the current linetype source if successful.
+        int - If a linetype source is specified, the previous linetype source if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5432,6 +5449,7 @@ class _ObjectRootProp():
         This function calls the Rhinoscript function: ObjectNames
 
         """
+        print_color_ed = True
         print_color = """
         Returns or modifies the print color of an object.  Object print colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
@@ -5441,9 +5459,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a print color value is not specified,  the current print color value if successful.
-        number - If a print color value is specified, the previous print color value if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        int - If a print color value is not specified,  the current print color value if successful.
+        int - If a print color value is specified, the previous print color value if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5472,9 +5490,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a print color source is not specified,  the current color source if successful.
-        number - If a print color source is specified, the previous color source if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        int - If a print color source is not specified,  the current color source if successful.
+        int - If a print color source is specified, the previous color source if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5482,6 +5500,7 @@ class _ObjectRootProp():
         This function calls the Rhinoscript function: ObjectPrintColorSource
 
         """
+        print_width_ed = True
         print_width = """
         Returns or modifies the print width of an object.  Object print widths are measured in millimeters (mm).
 
@@ -5491,9 +5510,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a print width value is not specified,  the current print width value if successful.
-        number - If a print width value is specified, the previous print width value if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        float - If a print width value is not specified,  the current print width value if successful.
+        float - If a print width value is specified, the previous print width value if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5521,9 +5540,9 @@ class _ObjectRootProp():
 
         Returns
         =======
-        number - If a print width source is not specified,  the current width source if successful.
-        number - If a print width source is specified, the previous width source if successful.
-        number - If objects is specified, then the number of objects modified if successful.
+        float - If a print width source is not specified,  the current width source if successful.
+        float - If a print width source is specified, the previous width source if successful.
+        int - If objects is specified, then the number of objects modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5803,6 +5822,7 @@ class _ObjectRootStat():
         This function calls the Rhinoscript function: FlashObject
 
         """
+        hide_ed = True
         hide = """
         Hides one or more objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
@@ -5812,7 +5832,7 @@ class _ObjectRootStat():
 
         Returns
         =======
-        number - The number of objects hidden if successful.
+        int - The number of objects hidden if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5820,6 +5840,7 @@ class _ObjectRootStat():
         This function calls the Rhinoscript function: HideObjects
 
         """
+        lock_ed = True
         lock = """
         Locks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
@@ -5829,7 +5850,7 @@ class _ObjectRootStat():
 
         Returns
         =======
-        number - The number of objects locked if successful.
+        int - The number of objects locked if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5837,6 +5858,7 @@ class _ObjectRootStat():
         This function calls the Rhinoscript function: LockObjects
 
         """
+        match_object_attributes_ed = True
         match_object_attributes = """
         Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
 
@@ -5846,7 +5868,7 @@ class _ObjectRootStat():
 
         Returns
         =======
-        number - The number of objects whose attributes were modified if successful.
+        int - The number of objects whose attributes were modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5854,6 +5876,7 @@ class _ObjectRootStat():
         This function calls the Rhinoscript function: MatchObjectAttributes
 
         """
+        reset_object_attributes_ed = True
         reset_object_attributes = """
         Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
 
@@ -5863,7 +5886,7 @@ class _ObjectRootStat():
 
         Returns
         =======
-        number - The number of objects whose attributes were modified if successful.
+        int - The number of objects whose attributes were modified if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5890,6 +5913,7 @@ class _ObjectRootStat():
         This function calls the Rhinoscript function: ObjectLayout
 
         """
+        select_ed = True
         select = """
         Selects one or more objects.
 
@@ -5899,7 +5923,7 @@ class _ObjectRootStat():
 
         Returns
         =======
-        number - The number of objects selected if successful.
+        int - The number of objects selected if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5907,6 +5931,7 @@ class _ObjectRootStat():
         This function calls the Rhinoscript function: SelectObjects
 
         """
+        show_ed = True
         show = """
         Shows one or more hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
@@ -5916,7 +5941,7 @@ class _ObjectRootStat():
 
         Returns
         =======
-        number - The number of objects shown if successful.
+        int - The number of objects shown if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5924,6 +5949,7 @@ class _ObjectRootStat():
         This function calls the Rhinoscript function: ShowObjects
 
         """
+        unlock_ed = True
         unlock = """
         Unlocks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
@@ -5933,7 +5959,7 @@ class _ObjectRootStat():
 
         Returns
         =======
-        number - The number of objects unlocked if successful.
+        int - The number of objects unlocked if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5941,6 +5967,7 @@ class _ObjectRootStat():
         This function calls the Rhinoscript function: UnlockObjects
 
         """
+        unselect_ed = True
         unselect = """
         Unselects one or more selected objects.
 
@@ -5950,7 +5977,7 @@ class _ObjectRootStat():
 
         Returns
         =======
-        number - The number of objects unselected if successful.
+        int - The number of objects unselected if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -6669,6 +6696,7 @@ class _PolyCurveFunc():
 
 class _PolyCurveProp():
 
+        degree_ed = True
         degree = """
         Returns the degree of a curve object.
 
@@ -6678,7 +6706,7 @@ class _PolyCurveProp():
 
         Returns
         =======
-        number - The degree of the curve if successful.
+        float - The degree of the curve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -6686,6 +6714,7 @@ class _PolyCurveProp():
         This function calls the Rhinoscript function: CurveDegree
 
         """
+        dim_ed = True
         dim = """
         Returns the dimension of a curve object.
 
@@ -6695,7 +6724,7 @@ class _PolyCurveProp():
 
         Returns
         =======
-        number - The dimension of the curve if successful.
+        float - The dimension of the curve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -6756,6 +6785,7 @@ class _PolyCurveProp():
         This function calls the Rhinoscript function: CurveEndPoint
 
         """
+        knot_count_ed = True
         knot_count = """
         Returns the knot count of a curve object.
 
@@ -6765,7 +6795,7 @@ class _PolyCurveProp():
 
         Returns
         =======
-        number - The number of knots if successful.
+        int - The number of knots if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -6790,6 +6820,7 @@ class _PolyCurveProp():
         This function calls the Rhinoscript function: CurveKnots
 
         """
+        length_ed = True
         length = """
         Returns the length of a curve object.
 
@@ -6800,7 +6831,7 @@ class _PolyCurveProp():
 
         Returns
         =======
-        number - The length of the curve if successful.
+        float - The length of the curve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -6825,6 +6856,7 @@ class _PolyCurveProp():
         This function calls the Rhinoscript function: CurveMidPoint
 
         """
+        control_pnt_count_ed = True
         control_pnt_count = """
         Returns the control points count of a curve object.
 
@@ -6834,7 +6866,7 @@ class _PolyCurveProp():
 
         Returns
         =======
-        number - The number of control points if successful.
+        int - The number of control points if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -6893,6 +6925,7 @@ class _PolyCurveProp():
         This function calls the Rhinoscript function: CurveWeights
 
         """
+        segment_count_ed = True
         segment_count = """
         Returns the number of curve segments that make up a polycurve.
 
@@ -6902,7 +6935,7 @@ class _PolyCurveProp():
 
         Returns
         =======
-        number - The number of curve segments in a polycurve if successful.
+        int - The number of curve segments in a polycurve if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -7924,6 +7957,7 @@ class _SurfaceRootProp():
         This function calls the Rhinoscript function: SurfaceCurvatureAnalysis
 
         """
+        degree_ed = True
         degree = """
         Returns the degree of a  surface object in the specified direction.
 
@@ -7934,7 +7968,7 @@ class _SurfaceRootProp():
         Returns
         =======
         list - If direction is not specified, or direction is set to 2, then the degree in both the U and V directions is returned.
-        number - If direction is specified, and direction is set to either 0 or 1, then the degree in either the U or V direction is returned.
+        int - If direction is specified, and direction is set to either 0 or 1, then the degree in either the U or V direction is returned.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -7995,8 +8029,8 @@ class _SurfaceRootProp():
 
         Returns
         =======
-        number - The density is not specified, then the current isocurve density if successful.
-        number - The density is specified, then the previous isocurve density if successful.
+        float - The density is not specified, then the current isocurve density if successful.
+        float - The density is specified, then the previous isocurve density if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -8110,6 +8144,7 @@ class _SurfaceRootProp():
 
 class _SurfaceRootPropClsd():
 
+        volume_ed = True
         volume = """
         Calculates the volume of closed surface or polysurface objects.
 
@@ -8120,8 +8155,8 @@ class _SurfaceRootPropClsd():
         Returns
         =======
         list - A list of volume information if successful.  The list will contain the following information:
-        number - The volume.
-        number - The absolute (+/-) error bound for the volume.
+        float - The volume.
+        float - The absolute (+/-) error bound for the volume.
         None - If not successful, or on error.
 
         Rhinoscript
