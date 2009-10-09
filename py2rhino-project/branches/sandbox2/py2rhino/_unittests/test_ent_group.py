@@ -28,7 +28,7 @@ class obj_test(unittest.TestCase):
         grp3 = grp.objs.remove_object(sph1)
         self.assertEqual(type(grp3),bool)
         
-    def testGroupRemoveObjects(self): #TODO change return _base._rsf.remove_object_from_group(object_ids, self._group._name)  to return _base._rsf.remove_objects_from_group(object_ids, self._group._name) in group.py
+    def testGroupRemoveObjects(self): 
         grp = p2r.ent.Group.create()
         sph1 = p2r.obj.Sphere.create((0,0,0), 5)
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
