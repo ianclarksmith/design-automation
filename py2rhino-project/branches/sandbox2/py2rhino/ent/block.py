@@ -24,7 +24,7 @@ class _BlockModf(object):
     
             
         """
-        return _base._rsf.delete_block(self._name)
+        return _base._rsf.delete_block(self._block._name)
     
 class _BlockTest(object):
     
@@ -49,7 +49,7 @@ class _BlockTest(object):
     
             
         """
-        return _base._rsf.is_block_embedded(self._name)
+        return _base._rsf.is_block_embedded(self._block._name)
     
     def is_in_use(self, where=pythoncom.Empty):
     
@@ -77,7 +77,7 @@ class _BlockTest(object):
     
             
         """
-        return _base._rsf.is_block_in_use(self._name, where)
+        return _base._rsf.is_block_in_use(self._block._name, where)
     
     def is_reference(self):
     
@@ -100,7 +100,7 @@ class _BlockTest(object):
     
             
         """
-        return _base._rsf.is_block_reference(self._name)
+        return _base._rsf.is_block_reference(self._block._name)
 
 
 class _BlockProp(object):
@@ -127,7 +127,7 @@ class _BlockProp(object):
     
             
         """
-        return _base._rsf.block_description(self._name, text)
+        return _base._rsf.block_description(self._block._name, text)
     
     def instance_count(self):
     
@@ -150,7 +150,7 @@ class _BlockProp(object):
     
             
         """
-        return _base._rsf.block_instance_count(self._name)
+        return _base._rsf.block_instance_count(self._block._name)
     
     def instances(self):
     
@@ -173,7 +173,7 @@ class _BlockProp(object):
     
             
         """
-        instance_ids = _base._rsf.block_instances(self._name)
+        instance_ids = _base._rsf.block_instances(self._block._name)
         if instance_ids:
             instances = []
             for instance_id in instance_ids:
@@ -205,7 +205,7 @@ class _BlockProp(object):
     
             
         """
-        return _base._rsf.block_path(self._name)
+        return _base._rsf.block_path(self._block._name)
     
     def url(self, url=pythoncom.Empty):
     
@@ -229,7 +229,7 @@ class _BlockProp(object):
     
             
         """
-        return _base._rsf.block_u_r_l(self._name, url)
+        return _base._rsf.block_u_r_l(self._block._name, url)
     
     def url_tag(self, url=pythoncom.Empty):
     
@@ -253,7 +253,7 @@ class _BlockProp(object):
     
             
         """
-        return _base._rsf.block_u_r_l_tag(self._name, url)
+        return _base._rsf.block_u_r_l_tag(self._block._name, url)
     
 class _BlockObjs(object):
     
@@ -278,7 +278,7 @@ class _BlockObjs(object):
     
             
         """
-        name = _base._rsf.rename_block(self._name, new_block_name)
+        name = _base._rsf.rename_block(self._block._name, new_block_name)
         if name:
             self._name = name
             return name
@@ -307,7 +307,7 @@ class _BlockObjs(object):
     
             
         """
-        return _base._rsf.block_object_count(self._name)
+        return _base._rsf.block_object_count(self._block._name)
     
     def objects(self):
     
@@ -331,7 +331,7 @@ class _BlockObjs(object):
             
         """
         #TODO: convert these ids to objects
-        return _base._rsf.block_objects(self._name)
+        return _base._rsf.block_objects(self._block._name)
 
     
 class Block(object):
@@ -452,7 +452,7 @@ class BlockInstance(object):
     
             
         """
-        return _base._rsf.block_instance_insert_point(self.rhino_id)
+        return _base._rsf.block_instance_insert_point(self._block.rhino_id)
     
     def instance_name(self):
     
@@ -475,7 +475,7 @@ class BlockInstance(object):
     
             
         """
-        return _base._rsf.block_instance_name(self.rhino_id)
+        return _base._rsf.block_instance_name(self._block.rhino_id)
     
     def instance_xform(self):
     
@@ -498,7 +498,7 @@ class BlockInstance(object):
     
             
         """
-        return _base._rsf.block_instance_xform(self.rhino_id)
+        return _base._rsf.block_instance_xform(self._block.rhino_id)
     
     def explode_instance(self):
     
@@ -521,4 +521,4 @@ class BlockInstance(object):
     
             
         """
-        return _base._rsf.explode_block_instance(self.rhino_id)   
+        return _base._rsf.explode_block_instance(self._block.rhino_id)   
