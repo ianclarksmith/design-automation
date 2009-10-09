@@ -177,7 +177,7 @@ class _GroupObjs(object):
         object_ids = []
         for object in objects:
             object_ids.append(object._rhino_id)        
-        return _base._rsf.remove_object_from_group(object_ids, self._group._name)    
+        return _base._rsf.remove_objects_from_group(object_ids, self._group._name)    
     
 
     
