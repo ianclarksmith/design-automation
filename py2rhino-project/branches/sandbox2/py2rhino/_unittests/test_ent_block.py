@@ -26,7 +26,7 @@ class obj_test(unittest.TestCase):
     def testExplodeInstance(self):
         blk = p2r.ent.Block("test")
         blki1 = p2r.ent.BlockInstance.explode_instance()
-        self.assertEqual(type(blki1),p2r.ent.block.BlockInstance)
+        self.assertEqual(type(blki1[0]),p2r.ent.block.BlockInstance)
          
     def testBlockRename(self):
         blk = p2r.ent.Block("test")
