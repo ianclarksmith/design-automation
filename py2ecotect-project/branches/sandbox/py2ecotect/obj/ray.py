@@ -19,7 +19,7 @@ class Ray(object):
         not given, the entire ray is drawn.
         
         """
-        arg_str = p2e._util._convert_args_to_string("ray.draw", depth)
+        arg_str = p2e._base._util._convert_args_to_string("ray.draw", depth)
         p2e._app.Exec(arg_str)
 
     def shoot(self, type, azi, alt):
@@ -50,7 +50,7 @@ class Ray(object):
         light 2 Rays reflect off opaque objects but pass through transparent objects. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("ray.shoot", type, azi, 
+        arg_str = p2e._base._util._convert_args_to_string("ray.shoot", type, azi, 
                                                       alt)
         p2e._app.Exec(arg_str)
 
@@ -81,7 +81,7 @@ class Ray(object):
         objects. 
 
         """
-        arg_str = p2e._util._convert_args_to_string("ray.trace", type, 
+        arg_str = p2e._base._util._convert_args_to_string("ray.trace", type, 
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
@@ -110,7 +110,7 @@ class Ray(object):
             
             """
             val = p2e._app.Request("get.ray.depth")
-            return p2e._util._convert_str_to_type(val, int)
+            return p2e._base._util._convert_str_to_type(val, int)
     
         def fset(self, depth):
             """
@@ -127,7 +127,7 @@ class Ray(object):
             points will initially default to the world origin.
             
             """
-            arg_str = p2e._util._convert_args_to_string("set.ray.depth", depth)
+            arg_str = p2e._base._util._convert_args_to_string("set.ray.depth", depth)
             p2e._app.Exec(arg_str)
         
         return property(**locals())
@@ -151,7 +151,7 @@ class Ray(object):
             
             """
             val = p2e._app.Request("get.ray.maxdepth")
-            return p2e._util._convert_str_to_type(val, int)
+            return p2e._base._util._convert_str_to_type(val, int)
         
         def fset(self, depth):
             """
@@ -165,7 +165,7 @@ class Ray(object):
             An integer value specifying the maximum number of reflections.
             
             """
-            arg_str = p2e._util._convert_args_to_string("set.ray.maxdepth", depth)
+            arg_str = p2e._base._util._convert_args_to_string("set.ray.maxdepth", depth)
             p2e._app.Exec(arg_str)
         
         return property(**locals())
@@ -190,9 +190,9 @@ class Ray(object):
         """
         #Return value is different. It returns 4 values. So a list 
         #of 4 values is returned
-        arg_str = p2e._util._convert_args_to_string("get.ray.object", depth)
+        arg_str = p2e._base._util._convert_args_to_string("get.ray.object", depth)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float, float, float)
+        return p2e._base._util._convert_str_to_list(val, float, float, float, float)
         
     def set_object(self, depth, object):
         """
@@ -209,7 +209,7 @@ class Ray(object):
         The object to set.
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.ray.object", depth, 
+        arg_str = p2e._base._util._convert_args_to_string("set.ray.object", depth, 
                                                       object.eco_id)
         p2e._app.Exec(arg_str)
         
@@ -235,9 +235,9 @@ class Ray(object):
         The zero-based index of the object intersected.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.ray.position", depth)
+        arg_str = p2e._base._util._convert_args_to_string("get.ray.position", depth)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float, float, int)
+        return p2e._base._util._convert_str_to_list(val, float, float, float, int)
     
     def set_position(self, depth, absolute_position, object = ""):
         """
@@ -260,14 +260,14 @@ class Ray(object):
                 
         """
         if object == "":
-            arg_str = p2e._util._convert_args_to_string("set.ray.position", 
+            arg_str = p2e._base._util._convert_args_to_string("set.ray.position", 
                                                         depth, 
                                                         absolute_position[0],
                                                         absolute_position[1], 
                                                         absolute_position[2], 
                                                         object)
         else:
-            arg_str = p2e._util._convert_args_to_string("set.ray.position", 
+            arg_str = p2e._base._util._convert_args_to_string("set.ray.position", 
                                                         depth, 
                                                         absolute_position[0],
                                                         absolute_position[1], 
@@ -294,7 +294,7 @@ class Ray(object):
                     
             """
             val = p2e._app.Request("get.ray.source")
-            return p2e._util._convert_str_to_list(val, float, float, float)
+            return p2e._base._util._convert_str_to_list(val, float, float, float)
             
         def fset(self, absolute_position):
             """
@@ -309,7 +309,7 @@ class Ray(object):
             X, Y and Z axis of the ray point in 3 dimensional model space. 
     
             """
-            arg_str = p2e._util._convert_args_to_string("set.ray.source", 
+            arg_str = p2e._base._util._convert_args_to_string("set.ray.source", 
                                                           absolute_position[0],
                                                           absolute_position[1],
                                                           absolute_position[2])

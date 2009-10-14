@@ -21,7 +21,7 @@ def get_altitude():
     
     """
     val = p2e._app.Request("get.project.altitude")
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
 def set_altitude(alt):
     """
@@ -35,7 +35,7 @@ def set_altitude(alt):
     The altitude as height above sea level.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.altitude", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.altitude", 
                                                  alt)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -56,7 +56,7 @@ def get_client():
     
     """
     val = p2e._app.Request("get.project.client")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
 def set_client(client):
     """
@@ -71,7 +71,7 @@ def set_client(client):
     A text string containing the new client name.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.client", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.client", 
                                                  client)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -91,7 +91,7 @@ def get_description():
     
     """
     val = p2e._app.Request("get.project.description")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
     
 def set_description(description):
     """
@@ -105,7 +105,7 @@ def set_description(description):
     A text string containing the new description.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.description", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.description", 
                                                  description)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -125,7 +125,7 @@ def get_latitude():
     
     """
     val = p2e._app.Request("get.project.latitude")
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
 def set_latitude(lat):
     """
@@ -139,7 +139,7 @@ def set_latitude(lat):
     The latitude in decimal degrees.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.latitude", lat)
+    arg_str = p2e._base._util._convert_args_to_string("set.project.latitude", lat)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def get_location():
@@ -165,7 +165,7 @@ def get_location():
     
     """ 
     val = p2e._app.Request("get.project.location")
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 
 def set_location(latitude, longitude, timezone, update = True):
     """
@@ -190,7 +190,7 @@ def set_location(latitude, longitude, timezone, update = True):
     represents the affirmative and 0 or false the negative.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.location", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.location", 
                                                  latitude, longitude, 
                                                  timezone, update)
     p2e._app.Exec(arg_str)
@@ -211,7 +211,7 @@ def get_location_name():
     
     """
     val = p2e._app.Request("get.project.locname")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
 def set_location_name(name):
     """
@@ -225,7 +225,7 @@ def set_location_name(name):
     A text string representing the new name of the location.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.locname", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.locname", 
                                                  name)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -245,7 +245,7 @@ def get_longitude():
     
     """
     val = p2e._app.Request("get.project.longitude")
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
       
 def set_longitude(lng):
     """
@@ -259,7 +259,7 @@ def set_longitude(lng):
     The longitude in decimal degrees.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.longitude", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.longitude", 
                                                  lng)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -279,7 +279,7 @@ def get_north():
     
     """
     val = p2e._app.Request("get.project.north")
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
 def set_north(north):
     """
@@ -293,7 +293,7 @@ def set_north(north):
     The angle in degrees between true north and the positive Y axis.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.north", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.north", 
                                                  north)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -313,7 +313,7 @@ def get_reference():
     
     """
     val = p2e._app.Request("get.project.reference")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
 def set_reference(description):
     """
@@ -327,7 +327,7 @@ def set_reference(description):
     A text string containing the new reference number. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.reference", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.reference", 
                                                  description)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -356,7 +356,7 @@ def get_terrain():
 
     """
     val = p2e._app.Request("get.project.terrain")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
 def set_terrain(terrain):
     """
@@ -380,7 +380,7 @@ def set_terrain(terrain):
     urban 3 In a dense urban setting (very protected)  
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.terrain", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.terrain", 
                                                  terrain)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -400,7 +400,7 @@ def get_timezone():
     
     """
     val = p2e._app.Request("get.project.timezone")
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
     
 def set_timezone(tz):
     """
@@ -414,7 +414,7 @@ def set_timezone(tz):
     A GMT offset value in +/- decimal hours.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.timezone", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.timezone", 
                                                   tz)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -434,7 +434,7 @@ def get_title():
     
     """
     val = p2e._app.Request("get.project.title")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
 def set_title(description):
     """
@@ -448,7 +448,7 @@ def set_title(description):
     A text string containing the new title.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.title", 
+    arg_str = p2e._base._util._convert_args_to_string("set.project.title", 
                                                  description)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
@@ -478,7 +478,7 @@ def get_type():
     
     """
     val = p2e._app.Request("get.project.type")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
 def set_type(type):
     """
@@ -502,7 +502,7 @@ def set_type(type):
     5 Other 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.project.type", type)
+    arg_str = p2e._base._util._convert_args_to_string("set.project.type", type)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 

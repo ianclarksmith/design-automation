@@ -1,7 +1,7 @@
 #win32 is required: http://python.net/crew/mhammond/win32/
 
 #version
-_version = "0.1.1"
+_version = "0.1.3"
 #===============================================================================
 # Make a connection to ecotect
 #===============================================================================
@@ -13,11 +13,15 @@ import sys as _sys
 
 #Check version
 _eco_is_2009 = _os.path.exists("C:\\Program Files\\Autodesk\\Ecotect 2009\\ecotect.exe")
-if not _eco_is_2009:
+_eco_is_2010 = _os.path.exists("C:\\Program Files\\Autodesk\\Ecotect Analysis 2010\\ecotect.exe")
+
+if not _eco_is_2009 or _eco_is_2010:
     print """
     The version of Ecotect cannot be detected. Please make sure you are using 
-    version 2009, and start Ecotect before running your script.
+    version 2009 or 2010, and start Ecotect before running your script.
     """
+else:
+    print "Ecotect has been found."
 
 #Create a conversation with Ecotect
 _srv = _dde.CreateServer()
@@ -27,15 +31,21 @@ _app = _dde.CreateConversation(_srv)
 #Create the connection and start Ecotect if necessary
 try:
     _app.ConnectTo("Ecotect", "request")
+    print "Connection with Ecotect successful..."
 except:
     if _eco_is_2009:
         _win32api.WinExec("C:\\Program Files\\Autodesk\\Ecotect 2009\\ecotect.exe")
         _app.ConnectTo("Ecotect", "request")
+        print "Ecotect 2009 has been started - connection successful..."
+    elif _eco_is_2010:
+        _win32api.WinExec("C:\\Program Files\\Autodesk\\Ecotect Analysis 2010\\ecotect.exe")
+        _app.ConnectTo("Ecotect", "request")
+        print "Ecotect 2010 has been started - connection successful..."        
     else:
-        print "\n\nERROR: No connection possible."
+        print "\n\nERROR: Connection with Ecotect has failed."
         _sys.exit()
     
-print "Connection with Ecotect successful..."
+
 #===============================================================================
 # Import modules
 #===============================================================================
