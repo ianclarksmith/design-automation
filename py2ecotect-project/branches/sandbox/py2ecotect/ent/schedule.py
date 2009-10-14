@@ -19,7 +19,7 @@ class Schedule(object):
         A text string specifying the name of the new schedule.
         
         """
-        arg_str = p2e._util._convert_args_to_string("schedule.add", name)
+        arg_str = p2e._base._util._convert_args_to_string("schedule.add", name)
         p2e._app.Exec(arg_str)
     
     def delete(self, schedule):
@@ -36,7 +36,7 @@ class Schedule(object):
         Schedule Editor dialog with sorting turned off.
         
         """
-        arg_str = p2e._util._convert_args_to_string("schedule.delete", schedule)
+        arg_str = p2e._base._util._convert_args_to_string("schedule.delete", schedule)
         p2e._app.Exec(arg_str)
     
     def load(self, filename):
@@ -53,7 +53,7 @@ class Schedule(object):
         The full path to the library file to load.
         
         """
-        arg_str = p2e._util._convert_args_to_string("schedule.load", filename)
+        arg_str = p2e._base._util._convert_args_to_string("schedule.load", filename)
         p2e._app.Exec(arg_str)
     
     def profile_read(self, schedule, profile, filename):
@@ -75,7 +75,7 @@ class Schedule(object):
         The full path to the profile file to read from. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("schedule.profile.read", 
+        arg_str = p2e._base._util._convert_args_to_string("schedule.profile.read", 
                                                       schedule, profile, filename)
         p2e._app.Exec(arg_str)
     
@@ -98,7 +98,7 @@ class Schedule(object):
         The full path to where the profile file will be written. 
 
         """
-        arg_str = p2e._util._convert_args_to_string("schedule.profile.write", 
+        arg_str = p2e._base._util._convert_args_to_string("schedule.profile.write", 
                                                       schedule, profile, filename)
         p2e._app.Exec(arg_str)
     
@@ -117,7 +117,7 @@ class Schedule(object):
         The full path to the schedule data file to read from. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("schedule.read", 
+        arg_str = p2e._base._util._convert_args_to_string("schedule.read", 
                                                       schedule, filename)
         p2e._app.Exec(arg_str)
     
@@ -133,7 +133,7 @@ class Schedule(object):
         The full path to where the schedule library file will be written. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("schedule.save", 
+        arg_str = p2e._base._util._convert_args_to_string("schedule.save", 
                                                       filename)
         p2e._app.Exec(arg_str)
     
@@ -151,7 +151,7 @@ class Schedule(object):
         The full path to where the schedule data file will be written. 
 
         """
-        arg_str = p2e._util._convert_args_to_string("schedule.write", 
+        arg_str = p2e._base._util._convert_args_to_string("schedule.write", 
                                                       schedule, filename)
         p2e._app.Exec(arg_str)
     
@@ -185,10 +185,10 @@ class Schedule(object):
         A decimal value between 0 and 1. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.schedule.activation", 
+        arg_str = p2e._base._util._convert_args_to_string("get.schedule.activation", 
                                                      schedule, profile, hour)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, float)
+        return p2e._base._util._convert_str_to_type(val, float)
     
     def set_activation(self, schedule, profile, hour, value):
         """
@@ -213,7 +213,7 @@ class Schedule(object):
         A decimal value between 0 and 1. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.schedule.activation", 
+        arg_str = p2e._base._util._convert_args_to_string("set.schedule.activation", 
                                                      schedule, profile, hour, 
                                                      value)
         p2e._app.Exec(arg_str)
@@ -237,10 +237,10 @@ class Schedule(object):
         The zero-based daily profile index.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.schedule.day", 
+        arg_str = p2e._base._util._convert_args_to_string("get.schedule.day", 
                                                      schedule, day)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
+        return p2e._base._util._convert_str_to_type(val, int)
     
     def set_day(self, schedule, day, profile):
         """
@@ -260,7 +260,7 @@ class Schedule(object):
         The zero-based index of the profile, being a value between 0 and 11.
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.schedule.day", 
+        arg_str = p2e._base._util._convert_args_to_string("set.schedule.day", 
                                                      schedule, day, profile)
         p2e._app.Exec(arg_str)
     
@@ -283,9 +283,9 @@ class Schedule(object):
         The zero-based index of the matching schedule.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.schedule.index", name)
+        arg_str = p2e._base._util._convert_args_to_string("get.schedule.index", name)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
+        return p2e._base._util._convert_str_to_type(val, int)
     
     def get_magnitude(self, schedule):
         """
@@ -305,10 +305,10 @@ class Schedule(object):
         The schedule magnitude value. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.schedule.magnitude", 
+        arg_str = p2e._base._util._convert_args_to_string("get.schedule.magnitude", 
                                                       schedule)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
+        return p2e._base._util._convert_str_to_type(val, int)
     
     def set_magnitude(self, schedule, value):
         """
@@ -328,7 +328,7 @@ class Schedule(object):
         the schedule in each application.
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.schedule.magnitude", 
+        arg_str = p2e._base._util._convert_args_to_string("set.schedule.magnitude", 
                                                      schedule, value)
         p2e._app.Exec(arg_str)
 
@@ -350,10 +350,10 @@ class Schedule(object):
         A string of up to 128 characters in length.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.schedule.name", 
+        arg_str = p2e._base._util._convert_args_to_string("get.schedule.name", 
                                                       schedule)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, str)
+        return p2e._base._util._convert_str_to_type(val, str)
 
     def set_name(self, schedule, name):
         """
@@ -370,7 +370,7 @@ class Schedule(object):
         A string of up to 128 characters in length.
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.schedule.name", 
+        arg_str = p2e._base._util._convert_args_to_string("set.schedule.name", 
                                                      schedule, name)
         p2e._app.Exec(arg_str)
 
@@ -395,10 +395,10 @@ class Schedule(object):
         The zero-based daily profile index. 
 
         """
-        arg_str = p2e._util._convert_args_to_string("get.schedule.profile.index", 
+        arg_str = p2e._base._util._convert_args_to_string("get.schedule.profile.index", 
                                                       schedule, name)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
+        return p2e._base._util._convert_str_to_type(val, int)
         
     def get_profile_name(self,schedule, index):
         """
@@ -422,10 +422,10 @@ class Schedule(object):
         A string representing the name of the profile.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.schedule.profile.name", 
+        arg_str = p2e._base._util._convert_args_to_string("get.schedule.profile.name", 
                                                       schedule, index)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
+        return p2e._base._util._convert_str_to_type(val, int)
         
     def set_profile_name(self,schedule, index, name):
         """
@@ -446,7 +446,7 @@ class Schedule(object):
         A text string containing the new profile name.
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.schedule.profile.name", 
+        arg_str = p2e._base._util._convert_args_to_string("set.schedule.profile.name", 
                                                      schedule, index, name)
         p2e._app.Exec(arg_str)
 

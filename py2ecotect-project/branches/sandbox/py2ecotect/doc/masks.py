@@ -19,7 +19,7 @@ class Masks(object):
         """
         p2e._app.Exec("masks.clear")
 
-    def copy(self, _from, to):
+    def copy(self, from_mask, to_mask):
         """
         
         Copies all day information from one shading mask to another. 
@@ -27,14 +27,14 @@ class Masks(object):
         Parameter(s)
         This command takes the following parameters.
         
-        _from 
+        from_mask 
         The zero-based index of the shading mask to copy from. 
         
-        to 
+        to_mask 
         The zero-based index of the shading mask to copy to.
         
         """
-        arg_str = p2e._util._convert_args_to_string("masks.copy", _from, to )
+        arg_str = p2e._base._util._convert_args_to_string("masks.copy", from_mask, to_mask )
         p2e._app.Exec(arg_str)
 
     def interpolate(self, index, t1, t2, fraction):
@@ -62,7 +62,7 @@ class Masks(object):
         and 1 (t2).
         
         """
-        arg_str = p2e._util._convert_args_to_string("masks.interpolate", 
+        arg_str = p2e._base._util._convert_args_to_string("masks.interpolate", 
                                                       index, t1, t2, fraction )
         p2e._app.Exec(arg_str)
 
@@ -100,7 +100,7 @@ class Masks(object):
         The zero-based index of the shading mask. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("masks.update", index)
+        arg_str = p2e._base._util._convert_args_to_string("masks.update", index)
         p2e._app.Exec(arg_str)
 
     def add_mask(self, object = 0):
@@ -123,9 +123,9 @@ class Masks(object):
         The zero-based index of the new shading mask.
         
         """
-        arg_str = p2e._util._convert_args_to_string("add.mask", object)
+        arg_str = p2e._base._util._convert_args_to_string("add.mask", object)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
+        return p2e._base._util._convert_str_to_type(val, int)
     
     #===========================================================================
     # Properties
@@ -150,7 +150,7 @@ class Masks(object):
             
             """
             val = p2e._app.Request("get.masks.count")
-            return p2e._util._convert_str_to_type(val, int)
+            return p2e._base._util._convert_str_to_type(val, int)
         
         return property(**locals())
 
@@ -182,10 +182,10 @@ class Masks(object):
         the effective shading of the object whose shadng mask is specified. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.masks.data", index, i, 
+        arg_str = p2e._base._util._convert_args_to_string("get.masks.data", index, i, 
                                                      j)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, float)
+        return p2e._base._util._convert_str_to_type(val, float)
 
     def set_data(self, index, i, j, value):
         """
@@ -212,7 +212,7 @@ class Masks(object):
         the effective shading of the object whose shading mask is specified.
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.masks.data", index, i, 
+        arg_str = p2e._base._util._convert_args_to_string("set.masks.data", index, i, 
                                                      j, value)
         p2e._app.Exec(arg_str)
 
@@ -235,9 +235,9 @@ class Masks(object):
         The zero-based index of the object.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.masks.object", index)
+        arg_str = p2e._base._util._convert_args_to_string("get.masks.object", index)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
+        return p2e._base._util._convert_str_to_type(val, int)
 
     def set_object(self, index, object):
         """
@@ -255,7 +255,7 @@ class Masks(object):
         The zero-based index of the object. 
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.masks.object", index, 
+        arg_str = p2e._base._util._convert_args_to_string("set.masks.object", index, 
                                                       object)
         p2e._app.Exec(arg_str)
 
@@ -286,9 +286,9 @@ class Masks(object):
         the mask.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.masks.percentage", index)
+        arg_str = p2e._base._util._convert_args_to_string("get.masks.percentage", index)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float)
+        return p2e._base._util._convert_str_to_list(val, float, float)
 
     def get_percentage_angle(self, index, azi, alt):
         """
@@ -327,10 +327,10 @@ class Masks(object):
         the mask.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.masks.percentage.angle", 
+        arg_str = p2e._base._util._convert_args_to_string("get.masks.percentage.angle", 
                                                      index, azi, alt)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float)
+        return p2e._base._util._convert_str_to_list(val, float, float)
 
     def get_percentage_datetime(self, index, day, time):
         """
@@ -365,10 +365,10 @@ class Masks(object):
         the mask.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.masks.percentage.datetime", 
+        arg_str = p2e._base._util._convert_args_to_string("get.masks.percentage.datetime", 
                                                      index, day, time)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float)
+        return p2e._base._util._convert_str_to_list(val, float, float)
 
     def get_percentage_index(self, index, x, y):
         """
@@ -405,10 +405,10 @@ class Masks(object):
         the mask.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.masks.percentage.index", 
+        arg_str = p2e._base._util._convert_args_to_string("get.masks.percentage.index", 
                                                      index, x, y)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float)
+        return p2e._base._util._convert_str_to_list(val, float, float)
 
     def get_shading(self, index, azi, alt):
         """
@@ -438,10 +438,10 @@ class Masks(object):
         A decimal value, between 0 (unshaded) and 1 (fully shaded).
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.masks.shading", index, 
+        arg_str = p2e._base._util._convert_args_to_string("get.masks.shading", index, 
                                                      azi, alt)
         val = p2e._app.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, float)
+        return p2e._base._util._convert_str_to_type(val, float)
 
     def set_shading(self, index, azi, alt, value):
         """
@@ -467,6 +467,6 @@ class Masks(object):
         A decimal value, between 0 (unshaded) and 1 (fully shaded). 
         
         """
-        arg_str = p2e._util._convert_args_to_string("set.masks.shading", index, 
+        arg_str = p2e._base._util._convert_args_to_string("set.masks.shading", index, 
                                                      azi, alt, value)
         p2e._app.Exec(arg_str)
