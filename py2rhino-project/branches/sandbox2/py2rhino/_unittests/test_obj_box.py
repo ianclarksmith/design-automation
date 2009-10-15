@@ -36,16 +36,20 @@ class obj_test(unittest.TestCase):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
         box2 = box1.eval.evaluate_frame((0,1))
         self.assertEqual(type(box2),list)   
-               
+    
     def testBoxGroups(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(box1)
         box2 = box1.grps.groups()
-        self.assertEqual(type(box2),p2r.obj.Box)
+        self.assertEqual(type(box2[0]),unicode)
         
     def testBoxTopGroup(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(box1)
         box2 = box1.grps.top_group()
-        self.assertEqual(type(box2),p2r.obj.Box)  
+        self.assertEqual(type(box2),unicode)      
 
     def testBoxFlip(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
