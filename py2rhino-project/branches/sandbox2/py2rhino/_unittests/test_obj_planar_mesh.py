@@ -41,14 +41,18 @@ class obj_test(unittest.TestCase):
     def testPlanarMeshGroups(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(planarmesh1)
         planarmesh2 = planarmesh1.grps.groups()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)
+        self.assertEqual(type(planarmesh2[0]),unicode)
         
     def testPlanarMeshTopGroup(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(planarmesh1)
         planarmesh2 = planarmesh1.grps.top_group()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+        self.assertEqual(type(planarmesh2),unicode)  
     
     def testPlanarMeshQuadToTriangles(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
