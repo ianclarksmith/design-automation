@@ -39,13 +39,17 @@ class obj_test(unittest.TestCase):
     
     def testSphereGroups(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(sphere1)
         sphere2 = sphere1.grps.groups()
-        self.assertEqual(type(sphere2),p2r.obj.Sphere)
+        self.assertEqual(type(sphere2[0]),unicode)
         
     def testSphereTopGroup(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(sphere1)
         sphere2 = sphere1.grps.top_group()
-        self.assertEqual(type(sphere2),p2r.obj.Sphere)   
+        self.assertEqual(type(sphere2),unicode)   
         
     def testSphereFlip(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
