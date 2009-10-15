@@ -39,13 +39,17 @@ class obj_test(unittest.TestCase):
         
     def testCylinderGroups(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(cylinder1)
         cylinder2 = cylinder1.grps.groups()
-        self.assertEqual(type(cylinder2),p2r.obj.Cylinder)
+        self.assertEqual(type(cylinder2[0]),unicode)
         
     def testCylinderTopGroup(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(cylinder1)
         cylinder2 = cylinder1.grps.top_group()
-        self.assertEqual(type(cylinder2),p2r.obj.Cylinder)  
+        self.assertEqual(type(cylinder2),unicode)  
 
     def testCylinderIndex(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
