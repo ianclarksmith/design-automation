@@ -63,7 +63,7 @@ class obj_test(unittest.TestCase):
 
     def testGroupUnlock(self):
         grp = p2r.ent.Group.create()
-        grp2 = grp.dspl.unlok(grp) #TODO: shouldn't it be unlock?
+        grp2 = grp.dspl.unlock() 
         self.assertEqual(type(grp2),int) 
 
     def testGroupName(self):
