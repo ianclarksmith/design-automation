@@ -2,7 +2,7 @@ import unittest
 import py2rhino as p2r
 
 class obj_test(unittest.TestCase):
-    
+               
     def testArcBoxMorph(self):
         sph1 = p2r.obj.Sphere.create((0,0,0), 5)
         sph2 = sph1.defm.box_morph(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,10),(10,0,10),(10,10,5),(0,10,5)))
