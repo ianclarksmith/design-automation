@@ -80,13 +80,17 @@ class obj_test(unittest.TestCase):
     
     def testArcGroups(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(arc1)
         arc2 = arc1.grps.groups()
-        self.assertEqual(type(arc2),p2r.obj.Arc)
+        self.assertEqual(type(arc2[0]),unicode)
         
     def testArcTopGroup(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(arc1)
         arc2 = arc1.grps.top_group()
-        self.assertEqual(type(arc2),p2r.obj.Arc)  
+        self.assertEqual(type(arc2),unicode) 
         
     def testArcIndex(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
