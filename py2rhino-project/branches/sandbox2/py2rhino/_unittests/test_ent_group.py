@@ -2,7 +2,7 @@ import unittest
 import py2rhino as p2r
 
 class obj_test(unittest.TestCase):
-    
+        
     def testCreateGroup(self):
         grp = p2r.ent.Group.create()
         self.assertEqual(type(grp),p2r.ent.group.Group)
