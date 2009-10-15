@@ -118,13 +118,13 @@ class obj_test(unittest.TestCase):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
         pnt = circle1.func.pnt_inside((0,0,0))
         self.assertEqual(type(pnt),int) 
-                  
+    
     def testCircleGroups(self):
         grp = p2r.ent.Group.create()
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
         grp2 = grp.objs.add_object(circle1)
-        circle2 = grp2.grps.groups()
-        self.assertEqual(type(circle2),bool)
+        circle2 = circle1.grps.groups()
+        self.assertEqual(type(circle2[0]),unicode)
     
     def testCircleTopGroup(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
