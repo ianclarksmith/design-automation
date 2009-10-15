@@ -76,15 +76,19 @@ class obj_test(unittest.TestCase):
         arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
         arc2 = p2r.obj.Line.create((10,0,0), (20,20,0))
         polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(polycurve1)
         polycurve2 = polycurve1.grps.groups()
-        self.assertEqual(type(polycurve2),p2r.obj.PolyCurve) 
+        self.assertEqual(type(polycurve2[0]),unicode) 
         
     def testPolyCurveTopGroup(self):
         arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
         arc2 = p2r.obj.Line.create((10,0,0), (20,20,0))
         polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(polycurve1)
         polycurve2 = polycurve1.grps.top_group()
-        self.assertEqual(type(polycurve2),p2r.obj.PolyCurve) 
+        self.assertEqual(type(polycurve2),unicode) 
         
     def testPolyCurveIndex(self):
         arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
