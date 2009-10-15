@@ -268,7 +268,7 @@ class _GroupDspl(object):
         
         """
         return _base._rsf.lock_group(self._group._name)
-    def unlok(self, name):
+    def unlock(self):
         """
         
         Unlocks the group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
