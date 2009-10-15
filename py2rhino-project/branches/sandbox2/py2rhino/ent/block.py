@@ -363,10 +363,113 @@ class Block(object):
         self.test = Block.test(self)        
         self.prop = Block.prop(self)
 
-
-
+class _BlockInstanceFunc(object):
+    def explode_instance(self):
+    
+        """
+        
+            Explodes a block instance into it's geometric components.  The exploded objects are added to the document.
+    
+            Parameters
+            ==========
+            None
+    
+            Returns
+            =======
+            list - A list of strings identifying the newly exploded objects if successful.
+            None - If not successful, or on error.
+    
+            Rhinoscript
+            ===========
+            This function calls the Rhinoscript function: ExplodeBlockInstance
+    
+            
+        """
+        return _base._rsf.explode_block_instance(self._block_instance._rhino_id)  
+    
+class _BlockInstanceProp(object):
+    def instance_insert_point(self):
+    
+        """
+        
+            Returns the insertion point of a block instance.
+    
+            Parameters
+            ==========
+            None
+    
+            Returns
+            =======
+            list - A 3-D point if successful.
+            None - If not successful, or on error.
+    
+            Rhinoscript
+            ===========
+            This function calls the Rhinoscript function: BlockInstanceInsertPoint
+    
+            
+        """
+        return _base._rsf.block_instance_insert_point(self._block_instance._rhino_id)
+    
+    def instance_name(self):
+    
+        """
+        
+            Returns the block name of a block instance.
+    
+            Parameters
+            ==========
+            None
+    
+            Returns
+            =======
+            string - The block name if successful.
+            None - If not successful, or on error.
+    
+            Rhinoscript
+            ===========
+            This function calls the Rhinoscript function: BlockInstanceName
+    
+            
+        """
+        return _base._rsf.block_instance_name(self._block_instance._rhino_id)
+    
+    def instance_xform(self):
+    
+        """
+        
+            Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
+    
+            Parameters
+            ==========
+            None
+    
+            Returns
+            =======
+            list - A transformation matrix (4x4 list of numbers) if successful.
+            None - If not successful, or on error.
+    
+            Rhinoscript
+            ===========
+            This function calls the Rhinoscript function: BlockInstanceXform
+    
+            
+        """
+        return _base._rsf.block_instance_xform(self._block_instance._rhino_id)
+    
 class BlockInstance(object):    
     #TODO: should a block instance be part of the object hierarchy????
+    
+    #--------------------------------------------------------------------------
+    # nested classes to hold methods
+          
+    class prop(_BlockInstanceProp):
+        def __init__(self, _block_instance):
+            self._block_instance = _block_instance
+    class func(_BlockInstanceFunc):
+        def __init__(self, _block_instance):
+            self._block_instance = _block_instance
+    
     #--------------------------------------------------------------------------
     # Class constructor
     def __init__(self, rhino_id):
@@ -374,7 +477,9 @@ class BlockInstance(object):
             raise Exception("Use the create... methods to create instances of this class.")
         self._rhino_id = rhino_id
 
-        
+        #create instances of the nested classes
+        self.prop = BlockInstance.prop(self)
+        self.func = BlockInstance.func(self)        
     #--------------------------------------------------------------------------
     @staticmethod
     def create(block, insertion_point, scale=pythoncom.Empty, angle=pythoncom.Empty, normal=pythoncom.Empty):
@@ -431,94 +536,6 @@ class BlockInstance(object):
         block_id = _base._rsf.insert_block_2(block._name, xform)
         return BlockInstance(block_id)
     
-    def instance_insert_point(self):
+
     
-        """
-        
-            Returns the insertion point of a block instance.
-    
-            Parameters
-            ==========
-            None
-    
-            Returns
-            =======
-            list - A 3-D point if successful.
-            None - If not successful, or on error.
-    
-            Rhinoscript
-            ===========
-            This function calls the Rhinoscript function: BlockInstanceInsertPoint
-    
-            
-        """
-        return _base._rsf.block_instance_insert_point(self._block.rhino_id)
-    
-    def instance_name(self):
-    
-        """
-        
-            Returns the block name of a block instance.
-    
-            Parameters
-            ==========
-            None
-    
-            Returns
-            =======
-            string - The block name if successful.
-            None - If not successful, or on error.
-    
-            Rhinoscript
-            ===========
-            This function calls the Rhinoscript function: BlockInstanceName
-    
-            
-        """
-        return _base._rsf.block_instance_name(self._block.rhino_id)
-    
-    def instance_xform(self):
-    
-        """
-        
-            Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
-    
-            Parameters
-            ==========
-            None
-    
-            Returns
-            =======
-            list - A transformation matrix (4x4 list of numbers) if successful.
-            None - If not successful, or on error.
-    
-            Rhinoscript
-            ===========
-            This function calls the Rhinoscript function: BlockInstanceXform
-    
-            
-        """
-        return _base._rsf.block_instance_xform(self._block.rhino_id)
-    
-    def explode_instance(self):
-    
-        """
-        
-            Explodes a block instance into it's geometric components.  The exploded objects are added to the document.
-    
-            Parameters
-            ==========
-            None
-    
-            Returns
-            =======
-            list - A list of strings identifying the newly exploded objects if successful.
-            None - If not successful, or on error.
-    
-            Rhinoscript
-            ===========
-            This function calls the Rhinoscript function: ExplodeBlockInstance
-    
-            
-        """
-        return _base._rsf.explode_block_instance(self._block.rhino_id)   
+ 
