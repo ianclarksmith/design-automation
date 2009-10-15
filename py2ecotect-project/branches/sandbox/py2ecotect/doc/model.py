@@ -92,7 +92,7 @@ def azimuth(point_start, point_end):
     val = p2e._app.Request(arg_str)
     return p2e._base._util._convert_str_to_type(val, float)    
 #------------------------------------------------------------------------------ 
-def number_of_nodes():
+def num_nodes():
     """
     
     Returns the number of individual object nodes within the currently 
@@ -111,7 +111,7 @@ def number_of_nodes():
     val = p2e._app.Request("get.model.nodes")
     return p2e._base._util._convert_str_to_type(val, int)
 
-def number_of_objects():
+def num_objects():
     """
     
     Returns the number of objects in the currently loaded ECOTECT model. 
@@ -132,7 +132,7 @@ def number_of_objects():
     val = p2e._app.Request("get.model.objects")
     return p2e._base._util._convert_str_to_type(val, int)
 
-def number_of_zones():
+def num_zones():
     """
     
     Returns the number of zones in the currently loaded ECOTECT model as a 
@@ -151,7 +151,7 @@ def number_of_zones():
     val = p2e._app.Request("get.model.zones")
     return p2e._base._util._convert_str_to_type(val, int)     
 
-def number_of_materials():
+def num_materials():
     """
     
     Returns the number of materials stored in the currently loaded 
