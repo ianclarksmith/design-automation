@@ -16,19 +16,19 @@ class obj_test(unittest.TestCase):
     def testInstanceInsertPoint(self):
         blk = p2r.ent.Block("test")
         blki = p2r.ent.BlockInstance.create(blk,(0,0,0))
-        blki1 = blki.instance_insert_point()
+        blki1 = blki.prop.instance_insert_point()
         self.assertEqual(type(blki1[0]),float)
         
     def testInstanceName(self):
         blk = p2r.ent.Block("test")
         blki = p2r.ent.BlockInstance.create(blk,(0,0,0))
-        blki1 = blki.instance_name()
+        blki1 = blki.prop.instance_name()
         self.assertEqual(type(blki1),unicode)        
         
     def testExplodeInstance(self):
         blk = p2r.ent.Block("test")
         blki = p2r.ent.BlockInstance.create(blk,(0,0,0))
-        blki1 = blki.explode_instance()
+        blki1 = blki.func.explode_instance()
         self.assertEqual(type(blki1[0]),unicode)
 
     def testBlockCount(self):
