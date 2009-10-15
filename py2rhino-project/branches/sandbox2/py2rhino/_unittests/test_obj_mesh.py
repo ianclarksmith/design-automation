@@ -41,14 +41,18 @@ class obj_test(unittest.TestCase):
     def testMeshGroups(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
         mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(mesh1)
         mesh2 = mesh1.grps.groups()
-        self.assertEqual(type(mesh2),p2r.obj.Mesh)
+        self.assertEqual(type(mesh2[0]),unicode)
         
     def testMeshTopGroup(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
         mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(mesh1)
         mesh2 = mesh1.grps.top_group()
-        self.assertEqual(type(mesh2),p2r.obj.Mesh)   
+        self.assertEqual(type(mesh2),unicode)   
         
     def testMeshQuadToTriangles(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
