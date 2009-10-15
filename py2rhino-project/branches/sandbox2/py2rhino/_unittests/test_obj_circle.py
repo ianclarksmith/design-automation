@@ -118,16 +118,20 @@ class obj_test(unittest.TestCase):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
         pnt = circle1.func.pnt_inside((0,0,0))
         self.assertEqual(type(pnt),int) 
-            
+                  
     def testCircleGroups(self):
+        grp = p2r.ent.Group.create()
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
-        circle2 = circle1.grps.groups()
-        self.assertEqual(type(circle2),p2r.obj.Circle)
-        
+        #circle2 = circle1.grps.groups()
+        grp2 = grp.objs.add_object(circle1)
+        self.assertEqual(type(grp2),bool)
+    
     def testCircleTopGroup(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(circle1)
         circle2 = circle1.grps.top_group()
-        self.assertEqual(type(circle2),p2r.obj.Circle) 
+        self.assertEqual(type(circle2),unicode) 
 
     def testCircleInsertKnot(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
