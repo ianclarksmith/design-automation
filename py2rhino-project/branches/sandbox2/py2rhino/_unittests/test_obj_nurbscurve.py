@@ -91,13 +91,18 @@ class obj_test(unittest.TestCase):
     
     def testNurbsCurveGroups(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(nurbscurve1)
         nurbscurve2 = nurbscurve1.grps.groups()
-        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
+        self.assertEqual(type(nurbscurve2[0]),unicode)
         
     def testNurbsCurveTopGroup(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(nurbscurve1)
+        nurbscurve2 = nurbscurve1.grps.groups()
         nurbscurve2 = nurbscurve1.grps.top_group()
-        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
+        self.assertEqual(type(nurbscurve2),unicode)  
         
     def testNurbsCurveIndex(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
