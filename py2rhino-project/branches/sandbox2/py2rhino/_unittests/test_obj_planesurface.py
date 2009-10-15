@@ -49,13 +49,17 @@ class obj_test(unittest.TestCase):
     
     def testPlaneSurfaceGroups(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(planesurface1)
         planesurface2 = planesurface1.grps.groups()
-        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)
+        self.assertEqual(type(planesurface2[0]),unicode)
         
     def testPlaneSurfaceTopGroup(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(planesurface1)
         planesurface2 = planesurface1.grps.top_group()
-        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)          
+        self.assertEqual(type(planesurface2),unicode)          
 
     def testPlaneSurfaceFlip(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
