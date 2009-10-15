@@ -39,13 +39,17 @@ class obj_test(unittest.TestCase):
         
     def testConeGroups(self):
         cone1 = p2r.obj.Cone.create((0,0,0), (1,1,1), 5)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(cone1)
         cone2 = cone1.grps.groups()
-        self.assertEqual(type(cone2),p2r.obj.Cone)
+        self.assertEqual(type(cone2[0]),unicode)
         
     def testConeTopGroup(self):
         cone1 = p2r.obj.Cone.create((0,0,0), (1,1,1), 5)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(cone1)
         cone2 = cone1.grps.top_group()
-        self.assertEqual(type(cone2),p2r.obj.Cone)  
+        self.assertEqual(type(cone2),unicode)  
 
     def testConeFlip(self):
         cone1 = p2r.obj.Cone.create((0,0,0), (1,1,1), 5)
