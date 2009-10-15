@@ -79,13 +79,17 @@ class obj_test(unittest.TestCase):
               
     def testLineGroups(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(line1)
         line2 = line1.grps.groups()
-        self.assertEqual(type(line2),p2r.obj.Line)
+        self.assertEqual(type(line2[0]),unicode)
         
     def testLineTopGroup(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(line1)
         line2 = line1.grps.top_group()
-        self.assertEqual(type(line2),p2r.obj.Line)  
+        self.assertEqual(type(line2),unicode)  
         
     def testLineIndex(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
