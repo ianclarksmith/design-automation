@@ -121,13 +121,17 @@ class obj_test(unittest.TestCase):
 
     def testEllipseGroups(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(ellipse1)
         ellipse2 = ellipse1.grps.groups()
-        self.assertEqual(type(ellipse2),p2r.obj.Ellipse)
+        self.assertEqual(type(ellipse2[0]),unicode)
         
     def testEllipseTopGroup(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(ellipse1)
         ellipse2 = ellipse1.grps.top_group()
-        self.assertEqual(type(ellipse2),p2r.obj.Ellipse)         
+        self.assertEqual(type(ellipse2),unicode)         
         
     def testEllipseInsertKnot(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
