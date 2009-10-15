@@ -39,13 +39,17 @@ class obj_test(unittest.TestCase):
         
     def testTorusGroups(self):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(torus1)
         torus2 = torus1.grps.groups()
-        self.assertEqual(type(torus2),p2r.obj.Torus)
+        self.assertEqual(type(torus2[0]),unicode)
         
     def testTorusTopGroup(self):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(torus1)
         torus2 = torus1.grps.top_group()
-        self.assertEqual(type(torus2),p2r.obj.Torus) 
+        self.assertEqual(type(torus2),unicode) 
         
     def testTorusFlip(self):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
