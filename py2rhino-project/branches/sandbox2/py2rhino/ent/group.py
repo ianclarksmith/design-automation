@@ -77,7 +77,7 @@ class _GroupProp(object):
 
         
         """
-        name = _base._rsf.rename_group(self._group._name)
+        name = _base._rsf.rename_group(self._group._name, name)
         if name:
             self._group._name = name
             return name
