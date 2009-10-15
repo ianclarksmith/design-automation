@@ -34,13 +34,17 @@ class obj_test(unittest.TestCase):
         
     def testNurbsSurfaceGroups(self):
         nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(nurbssurface1)
         nurbssurface2 = nurbssurface1.grps.groups()
-        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)
+        self.assertEqual(type(nurbssurface2[0]),unicode)
         
     def testNurbsSurfaceTopGroup(self):
         nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(nurbssurface1)
         nurbssurface2 = nurbssurface1.grps.top_group()
-        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)  
+        self.assertEqual(type(nurbssurface2),unicode)  
     
     def testNurbsSurfaceFlip(self):
         nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
