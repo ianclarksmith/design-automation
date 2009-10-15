@@ -79,13 +79,17 @@ class obj_test(unittest.TestCase):
         
     def testPolylineGroups(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(polyline1)
         polyline2 = polyline1.grps.groups()
-        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        self.assertEqual(type(polyline2[0]),unicode)
         
     def testPolylineTopGroup(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        grp = p2r.ent.Group.create()
+        grp2 = grp.objs.add_object(polyline1)
         polyline2 = polyline1.grps.top_group()
-        self.assertEqual(type(polyline2),p2r.obj.Polyline)  
+        self.assertEqual(type(polyline2),unicode)  
 
     def testPolylineSeam(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
