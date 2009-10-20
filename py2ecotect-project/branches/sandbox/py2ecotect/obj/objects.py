@@ -1309,7 +1309,7 @@ class _ObjectRootProp(object):
     def mask(self):
         """
         
-        Retrieves the index of the object's shading mask. The shading mask 
+        Retrieves the object's shading mask. The shading mask 
         assigned to each object determines when and by how much the object is 
         overshadowed at any particular time. 
 
@@ -1326,24 +1326,24 @@ class _ObjectRootProp(object):
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.mask", self._eco_id)
         val = p2e._app.Request(arg_str)
-        return p2e._base._util._convert_str_to_type(val, int)
+        mask_index = p2e._base._util._convert_str_to_type(val, int)
+        return p2e.doc._masks[mask_index]
 
-    def set_mask(self, index):
+    def set_mask(self, mask):
         """
         
-        Sets the index of the object's shading mask. The shading mask assigned 
+        Sets the object's shading mask. The shading mask assigned 
         to each object determines when and by how much the object is 
         overshadowed at any particular time. 
 
         Parameter(s)
         This property takes the following parameters.
         
-        index 
-        An integer value between -1 and the value given by get.masks.count - 1, 
-        being the zero-based index of the shading mask in the current list. 
+        mask 
+        A shading mask in the current list. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.mask", self._eco_id, index)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.mask", self._eco_id, mask._eco_id)
         p2e._app.Exec(arg_str)
 
     #-------------------------------------------------------------------------

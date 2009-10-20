@@ -44,22 +44,7 @@ class _ShadingMaskObjs(object):
                                                           object._eco_id)
         p2e._app.Exec(arg_str)
         
-#==============================================================================
-# _ShadingMaskState
-#==============================================================================
-class _ShadingMaskModf(object):
-    def update(self):
-        """
-        
-        Updates the specified shading mask's information. 
 
-        Parameter(s)
-        This command takes no parameters.
-        
-        """
-        arg_str = p2e._base._util._convert_args_to_string("masks.update", 
-                                                          self._mask._eco_id)
-        p2e._app.Exec(arg_str)  
         
 #==============================================================================
 # _ShadingMaskDupl
@@ -115,7 +100,18 @@ class _ShadingMaskDupl(object):
 # _ShadingMaskProp
 #==============================================================================
 class _ShadingMaskProp(object):
-    
+    def update(self):
+        """
+        
+        Updates the specified shading mask's information. 
+
+        Parameter(s)
+        This command takes no parameters.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("masks.update", 
+                                                          self._mask._eco_id)
+        p2e._app.Exec(arg_str)  
     def shading_by_segment(self, azi_segment, alt_segment):
         """
         
@@ -390,9 +386,6 @@ class ShadingMask(object):
     class objs(_ShadingMaskObjs):
         def __init__(self, _mask):
             self._mask = _mask
-    class modf(_ShadingMaskModf):
-        def __init__(self, _mask):
-            self._mask = _mask
     class dupl(_ShadingMaskDupl):
         def __init__(self, _mask):
             self._mask = _mask
@@ -410,18 +403,8 @@ class ShadingMask(object):
         
         #create instances of the nested classes
         self.objs = ShadingMask.objs(self)
-        self.modf = ShadingMask.modf(self)
         self.dupl = ShadingMask.dupl(self)
-        self.prop = ShadingMask.prop(self)    
-            
-        #update model objects list
-        self.state.set_current()
-        object_id = self.objs.next_object(-1, -1, -1, -1)
-        prev_id = object_id
-        while (object_id != -1):
-            p2e.obj._ObjectRoot(object_id, None)
-            object_id = self.objs.next_object(prev_id, -1, -1, -1)
-            prev_id = object_id
+        self.prop = ShadingMask.prop(self)
             
     @staticmethod
     def create(object = 0):

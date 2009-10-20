@@ -6,11 +6,11 @@ import py2ecotect as p2e
 from py2ecotect.doc import select
 from py2ecotect.doc import selection
 from py2ecotect.doc import calculation
+from py2ecotect.doc import shading_calculations
 from py2ecotect.doc import results
 from py2ecotect.doc import weather
 
 from py2ecotect.doc import model
-from py2ecotect.doc import shading_masks
 from py2ecotect.doc import attribute
 from py2ecotect.doc import grid
 from py2ecotect.doc import grid3d
