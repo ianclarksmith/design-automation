@@ -57,7 +57,7 @@ def element(index):
                                                   index)
     p2e._app.Exec(arg_str)
 
-def index(objects):
+def objects(objects):
     """
     
     Selects multiple objects. 
