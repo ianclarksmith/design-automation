@@ -1,8 +1,10 @@
-import pythoncom
 import py2rhino as p2r
 from py2rhino import _base
+import pythoncom
 
-def container_count(block_name):
+#------------------------------------------------------------------------------ 
+
+def block_container_count(block_name):
 
     """
     
@@ -25,7 +27,7 @@ def container_count(block_name):
     """
     return _base._rsf.block_container_count(block_name)
 
-def containers(block_name):
+def block_containers(block_name):
 
     """
     
@@ -48,7 +50,7 @@ def containers(block_name):
     """
     return _base._rsf.block_containers(block_name)
 
-def count():
+def block_count():
 
     """
     
@@ -72,7 +74,7 @@ def count():
     return _base._rsf.block_count()
 
     
-def names(sort=pythoncom.Empty):
+def block_names(sort=pythoncom.Empty):
     
     """
     
@@ -126,51 +128,3 @@ def blocks(sort=pythoncom.Empty):
         return blocks
     else:
         return None
-    
-#TODO: move this somewhere with all the other is methods (e.g. layer and group)
-def is_block(block_name):
-    
-    """
-    
-        Verifies the existence of a block definition in the document.
-
-        Parameters
-        ==========
-        block_name  (string, Required) - The name of an existing block definition.
-
-        Returns
-        =======
-        boolean - True or false indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsBlock
-
-        
-    """
-    return _base._rsf.is_block(block_name)
-    
-#TODO: move this somewhere with all the other is methods (e.g. layer and group)
-def is_instance(object):
-
-    """
-    
-        Verifies an object is a block instance.
-
-        Parameters
-        ==========
-        block_id  (string, Required) - The identifier of an existing block definition.
-
-        Returns
-        =======
-        boolean - True or false indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IsBlockInstance
-
-        
-    """
-    return _base._rsf.is_block_instance(object._rhino_id)    

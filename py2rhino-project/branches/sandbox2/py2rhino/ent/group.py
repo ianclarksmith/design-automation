@@ -3,9 +3,9 @@ from exceptions import Exception
 from py2rhino import _base
 
 #The following functions were not included here:
-#GroupCount
-#GroupNames
-#IsGroup
+#GroupCount - should be implemented in object_types
+#GroupNames - should be implemented in object_types
+#IsGroup - should be implemented in object_types
 #RemoveObjectFromAllGroups
 #RemoveObjectFromTopGroup
 

@@ -1,7 +1,7 @@
-# Auto-generated wrapper for Rhino4 RhinoScript functions
-
 import pythoncom
 from py2rhino import _base
+
+#TODO: CONVERT INTO CLASS
 
 def add_text(text, point, height=pythoncom.Empty, font=pythoncom.Empty, style=pythoncom.Empty):
 

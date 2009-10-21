@@ -1,5 +1,6 @@
 import py2rhino as p2r
-
+from py2rhino import _base
+import pythoncom
 #------------------------------------------------------------------------------ 
 def open(filename):
     """
@@ -19,7 +20,7 @@ def open(filename):
 def new():
     """   
     
-    Clears the current model from memory. 
+    Opens a new file. 
 
     Parameter(s)
     There are no parameters for this command.
@@ -54,3 +55,4 @@ def save_as(filename):
     """
     
     pass
+#------------------------------------------------------------------------------ 

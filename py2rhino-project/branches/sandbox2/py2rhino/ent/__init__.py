@@ -6,3 +6,5 @@ from hatch import Hatch
 from layer import Layer
 from linetype import Linetype
 from material import Material
+
+import clipping_plane

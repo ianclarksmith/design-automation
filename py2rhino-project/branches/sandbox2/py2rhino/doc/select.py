@@ -1,5 +1,3 @@
-# Auto-generated wrapper for Rhino4 RhinoScript functions
-
 import pythoncom
 from py2rhino import _base
 
