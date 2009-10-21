@@ -3,9 +3,9 @@ from py2rhino import _base
 
 #The following functions were not included here:
 #CurrentLayer - with no arg
-#IsLayer
-#LayerCount
-#LayerNames
+#IsLayer - should be implemented in object_types
+#LayerCount - should be implemented in object_types
+#LayerNames - should be implemented in object_types
 
 
 

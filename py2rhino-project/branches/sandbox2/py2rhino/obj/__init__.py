@@ -16,3 +16,12 @@ from objects import Polyline
 from objects import Sphere
 from objects import Torus
 from objects import PolyCurve
+
+
+import geom
+import lights
+import object_grips
+import objects
+import point_cloud
+import point
+import text
