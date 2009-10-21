@@ -1566,3 +1566,66 @@ def set_window(left, top, width, height):
                                                  height)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
+
+
+def display():
+    """
+    
+    Retrieves the current information display. When retrieving this 
+    value, a single integer value is returned corresponding to items in 
+    the Model Display table. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    display 
+    What information is displayed in the model. This is given as an 
+    integer value from the Model Display table below. 
+                
+    Token Value Description 
+    model 0 Default model only. 
+    shadows 1 Shadows and reflections 
+    normals 2 Surface normals. 
+    sketch 3 Sketched view. 
+    winddata 5 Wind distribution data. 
+    sprayedrays 7 Sprayed acoustic rays. 
+    values 8 Object attribute values. 
+    zonetemps 9 Zone temperatures 
+    rays 10 Acoustic rays and particles. 
+    
+    """
+    val = p2e._app.Request("get.model.display")
+    return p2e._base._util._convert_str_to_type(val, int)        
+
+def set_display(display):
+    """
+    
+    This property sets the current information display. 
+
+    Parameter(s)
+    This property takes the following parameters.
+    
+    display 
+    Sets what information to display in the model. This can be specified 
+    as either a token or value parameter, as outlined in the Model 
+    Display table below. 
+    
+    Token Value Description 
+    model 0 Default model only. 
+    shadows 1 Shadows and reflections 
+    normals 2 Surface normals. 
+    sketch 3 Sketched view. 
+    winddata 5 Wind distribution data. 
+    sprayedrays 7 Sprayed acoustic rays. 
+    values 8 Object attribute values. 
+    zonetemps 9 Zone temperatures 
+    rays 10 Acoustic rays and particles. 
+    
+    """
+    args = p2e._base._util._convert_args_to_string("set.model.display", display)
+    p2e._app.Exec(args)
+         
+

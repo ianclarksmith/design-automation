@@ -247,3 +247,81 @@ def save_as(filename):
     """
     arg_str = p2e._base._util._convert_args_to_string("model.saveas", filename)        
     p2e._app.Exec(arg_str)
+
+#------------------------------------------------------------------------------ 
+def file_name():
+    """
+    
+    Returns the filename of the currently loaded ECOTECT model. This is 
+    the filename only, with no drive or directory components. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    filename 
+    A text string containing the filename. 
+    
+    """
+    val = p2e._app.Request("get.model.filename")
+    return p2e._base._util._convert_str_to_type(val, str)
+
+def file_path():
+    """
+    
+    Returns the full pathname of the currently loaded ECOTECT model. This 
+    includes the full drive, directory and filename specification. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    pathname 
+    A text string containing the full pathname.
+    
+    """
+    return p2e._app.Request("get.model.pathname")
+
+def file_directory():
+    """
+    
+    Returns the drive and directory in which the currently loaded 
+    ECOTECT model is located. This is essentially the full pathname, but 
+    without the filename component. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    path 
+    A text string containing the current directory path. 
+
+    """
+    val = p2e._app.Request("get.model.directory")
+    return p2e._base._util._convert_str_to_type(val, str)
+
+def set_file_directory(path):
+    """
+    
+    Sets the drive and directory to use with the currently loaded 
+    ECOTECT model. 
+
+    Parameter(s)
+    This property takes the following parameters.
+    
+    path 
+    A string value that defines the directory to use. Include both the 
+    drive letter and full directory path. However, be aware of the 
+    issues with backslashes in filename parameters as described in the 
+    ECOTECT help file.
+    
+    """
+    args = p2e._base._util._convert_args_to_string("set.model.directory", path)
+    arg_str = p2e._base._util._convert_args_to_string(args)
+    p2e._app.Exec(arg_str)
