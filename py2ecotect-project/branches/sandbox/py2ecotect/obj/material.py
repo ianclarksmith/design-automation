@@ -1,5 +1,7 @@
 import py2ecotect as p2e
 
+#TODO: SAVE LIST OF MATERIALS IN MODEL
+
 class Material(object):
     
     #===========================================================================
@@ -406,7 +408,7 @@ class Material(object):
     
     @apply
     def myattr():
-        def fset(self, materail):
+        def fset(self, material):
             """
             
             Set this property to make the specified material the default for all 

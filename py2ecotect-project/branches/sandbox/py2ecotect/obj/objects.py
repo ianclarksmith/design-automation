@@ -55,17 +55,19 @@ class _ObjectRootDupl(object):
         vector = p2e._base._util.scale_1000(vector)
         
         arg_str = p2e._base._util._convert_args_to_string("object.duplicate", 
-                                                      self._eco_id, 
+                                                      self._object._eco_id, 
                                                       vector[0], 
                                                       vector[1], 
                                                       vector[2])
         p2e._app.Exec(arg_str)
         
         #get the id of the new object
-        eco_id = p2e.doc.model.number_of_objects() - 1
+        eco_id = p2e.model.scan.num_objects() - 1
         
         #create the object
         return _ObjectRoot(eco_id, None)
+        
+        
     
 #==============================================================================
 # _ObjectRootTrfm
@@ -106,7 +108,7 @@ class _ObjectRootTrfm(object):
         vector = p2e._base._util.scale_1000(vector)
         
         arg_str = p2e._base._util._convert_args_to_string("object.move",
-                                                          self._eco_id, 
+                                                          self._object._eco_id, 
                                                           vector[0], 
                                                           vector[1], 
                                                           vector[2])
@@ -127,7 +129,7 @@ class _ObjectRootTrfm(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("set.object.center", 
-                                                          self._eco_id, 
+                                                          self._object._eco_id, 
                                                           centre_point[0], 
                                                           centre_point[1], 
                                                           centre_point[2])
@@ -156,7 +158,7 @@ class _ObjectRootTrfm(object):
         3, -3 In the Z axis. 
     
         """
-        arg_str = p2e._base._util._convert_args_to_string("object.nudge", self._eco_id, dir)
+        arg_str = p2e._base._util._convert_args_to_string("object.nudge", self._object._eco_id, dir)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def rotate(self, azi, alt):
@@ -176,7 +178,7 @@ class _ObjectRootTrfm(object):
         The altitude angle of rotation in decimal degrees.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("object.rotate", self._eco_id, azi, alt)
+        arg_str = p2e._base._util._convert_args_to_string("object.rotate", self._object._eco_id, azi, alt)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def rotate_axis(self, rotation_value):
@@ -195,7 +197,7 @@ class _ObjectRootTrfm(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("object.rotateaxis", 
-                                                      self._eco_id, 
+                                                      self._object._eco_id, 
                                                       rotation_value[0], 
                                                       rotation_value[1], 
                                                       rotation_value[2])
@@ -219,7 +221,7 @@ class _ObjectRootTrfm(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("object.rotatereverse", 
-                                                      self._eco_id, azi, alt)
+                                                      self._object._eco_id, azi, alt)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def scale(self, scale_factor):
@@ -235,7 +237,7 @@ class _ObjectRootTrfm(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("object.scale", 
-                                                          self._eco_id, 
+                                                          self._object._eco_id, 
                                                           scale_factor[0], 
                                                           scale_factor[1], 
                                                           scale_factor[2])
@@ -254,7 +256,7 @@ class _ObjectRootTrfm(object):
         The spin angle given in decimal degrees.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("object.spin", self._eco_id, spin)
+        arg_str = p2e._base._util._convert_args_to_string("object.spin", self._object._eco_id, spin)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def xform(self, trans, function_values):
@@ -293,7 +295,7 @@ class _ObjectRootTrfm(object):
         #TODO: scale the values by 1000 - but not in all cases
         
         arg_str = p2e._base._util._convert_args_to_string("object.xform", 
-                                                          self._eco_id, 
+                                                          self._object._eco_id, 
                                                           trans, 
                                                           function_values[0], 
                                                           function_values[1], 
@@ -322,15 +324,15 @@ class _ObjectRootModf(object):
         nodes = self._object.nodes.nodes()
         
         #execute ecotect instruction
-        arg_str = p2e._base._util._convert_args_to_string("object.delete", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("object.delete", self._object._eco_id)
         p2e._app.Exec(arg_str)
         
         #update the nodes list
         for i in nodes:
-            p2e.doc._nodes.remove(i)
+            p2e.model._nodes.remove(i)
         
         #update model list
-        p2e.doc._objects.remove(self._object)    
+        p2e.model._objects.remove(self._object)    
     #-------------------------------------------------------------------------
     def orient_normal(self, azi, alt):
         """
@@ -348,7 +350,7 @@ class _ObjectRootModf(object):
         The vertical angle of orientation, given in degrees. 
   
         """
-        arg_str = p2e._base._util._convert_args_to_string("object.orient", self._eco_id, 
+        arg_str = p2e._base._util._convert_args_to_string("object.orient", self._object._eco_id, 
                                                      azi, alt)
         p2e._app.Exec(arg_str)        
     #-------------------------------------------------------------------------
@@ -375,33 +377,38 @@ class _ObjectRootModf(object):
         3 Towards positive Z axis. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("object.normal", self._eco_id, 
+        arg_str = p2e._base._util._convert_args_to_string("object.normal", self._object._eco_id, 
                                                      axis)
         p2e._app.Exec(arg_str)   
     #-------------------------------------------------------------------------
     def reverse_normal(self):
+        """
+        
+        NO DOCS
+        
+        """     
+        #TODO: create docs   
         #Check to see which objects are selected
-        selection = p2e.doc.selection
-        m = p2e.doc.model
+        selection = p2e.model.selection
         first_index = selection.next
         index = -1;
         selected_objects = []
         if (first_index == -1): 
             #Only one object is selected. So selection.next() returns -1
-            selected_objects.append(p2e.doc._objects[m.Model().current_object])
+            selected_objects.append(p2e.model._objects[p2e.model.scan.current_object])
         else:
-            selected_objects.append(p2e.doc._objects[first_index])
+            selected_objects.append(p2e.model._objects[first_index])
             while(True):
                 index = selection.next
                 if (first_index == index): break
-                selected_objects.append(p2e.doc._objects[index])
+                selected_objects.append(p2e.model._objects[index])
                 
         #Select this object and reverse normal
         self.select()
         selection.reverse()
         
         #Re-select the previous objects
-        p2e.doc.select.Select().index(selected_objects)  
+        p2e.model.select.objects(selected_objects)  
 #==============================================================================
 # 
 #==============================================================================
@@ -416,7 +423,7 @@ class _ObjectRootState(object):
         There are no parameters for this command.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("object.select", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("object.select", self._object._eco_id)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def update(self):
@@ -432,7 +439,7 @@ class _ObjectRootState(object):
         There are no parameters for this command.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("object.update", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("object.update", self._object._eco_id)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------  
     def set_current(self):
@@ -446,7 +453,7 @@ class _ObjectRootState(object):
         There are no parameters for this property.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.current", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.current", self._object._eco_id)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def is_selected(self):
@@ -468,7 +475,7 @@ class _ObjectRootState(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.selected", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
     
@@ -489,12 +496,12 @@ class _ObjectRootState(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("set.object.selected", 
-                                                     self._eco_id, state)
+                                                     self._object._eco_id, state)
         p2e._app.Exec(arg_str)
         
         #Note: Once you finish selecting the individual objects you want, you 
         #should then call the doc.selection.update function. 
-        p2e.doc.selection.update()
+        p2e.model.selection.update()
     #-------------------------------------------------------------------------
     def zone(self):  
         """
@@ -511,9 +518,9 @@ class _ObjectRootState(object):
         The zone the specified object is assigned to.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.zone", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.zone", self._object._eco_id)
         val = p2e._app.Request(arg_str)
-        return p2e.doc._zones[p2e._base._util._convert_str_to_type(val, int)]
+        return p2e.model._zones[p2e._base._util._convert_str_to_type(val, int)]
         
     def set_zone(self, zone):
         """
@@ -527,7 +534,7 @@ class _ObjectRootState(object):
         An instance of the zone class.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.zone", self._eco_id, zone._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.zone", self._object._eco_id, zone._eco_id)
         p2e._app.Exec(arg_str)
        
 #==============================================================================
@@ -554,7 +561,7 @@ class _ObjectRootMtrl(object):
         The zero-based index of the assigned alternate material. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.alternate", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.alternate", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
         
@@ -577,7 +584,7 @@ class _ObjectRootMtrl(object):
         name using the get.material.index property.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.alternate", self._eco_id, material)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.alternate", self._object._eco_id, material)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def get_material(self):
@@ -599,7 +606,7 @@ class _ObjectRootMtrl(object):
         The zero-based index of the assigned primary material. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.material", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.material", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
 
@@ -622,7 +629,7 @@ class _ObjectRootMtrl(object):
         command.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.material", self._eco_id, material)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.material", self._object._eco_id, material)
         p2e._app.Exec(arg_str)
 #==============================================================================
 # 
@@ -645,7 +652,7 @@ class _ObjectRootEval(object):
         The overall dimensions of the object in each of the X, Y and Z axis. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.extents", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.extents", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         size = p2e._base._util._convert_str_to_list(val, float, float, float)
         return p2e._base._util.scale_inverse_1000(size)
@@ -679,7 +686,7 @@ class _ObjectRootEval(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.extents.2dpt", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      parameters[0],
                                                      parameters[1])
         val = p2e._app.Request(arg_str)
@@ -703,7 +710,7 @@ class _ObjectRootEval(object):
         point in 3 dimensional model space.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.extents.max", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.extents.max", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         point = p2e._base._util._convert_str_to_list(val, float, float, float)
         return p2e._base._util.scale_1000(point)
@@ -724,7 +731,7 @@ class _ObjectRootEval(object):
         point in 3 dimensional model space.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.extents.min", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.extents.min", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         point = p2e._base._util._convert_str_to_list(val, float, float, float)
         return p2e._base._util.scale_1000(point)        
@@ -746,7 +753,7 @@ class _ObjectRootEval(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.area", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -766,7 +773,7 @@ class _ObjectRootEval(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.panelarea", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.panelarea", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -787,7 +794,7 @@ class _ObjectRootEval(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.exposure", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
         
@@ -807,7 +814,7 @@ class _ObjectRootEval(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.underground", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -830,7 +837,7 @@ class _ObjectRootEval(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.length", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -854,7 +861,7 @@ class _ObjectRootEval(object):
 
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.center", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float, float)  
     #-------------------------------------------------------------------------
@@ -878,7 +885,7 @@ class _ObjectRootEval(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.normal", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float, float)        
 
@@ -912,7 +919,7 @@ class _ObjectRootEval(object):
 
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.angle", 
-                                                     self._eco_id, type)
+                                                     self._object._eco_id, type)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)      
 
@@ -940,7 +947,7 @@ class _ObjectRootEval(object):
         The Horizontal Shadow Angle of the object at the current date and time. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.sunangles", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.sunangles", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float)    
 #==============================================================================
@@ -975,7 +982,7 @@ class _ObjectRootProp(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.activation", 
-                                                     self._eco_id, day, hour)
+                                                     self._object._eco_id, day, hour)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)        
     #-------------------------------------------------------------------------
@@ -997,7 +1004,7 @@ class _ObjectRootProp(object):
         Ax + By + Cz = D 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.equation", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.equation", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float, float, float)
 
@@ -1011,7 +1018,7 @@ class _ObjectRootProp(object):
         There are no parameters for this property.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.equation", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.equation", self._object._eco_id)
         p2e._app.Exec(arg_str)
     
     #-------------------------------------------------------------------------
@@ -1031,7 +1038,7 @@ class _ObjectRootProp(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.attr1", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.attr1", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -1048,7 +1055,7 @@ class _ObjectRootProp(object):
         The value to assign.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.attr1", self._eco_id, value)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.attr1", self._object._eco_id, value)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def attr_2(self):
@@ -1067,7 +1074,7 @@ class _ObjectRootProp(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.attr2", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.attr2", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -1084,7 +1091,7 @@ class _ObjectRootProp(object):
         The value to assign.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.attr2", self._eco_id, value)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.attr2", self._object._eco_id, value)
         p2e._app.Exec(arg_str)      
     #-------------------------------------------------------------------------
     def attr_3(self):
@@ -1103,7 +1110,7 @@ class _ObjectRootProp(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.attr3", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.attr3", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -1120,7 +1127,7 @@ class _ObjectRootProp(object):
         The value to assign.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.attr3", self._eco_id, value)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.attr3", self._object._eco_id, value)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def element_type(self):
@@ -1160,7 +1167,7 @@ class _ObjectRootProp(object):
         camera 15 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.type", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.type", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
     
@@ -1197,7 +1204,7 @@ class _ObjectRootProp(object):
         camera 15 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.type", self._eco_id, type)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.type", self._object._eco_id, type)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def flag(self, flag):
@@ -1248,7 +1255,7 @@ class _ObjectRootProp(object):
      
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.flag", 
-                                                     self._eco_id, flag)
+                                                     self._object._eco_id, flag)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
 
@@ -1303,7 +1310,7 @@ class _ObjectRootProp(object):
 
         """
         arg_str = p2e._base._util._convert_args_to_string("set.object.flag", 
-                                                     self._eco_id, flag, state)
+                                                     self._object._eco_id, flag, state)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def mask(self):
@@ -1324,10 +1331,10 @@ class _ObjectRootProp(object):
         being the zero-based index of the shading mask in the current list.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.mask", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.mask", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         mask_index = p2e._base._util._convert_str_to_type(val, int)
-        return p2e.doc._masks[mask_index]
+        return p2e.model._masks[mask_index]
 
     def set_mask(self, mask):
         """
@@ -1343,7 +1350,7 @@ class _ObjectRootProp(object):
         A shading mask in the current list. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.mask", self._eco_id, mask._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.mask", self._object._eco_id, mask._eco_id)
         p2e._app.Exec(arg_str)
 
     #-------------------------------------------------------------------------
@@ -1363,7 +1370,7 @@ class _ObjectRootProp(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.resolution", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.resolution", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -1380,7 +1387,7 @@ class _ObjectRootProp(object):
         The value to use for the virtual polyline curve resolution.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.node.position", self._eco_id, value)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.node.position", self._object._eco_id, value)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def schedule(self):
@@ -1405,7 +1412,7 @@ class _ObjectRootProp(object):
         The zero-based index of the schedule assigned to this object. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.schedule", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.schedule", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
         
@@ -1431,7 +1438,7 @@ class _ObjectRootProp(object):
         command.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.object.schedule", self._eco_id, schedule)
+        arg_str = p2e._base._util._convert_args_to_string("set.object.schedule", self._object._eco_id, schedule)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def tag(self, tag):
@@ -1474,7 +1481,7 @@ class _ObjectRootProp(object):
 
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.tag", 
-                                                     self._eco_id, tag)
+                                                     self._object._eco_id, tag)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
 
@@ -1519,7 +1526,7 @@ class _ObjectRootProp(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("set.object.tag", 
-                                                     self._eco_id, tag, state)
+                                                     self._object._eco_id, tag, state)
         p2e._app.Exec(arg_str)
     #-------------------------------------------------------------------------
     def vector(self):
@@ -1538,7 +1545,7 @@ class _ObjectRootProp(object):
         Z axis, given in model coordinates, of the object's extrusion vector.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.vector", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.vector", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         vector = p2e._base._util._convert_str_to_list(val, float, float, float)
         return p2e._base._util.scale_inverse_1000(vector) 
@@ -1559,7 +1566,7 @@ class _ObjectRootProp(object):
         vector = p2e._base._util.scale_1000(vector) 
         
         arg_str = p2e._base._util._convert_args_to_string("set.object.vector", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      vector[0], 
                                                      vector[1], 
                                                      vector[2])
@@ -1595,7 +1602,7 @@ class _ObjectRootFunc(object):
         point = p2e._base._util.scale_1000(point)
         
         arg_str = p2e._base._util._convert_args_to_string("get.object.distanceto", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      point[0], 
                                                      point[1], 
                                                      point[2])
@@ -1628,7 +1635,7 @@ class _ObjectRootFunc(object):
         point = p2e._base._util.scale_1000(point)
         
         arg_str = p2e._base._util._convert_args_to_string("get.object.incidence", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      point[0], 
                                                      point[1], 
                                                      point[2])
@@ -1668,7 +1675,7 @@ class _ObjectRootFunc(object):
         end_point = p2e._base._util.scale_1000(end_point)
         
         arg_str = p2e._base._util._convert_args_to_string("get.object.intersect", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      start_point[0], 
                                                      start_point[1], 
                                                      start_point[2],
@@ -1704,7 +1711,7 @@ class _ObjectRootFunc(object):
         point = p2e._base._util.scale_1000(point)
         
         arg_str = p2e._base._util._convert_args_to_string("get.object.reflect", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      point[0], 
                                                      point[1],
                                                      point[2])
@@ -1748,7 +1755,7 @@ class _ObjectRootFunc(object):
         point = p2e._base._util.scale_1000(point)
         
         arg_str = p2e._base._util._convert_args_to_string("get.object.inside", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      point[0], 
                                                      point[1],
                                                      point[2], 
@@ -1780,7 +1787,7 @@ class _ObjectRootFunc(object):
         point = p2e._base._util.scale_1000(point)
         
         arg_str = p2e._base._util._convert_args_to_string("get.object.coplanar", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      point[0], 
                                                      point[1], 
                                                      point[2])
@@ -1818,7 +1825,7 @@ class _ObjectRootFunc(object):
         point_2 = p2e._base._util.scale_1000(point_2)
         
         arg_str = p2e._base._util._convert_args_to_string("get.object.sameside", 
-                                                     self._eco_id, 
+                                                     self._object._eco_id, 
                                                      point_1[0], 
                                                      point_1[1], 
                                                      point_1[2],
@@ -1844,16 +1851,16 @@ class _ObjectRootFunc(object):
         """
         vector = p2e._base._util.scale_1000(vector)
         
-        before_extrude_len = p2e.doc.model.number_of_objects()
+        before_extrude_len = p2e.model.scan.num_objects()
         
         arg_str = p2e._base._util._convert_args_to_string("object.extrude", 
-                                                          self._eco_id, 
+                                                          self._object._eco_id, 
                                                           vector[0]*1000, 
                                                           vector[1]*1000, 
                                                           vector[2]*1000)
         p2e._app.Exec(arg_str)
         
-        after_extrude_len = p2e.doc.model.number_of_objects()
+        after_extrude_len = p2e.model.scan.num_objects()
         
         for eco_id in range(before_extrude_len, after_extrude_len):
             _ObjectRoot(eco_id, None)
@@ -1888,13 +1895,13 @@ class _ObjectRootFunc(object):
         2 Around the Y axis. 
         
         """
-        before_extrude_len = p2e.doc.model.number_of_objects()
+        before_extrude_len = p2e.model.scan.num_objects()
         
-        arg_str = p2e._base._util._convert_args_to_string("object.revolve", self._eco_id, 
+        arg_str = p2e._base._util._convert_args_to_string("object.revolve", self._object._eco_id, 
                                                      axis, angle, segs)
         p2e._app.Exec(arg_str)
         
-        after_extrude_len = p2e.doc.model.number_of_objects()
+        after_extrude_len = p2e.model.scan.num_objects()
         
         for eco_id in range(before_extrude_len, after_extrude_len):
             _ObjectRoot(eco_id, None)
@@ -1926,7 +1933,7 @@ class _ObjectRootFunc(object):
         is unsuitable for this. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.pt.initialise", self._eco_id, fraction)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.pt.initialise", self._object._eco_id, fraction)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
 
@@ -1969,7 +1976,7 @@ class _ObjectRootFunc(object):
         0 Finished - no further points to be found. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.pt.even", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.pt.even", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float, float, int)    
 
@@ -2013,7 +2020,7 @@ class _ObjectRootFunc(object):
         0 Finished - no further points to be found. 
  
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.object.pt.random", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.object.pt.random", self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float, float, int)            
 #==============================================================================
@@ -2059,14 +2066,14 @@ class _ObjectRootNodes(object):
         
         """
         #execute ecotect instruction
-        arg_str = p2e._base._util._convert_args_to_string("object.delnode", self._eco_id, 
+        arg_str = p2e._base._util._convert_args_to_string("object.delnode", self._object._eco_id, 
                                                      node_index)
         p2e._app.Exec(arg_str)
         
         #Update model lists
-        p2e.doc._nodes.remove(node)
+        p2e.model._nodes.remove(node)
     #-------------------------------------------------------------------------
-    def first_node(self):
+    def first_node_index(self):
         """
         
         Returns the zero-based absolute index of its first node. 
@@ -2082,12 +2089,12 @@ class _ObjectRootNodes(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.firstnode", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
         
     #-------------------------------------------------------------------------
-    def last_node(self):
+    def last_node_index(self):
         """
         
         Returns the zero-based absolute index of its last node. 
@@ -2103,9 +2110,52 @@ class _ObjectRootNodes(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.lastnode", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)  
+    #-------------------------------------------------------------------------
+    def first_node(self):
+        """
+        
+        Returns the first node. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        nodeIndex 
+        The object's first node.
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.object.firstnode", 
+                                                     self._object._eco_id)
+        val = p2e._app.Request(arg_str)
+        index = p2e._base._util._convert_str_to_type(val, int)
+        return p2e.model._nodes[index]
+        
+    #-------------------------------------------------------------------------
+    def last_node(self):
+        """
+        
+        Returns the object's last node. 
+
+        Parameter(s)
+        There are no parameters for this property.
+         
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        nodeIndex 
+        The object's last node. 
+        
+        """
+        arg_str = p2e._base._util._convert_args_to_string("get.object.lastnode", 
+                                                     self._object._eco_id)
+        val = p2e._app.Request(arg_str)
+        index = p2e._base._util._convert_str_to_type(val, int)
+        return p2e.model._nodes[index]      
     #-------------------------------------------------------------------------
     def nodes(self):
         """
@@ -2123,8 +2173,8 @@ class _ObjectRootNodes(object):
         
         """
         nodes = []
-        for node_num in range(self.first_node(), self.last_node()):
-            nodes.append(p2e.doc._nodes[node_num])
+        for node_num in range(self.first_node_index(), self.last_node_index()):
+            nodes.append(p2e.model._nodes[node_num])
         return nodes
         
     #-------------------------------------------------------------------------
@@ -2145,7 +2195,7 @@ class _ObjectRootNodes(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.node", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
     #-------------------------------------------------------------------------
@@ -2173,7 +2223,7 @@ class _ObjectRootNodes(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.node.position", 
-                                                     self._eco_id, node.eco_id)
+                                                     self._node._eco_id, node.eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float, float)
     #-------------------------------------------------------------------------
@@ -2196,7 +2246,7 @@ class _ObjectRootNodes(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("set.object.node.position", 
-                                                     self._eco_id, node.eco_id, 
+                                                     self._node._eco_id, node.eco_id, 
                                                      absolute_position[0],
                                                      absolute_position[1],
                                                      absolute_position[2])
@@ -2220,7 +2270,7 @@ class _ObjectRootChild(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("object.link", 
-                                                          self._eco_id, 
+                                                          self._object._eco_id, 
                                                           child._eco_id)
         p2e._app.Exec(arg_str)    
     #-------------------------------------------------------------------------
@@ -2242,7 +2292,7 @@ class _ObjectRootChild(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.link", 
-                                                     self._eco_id)
+                                                     self._object._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)    
     #-------------------------------------------------------------------------
@@ -2282,7 +2332,7 @@ class _ObjectRootChild(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.object.child.extents", 
-                                                     self._eco_id, absolute)
+                                                     self._object._eco_id, absolute)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float, float, float)
     #-------------------------------------------------------------------------
@@ -2328,7 +2378,7 @@ class _ObjectRootChild(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("set.object.child.extents", 
-                                                     self._eco_id, u, v, wu, hv)
+                                                     self._object._eco_id, u, v, wu, hv)
         p2e._app.Exec(arg_str)
 
 #==============================================================================
@@ -2340,43 +2390,33 @@ class _ObjectRoot(object):
     class child(_ObjectRootChild):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     class func(_ObjectRootFunc):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     class modf(_ObjectRootModf):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     class mtrl(_ObjectRootMtrl):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     class nodes(_ObjectRootNodes):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     class eval(_ObjectRootEval):
         def __init__(self, _object):
-            self._object = _object
-            self._eco_id = _object._eco_id     
+            self._object = _object    
     class prop(_ObjectRootProp):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     class state(_ObjectRootState):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     class trfm(_ObjectRootTrfm):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     class dupl(_ObjectRootDupl):
         def __init__(self, _object):
             self._object = _object
-            self._eco_id = _object._eco_id
     #--------------------------------------------------------------------------
     #constructor
     def __init__(self, object_eco_id, points):
@@ -2385,7 +2425,7 @@ class _ObjectRoot(object):
             raise Exception
         
         #update model lists
-        p2e.doc._objects.append(self)  
+        p2e.model._objects.append(self)  
         
         #create instances of the nested classes
         self.child = _ObjectRoot.child(self)
@@ -2401,7 +2441,7 @@ class _ObjectRoot(object):
         
         if points == None:
             #add exisiting nodes
-            for node_num in range(self.nodes.first_node(), self.nodes.last_node()):
+            for node_num in range(self.nodes.first_node_index(), self.nodes.last_node_index()):
                 p2e.obj.Node(self, node_num) 
                 
         else:
@@ -2507,7 +2547,7 @@ class _ObjectRoot(object):
             Id of the object
         
             """
-            return p2e.doc._objects.index(self)
+            return p2e.model._objects.index(self)
 
         return property(**locals())    
 #==============================================================================
@@ -3045,7 +3085,7 @@ class _NodeRootTrfm(object):
         """
         vector = p2e._base._util.scale_1000(vector)
         
-        arg_str = p2e._base._util._convert_args_to_string("node.move", self._eco_id, 
+        arg_str = p2e._base._util._convert_args_to_string("node.move", self._node._eco_id, 
                                                       vector[0], 
                                                       vector[1], 
                                                       vector[2])
@@ -3071,7 +3111,7 @@ class _NodeRootTrfm(object):
         3, -3 In the Z axis. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("node.nudge", self._eco_id, dir)
+        arg_str = p2e._base._util._convert_args_to_string("node.nudge", self._node._eco_id, dir)
         p2e._app.Exec(arg_str)
 
     def rotate(self, azi, alt):
@@ -3092,7 +3132,7 @@ class _NodeRootTrfm(object):
         The altitude angle of rotation, in decimal degrees. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("node.rotate", self._eco_id, 
+        arg_str = p2e._base._util._convert_args_to_string("node.rotate", self._node._eco_id, 
                                                       azi, alt)
         p2e._app.Exec(arg_str)
 
@@ -3113,7 +3153,7 @@ class _NodeRootTrfm(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("node.rotateaxis", 
-                                                      self._eco_id,
+                                                      self._node._eco_id,
                                                       rotation_value[0], 
                                                       rotation_value[1], 
                                                       rotation_value[2])
@@ -3137,7 +3177,7 @@ class _NodeRootTrfm(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("node.rotatereverse", 
-                                                      self._eco_id, azi, alt)
+                                                      self._node._eco_id, azi, alt)
         p2e._app.Exec(arg_str)
 
     def scale(self, scale_factors):
@@ -3153,7 +3193,7 @@ class _NodeRootTrfm(object):
         of the major X, Y and Z axis.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("node.scale", self._eco_id,
+        arg_str = p2e._base._util._convert_args_to_string("node.scale", self._node._eco_id,
                                                       scale_factors[0], 
                                                       scale_factors[1], 
                                                       scale_factors[2])
@@ -3194,7 +3234,7 @@ class _NodeRootTrfm(object):
         #TODO: scale by 1000
         
         arg_str = p2e._base._util._convert_args_to_string("node.xform", 
-                                                      self._eco_id, transformation,
+                                                      self._node._eco_id, transformation,
                                                       function_values[0],
                                                       function_values[1],
                                                       function_values[2])
@@ -3219,7 +3259,7 @@ class _NodeRootProp(object):
         is linked.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.node.link", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.node.link", self._node._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
 
@@ -3235,10 +3275,9 @@ class _NodeRootProp(object):
         The object or node to which the specified node is to be linked.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.node.link", self._eco_id, link._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("set.node.link", self._node._eco_id, link._eco_id)
         p2e._app.Exec(arg_str)
         
-
     def flag(self, flag):
         """
         
@@ -3267,7 +3306,7 @@ class _NodeRootProp(object):
         colours 4 Display object attribute as a fill colous. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.node.flag", self._eco_id, 
+        arg_str = p2e._base._util._convert_args_to_string("get.node.flag", self._node._eco_id, 
                                                       flag)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
@@ -3297,11 +3336,10 @@ class _NodeRootProp(object):
         colours 4 Display object attribute as a fill colous. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.node.flag", self._eco_id,
+        arg_str = p2e._base._util._convert_args_to_string("set.node.flag", self._node._eco_id,
                                                        flag, state) 
         p2e._app.Exec(arg_str)
     
-
     def flags(self):
         """
         
@@ -3321,11 +3359,10 @@ class _NodeRootProp(object):
         table_NodeFlags.txt
       
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.node.flags", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.node.flags", self._node._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
         
-
     def type(self):
         """
         
@@ -3356,7 +3393,7 @@ class _NodeRootProp(object):
         spline 8 Control node for a virtual spline curve. 
   
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.node.type", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.node.type", self._node._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
 
@@ -3394,7 +3431,7 @@ class _NodeRootProp(object):
             return
         else:
             arg_str = p2e._base._util._convert_args_to_string("set.node.type", 
-                                                          self._eco_id, type, link)
+                                                          self._node._eco_id, type, link)
             p2e._app.Exec(arg_str)
    
     def modifier(self):
@@ -3416,7 +3453,7 @@ class _NodeRootProp(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("get.node.modifier", 
-                                                      self._eco_id)
+                                                      self._node._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, float)
 
@@ -3437,12 +3474,9 @@ class _NodeRootProp(object):
         
         """
         arg_str = p2e._base._util._convert_args_to_string("set.node.modifier", 
-                                                      self._eco_id, mod)
+                                                      self._node._eco_id, mod)
         p2e._app.Exec(arg_str)
         
-
-    
-
     def position(self):
         """
         
@@ -3460,7 +3494,7 @@ class _NodeRootProp(object):
         dimensional model space. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.node.position", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.node.position", self._node._eco_id)
         val = p2e._app.Request(arg_str)
         
         absolute_position =  p2e._base._util._convert_str_to_list(val, float, float, float)
@@ -3483,14 +3517,12 @@ class _NodeRootProp(object):
         point = p2e._base._util.scale_1000(point)
         
         arg_str = p2e._base._util._convert_args_to_string("set.node.position", 
-                                                      self._eco_id, 
+                                                      self._node._eco_id, 
                                                       point[0], 
                                                       point[1], 
                                                       point[2])
         p2e._app.Exec(arg_str)
-            
-
-    
+        
 #==============================================================================
 # _NodeRootState
 #==============================================================================
@@ -3510,7 +3542,7 @@ class _NodeRootState(object):
         If this value is 1, then the node is selected. If 0 the node is not selected. 
 
         """
-        arg_str = p2e._base._util._convert_args_to_string("get.node.selected", self._eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("get.node.selected", self._node._eco_id)
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_type(val, int)
 
@@ -3528,13 +3560,14 @@ class _NodeRootState(object):
         0. If not given, this parameter defaults to true. 
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.node.selected", self._eco_id, state)
+        arg_str = p2e._base._util._convert_args_to_string("set.node.selected", self._node._eco_id, state)
         p2e._app.Exec(arg_str)
         
 #==============================================================================
 # _NodeRootModf
 #==============================================================================
 class _NodeRootModf(object):
+    #TODO: this method does not make any sense - should be moved to the object level
     def delete(self, node_index = 0):
         
         """
@@ -3551,11 +3584,11 @@ class _NodeRootModf(object):
         """
         #execute ecotect instruction
         arg_str = p2e._base._util._convert_args_to_string("object.delnode", 
-                                            self._object._eco_id, node_index)
+                                            self._node._object._eco_id, node_index)
         p2e._app.Exec(arg_str)
         
         #Update node lists
-        p2e.doc._nodes.remove(self)
+        p2e.model._nodes.remove(self)
         
         #set object to none
         self._object.done()
@@ -3568,29 +3601,33 @@ class Node(object):
     #--------------------------------------------------------------------------
     # nested classes to hold methods
     class trfm(_NodeRootTrfm):
-        def __init__(self, _eco_id):self._eco_id = _eco_id    
+        def __init__(self, node):
+            self._node = node    
     class prop(_NodeRootProp):
-        def __init__(self, _eco_id):self._eco_id = _eco_id    
+        def __init__(self, node):
+            self._node = node    
     class state(_NodeRootState):
-        def __init__(self, _eco_id):self._eco_id = _eco_id           
+        def __init__(self, node):
+            self._node = node           
     class modf(_NodeRootModf):
-        def __init__(self, _eco_id):self._eco_id = _eco_id    
+        def __init__(self, node):
+            self._node = node    
                   
     #--------------------------------------------------------------------------
     #constructor 
     def __init__(self, obj, node_eco_id):
         
         #create instances of the nested classes
-        self.trfm = Node.trfm(node_eco_id)
-        self.prop = Node.prop(node_eco_id)
-        self.state = Node.state(node_eco_id)        
-        self.modf = Node.modf(node_eco_id)        
+        self.trfm = Node.trfm(self)
+        self.prop = Node.prop(self)
+        self.state = Node.state(self)        
+        self.modf = Node.modf(self)        
         
         #create the node
         self._object = obj
         
         #update model nodes lists
-        p2e.doc._nodes.append(self)
+        p2e.model._nodes.append(self)
         assert self._eco_id == node_eco_id
     #--------------------------------------------------------------------------
     #factory method   
@@ -3661,7 +3698,7 @@ class Node(object):
             Id of the node object
             
             """
-            return p2e.doc._nodes.index(self)
+            return p2e.model._nodes.index(self)
         
         return property(**locals())
 #==============================================================================
