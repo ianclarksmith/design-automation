@@ -89,19 +89,41 @@ def nodes():
     
     Returns a list of all the nodes in the model
     """
-    return p2e.doc._nodes
+    return p2e.model._nodes
 def objects():
     """
     
     Returns a list of all the nodes in the model
     """
-    return p2e.doc._objects
+    return p2e.model._objects
 def zones():
     """
     
     Returns a list of all the nodes in the model
     """
-    return p2e.doc._zones
+    return p2e.model._zones
+#------------------------------------------------------------------------------ 
+def object_by_id(id):
+    """
+    
+    Returns the object with the specified id within the 
+    currently loaded ECOTECT model. 
+    Warning: Ecotect id's can change when other objects are deleted. The id is 
+    just the index in a list.
+
+    Parameter(s)
+    This property takes the following parameters.
+    
+    index 
+    The index of the object.
+    
+    Return Value(s)
+    
+    object 
+    The object. 
+    
+    """    
+    return p2e.model._objects[id] 
 #------------------------------------------------------------------------------ 
 def current_node():
     """
@@ -121,7 +143,7 @@ def current_node():
     """
     val = p2e._app.Request("get.model.currentnode")
     val = p2e._base._util._convert_str_to_type(val, int)
-    return p2e.doc._nodes[val]
+    return p2e.model._nodes[val]
 
 def current_object():
     """
@@ -141,7 +163,7 @@ def current_object():
     """
     val = p2e._app.Request("get.model.currentobject")
     val = p2e._base._util._convert_str_to_type(val, int)
-    return p2e.doc._objects[val]
+    return p2e.model._objects[val]
 
 def current_zone():
     """
@@ -161,7 +183,7 @@ def current_zone():
     """
     val = p2e._app.Request("get.model.currentzone")
     val = p2e._base._util._convert_str_to_type(val, int)
-    return p2e.doc._zones[val]
+    return p2e.model._zones[val]
 #------------------------------------------------------------------------------ 
 def last_node_index():
     """

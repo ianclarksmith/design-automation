@@ -1,4 +1,5 @@
 import py2ecotect as p2e
+
 #==============================================================================
 # _ShadingMaskObjs
 #==============================================================================
@@ -7,8 +8,7 @@ class _ShadingMaskObjs(object):
     def object(self):
         """
         
-        Retrieves the zero-based index of the object to which the specified mask 
-        belongs. 
+        Retrieves the object to which the specified mask belongs. 
 
         Parameter(s)
         This property takes no parameters.
@@ -20,11 +20,11 @@ class _ShadingMaskObjs(object):
         The zero-based index of the object.
         
         """
-        #TODO: convert to an object 
         arg_str = p2e._base._util._convert_args_to_string("get.masks.object", 
                                                           self._mask._eco_id)
         val = p2e._app.Request(arg_str)
-        return p2e._base._util._convert_str_to_type(val, int)
+        index = p2e._base._util._convert_str_to_type(val, int)
+        return p2e.model._objects[index]
 
     def set_object(self, object):
         """
@@ -174,7 +174,7 @@ class _ShadingMaskProp(object):
                                                           value) 
                                                      
         p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+    #------------------------------------------------------------------------------ 
     def shading_by_azi_alt(self, azi, alt):
         """
         
@@ -233,7 +233,7 @@ class _ShadingMaskProp(object):
                                                           azi, alt, value)
                                                      
         p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+    #------------------------------------------------------------------------------ 
     def result_percentage_by_current_day_time(self):
         """
         
@@ -397,8 +397,8 @@ class ShadingMask(object):
     #constructor 
     def __init__(self, zone_eco_id):
         
-        #update model zones list
-        p2e.doc._masks.append(self)
+        #update model list
+        p2e.model._masks.append(self)
         assert self._eco_id == zone_eco_id
         
         #create instances of the nested classes
@@ -446,7 +446,7 @@ class ShadingMask(object):
             Id of the mask
         
             """
-            return p2e.doc._masks.index(self)
+            return p2e.model._masks.index(self)
 
         return property(**locals())
 

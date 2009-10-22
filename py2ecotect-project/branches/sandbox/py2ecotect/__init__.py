@@ -56,10 +56,9 @@ except:
 import _base
 
 import app
-import doc
-import ent
+import model
 import obj
 #===============================================================================
 # Populate the lists in the Model object
 #===============================================================================
-doc._populate() 
+model._populate() 

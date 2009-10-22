@@ -1,5 +1,7 @@
 import py2ecotect as p2e
 
+#TODO: SAVE LIST OF SCHEDULES IN MODEL
+
 class Schedule(object):
     
     #===========================================================================

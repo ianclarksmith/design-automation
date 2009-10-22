@@ -168,7 +168,7 @@ def open(filename):
     p2e.doc._nodes = []
     
     #Update the lists
-    p2e.doc._populate()     
+    p2e.model._populate()     
 
 def new():
     """   
@@ -194,7 +194,7 @@ def new():
     p2e.doc._nodes = []
     
     #Update the lists
-    p2e.doc._populate()     
+    p2e.model._populate()     
 
 def revert():
     """
@@ -217,7 +217,7 @@ def revert():
     p2e.doc._nodes = []
     
     #Update the lists
-    p2e.doc._populate()     
+    p2e.model._populate()     
     
 def save():
     """

@@ -24,7 +24,7 @@ class _ZoneRootObjs(object):
         prev_id = object_id
         objects = []
         while (object_id != -1):
-            objects.append(p2e.doc._objects[object_id])
+            objects.append(p2e.model._objects[object_id])
             object_id = self.next_object(prev_id, -1, -1, -1)
             prev_id = object_id
         return objects
@@ -149,7 +149,7 @@ class _ZoneRootModf(object):
             i.delete()
             
         #Update model lists
-        p2e.doc._zones.remove(self._zone)
+        p2e.model._zones.remove(self._zone)
 #==============================================================================
 # _ZoneRootTrfm
 #==============================================================================
@@ -2774,7 +2774,7 @@ class Zone(object):
     def __init__(self, zone_eco_id):
         
         #update model zones list
-        p2e.doc._zones.append(self)
+        p2e.model._zones.append(self)
         assert self._eco_id == zone_eco_id
         
         #create instances of the nested classes
@@ -2840,7 +2840,7 @@ class Zone(object):
             Id of the zone object
         
             """
-            return p2e.doc._zones.index(self)
+            return p2e.model._zones.index(self)
 
         return property(**locals())    
 

@@ -95,7 +95,7 @@ class Rays(object):
         An integer representing the number of steps to move the counter forward.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("rays.step", step)
+        arg_str = p2e._base._util._convert_args_to_string("rays.step", steps)
         p2e._app.Exec(arg_str)
     
     def update(self):
