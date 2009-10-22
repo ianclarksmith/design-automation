@@ -78,6 +78,7 @@ def get_crv_object(message=pythoncom.Empty, pre_select=pythoncom.Empty, select=p
 
 def get_object(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
 
+    get_object_ed = True
     """
     
         Prompts the user to pick, or select, a single object.
@@ -85,48 +86,33 @@ def get_object(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pythonc
         Parameters
         ==========
         message  (string, Optional) - A prompt or message.
-        type  (integer, Optional) - The type or types of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
-		Value
-		Description
-		0
-		All objects (default)
-		1
-		Point
-		2
-		Point cloud
-		4
-		Curve
-		8
-		Surface or single-face brep
-		16
-		Polysurface or multiple-face
-		32
-		Mesh
-		256
-		Light
-		512
-		Annotation
-		4096
-		Instance or block reference
-		8192
-		Text dot object
-		16384
-		Grip object
-		32768
-		Detail
-		65536
-		Hatch
-		131072
-		Morph control
-		134217728
-		Cage
-		268435456
-		Phantom
-		536870912
-        pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+        type  (integer, Optional) - The type or types of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry. The possible value for type are listed in the table for type.
+
+		pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
         select  (boolean, Optional) - Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
         objects  (List of string, Optional) - An list of strings identifying the objects that are allowed to be selected.
 
+        Table : type
+        Value, Description
+        0, All objects (default)
+        1, Point
+        2, Point cloud
+        4, Curve
+        8, Surface or single-face brep
+        16, Polysurface or multiple-face
+        32,    Mesh
+        256, Light
+        512, Annotation
+        4096, Instance or block reference
+        8192, Text dot object
+        16384, Grip object
+        32768, Detail
+        65536, Hatch
+        131072, Morph control
+        134217728, Cage
+        268435456, Phantom
+        536870912, Clipping plane
+        
         Returns
         =======
         string - The picked object if successful.
@@ -142,6 +128,7 @@ def get_object(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pythonc
 
 def get_object_ex(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
 
+    get_object_ex_ed = True
     """
     
         Prompts the user to pick, or select, a single object.
@@ -149,48 +136,32 @@ def get_object_ex(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pyth
         Parameters
         ==========
         message  (string, Optional) - A prompt or message.
-        type  (integer, Optional) - The type or types of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
-		Value
-		Description
-		0
-		All objects (default)
-		1
-		Point
-		2
-		Point cloud
-		4
-		Curve
-		8
-		Surface or single-face brep
-		16
-		Polysurface or multiple-face
-		32
-		Mesh
-		256
-		Light
-		512
-		Annotation
-		4096
-		Instance or block reference
-		8192
-		Text dot object
-		16384
-		Grip object
-		32768
-		Detail
-		65536
-		Hatch
-		131072
-		Morph control
-		134217728
-		Cage
-		268435456
-		Phantom
-		536870912
+        type  (integer, Optional) - The type or types of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry. The possible value for type are listed in the table for type.
         pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
         select  (boolean, Optional) - Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
         objects  (List of string, Optional) - An list of strings identifying the objects that are allowed to be selected.
 
+        Table: Type
+        Value, Description
+        0, All objects (default)
+        1, Point
+        2, Point cloud
+        4, Curve
+        8, Surface or single-face brep
+        16, Polysurface or multiple-face
+        32,    Mesh
+        256, Light
+        512, Annotation
+        4096, Instance or block reference
+        8192, Text dot object
+        16384, Grip object
+        32768, Detail
+        65536, Hatch
+        131072,    Morph control
+        134217728, Cage
+        268435456, Phantom
+        536870912, Clipping plane
+        
         Returns
         =======
         list - A list of selection information if successful. The list will contain the following information:
@@ -205,7 +176,8 @@ def get_object_ex(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pyth
     return _base._rsf.get_object_ex(message, type, pre_select, select, objects)
 
 def get_objects(message=pythoncom.Empty, type=pythoncom.Empty, group=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
-
+    
+    get_object_ed = True
     """
     
         Prompts the user to pick or select one or more objects.
@@ -213,49 +185,33 @@ def get_objects(message=pythoncom.Empty, type=pythoncom.Empty, group=pythoncom.E
         Parameters
         ==========
         message  (string, Optional) - A prompt or message.
-        type  (integer, Optional) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
-		Value
-		Description
-		0
-		All objects (default)
-		1
-		Point
-		2
-		Point cloud
-		4
-		Curve
-		8
-		Surface or single-face brep
-		16
-		Polysurface or multiple-face
-		32
-		Mesh
-		256
-		Light
-		512
-		Annotation
-		4096
-		Instance or block reference
-		8192
-		Text dot object
-		16384
-		Grip object
-		32768
-		Detail
-		65536
-		Hatch
-		131072
-		Morph control
-		134217728
-		Cage
-		268435456
-		Phantom
-		536870912
-        group  (boolean, Optional) - Honor object grouping.  If omitted and the user picks a group, the entire group will be picked (True). Note, if intType is set to a value other than 0 (All objects), then group selection will be disabled.
+        type  (integer, Optional) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry. The possible value for type are listed in the table for type.
+		group  (boolean, Optional) - Honor object grouping.  If omitted and the user picks a group, the entire group will be picked (True). Note, if intType is set to a value other than 0 (All objects), then group selection will be disabled.
         pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
         select  (boolean, Optional) - Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
         objects  (List of string, Optional) - An list of strings identifying the objects that are allowed to be selected.
 
+        Table: type
+        Value,    Description
+        0, All objects (default)
+        1, Point
+        2, Point cloud
+        4, Curve
+        8, Surface or single-face brep
+        16, Polysurface or multiple-face
+        32,    Mesh
+        256, Light
+        512, Annotation
+        4096, Instance or block reference
+        8192, Text dot object
+        16384, Grip object
+        32768, Detail
+        65536, Hatch
+        131072,    Morph control
+        134217728, Cage
+        268435456, Phantom
+        536870912, Clipping plane
+        
         Returns
         =======
         list - A list of strings identifying the picked objects if successful.
@@ -271,6 +227,7 @@ def get_objects(message=pythoncom.Empty, type=pythoncom.Empty, group=pythoncom.E
 
 def get_objects_ex(message=pythoncom.Empty, type=pythoncom.Empty, group=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
 
+    get_objects_ex_ed = True
     """
     
         Prompts the user to pick or select one or more objects.
@@ -278,49 +235,34 @@ def get_objects_ex(message=pythoncom.Empty, type=pythoncom.Empty, group=pythonco
         Parameters
         ==========
         message  (string, Optional) - A prompt or message.
-        type  (integer, Optional) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
-		Value
-		Description
-		0
-		All objects (default)
-		1
-		Point
-		2
-		Point cloud
-		4
-		Curve
-		8
-		Surface or single-face brep
-		16
-		Polysurface or multiple-face
-		32
-		Mesh
-		256
-		Light
-		512
-		Annotation
-		4096
-		Instance or block reference
-		8192
-		Text dot object
-		16384
-		Grip object
-		32768
-		Detail
-		65536
-		Hatch
-		131072
-		Morph control
-		134217728
-		Cage
-		268435456
-		Phantom
-		536870912
+        type  (integer, Optional) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry. The possible value for type are listed in the table for type.
         group  (boolean, Optional) - Honor object grouping.  If omitted and the user picks a group, the entire group will be picked (True). Note, if intType is set to a value other than 0 (All objects), then group selection will be disabled.
         pre_select  (boolean, Optional) - Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
         select  (boolean, Optional) - Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
         objects  (List of string, Optional) - An list of strings identifying the objects that are allowed to be selected.
 
+        Table: type
+        Value
+        Description
+        0, All objects (default)
+        1, Point
+        2, Point cloud
+        4, Curve
+        8, Surface or single-face brep
+        16, Polysurface or multiple-face
+        32,    Mesh
+        256, Light
+        512, Annotation
+        4096, Instance or block reference
+        8192, Text dot object
+        16384, Grip object
+        32768, Detail
+        65536, Hatch
+        131072, Morph control
+        134217728, Cage
+        268435456, Phantom
+        536870912, Clipping Plane
+        
         Returns
         =======
         list - A list that contains lists of selection information if successful. The list of selection information will contain the following:
@@ -653,51 +595,36 @@ def objects_by_name(name, select=pythoncom.Empty, include_lights=pythoncom.Empty
 
 def objects_by_type(type, select=pythoncom.Empty):
 
+    objects_by_type_ed = True 
     """
     
         Returns the identifiers of all objects based on the objects' geometry type.
 
         Parameters
         ==========
-        type  (integer, Required) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
-		Value
-		Description
-		0
-		All objects
-		1
-		Point
-		2
-		Point cloud
-		4
-		Curve
-		8
-		Surface or single-face brep
-		16
-		Polysurface or multiple-face
-		32
-		Mesh
-		256
-		Light
-		512
-		Annotation
-		4096
-		Instance or block reference
-		8192
-		Text dot object
-		16384
-		Grip object
-		32768
-		Detail
-		65536
-		Hatch
-		131072
-		Morph control
-		134217728
-		Cage
-		268435456
-		Phantom
-		536870912
-        select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+        type  (integer, Required) - The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry. The possible value for type are listed in the table for type.
+		select  (boolean, Optional) - Select the objects.  If omitted, the objects are not selected (False).
+		
+		Table : type
+		Value, Description
+		0, All objects
+		1, Point
+		2, Point cloud
+		4, Curve
+		8, Surface or single-face brep
+		16, Polysurface or multiple-face
+		32, Mesh
+		256, Light
+		512, Annotation
+		4096, Instance or block reference
+		8192, Text dot object
+		16384, Grip object
+		32768, Detail
+		65536, Hatch
+		131072, Morph control
+		134217728, Cage
+		268435456, Phantom
+		536870912, Clipping Plane        
 
         Returns
         =======
@@ -810,6 +737,7 @@ def selected_objects(include_lights=pythoncom.Empty, include_grips=pythoncom.Emp
 
 def unselect_all_objects():
 
+    unselect_all_objects_ed = True
     """
     
         Unselects all objects in the document.
@@ -820,7 +748,7 @@ def unselect_all_objects():
 
         Returns
         =======
-        number - The number of objects that were unselected.
+        Integer - The number of objects that were unselected.
 
         Rhinoscript
         ===========
