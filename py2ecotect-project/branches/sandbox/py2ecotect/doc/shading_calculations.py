@@ -243,11 +243,287 @@ def calc_shading_direct(cumulative=True, start_day=1, stop_day=365, start_time=0
 
     """ 
     calc_shading("direct", cumulative, start_day, stop_day, start_time, stop_time)
+    
+    
+#===============================================================================
+# Get results
+#===============================================================================
+#------------------------------------------------------------------------------ 
+def result_all_components():
+    """
+    
+    Returns the three sky components calculated from the current shading mask. The first two values are the fraction of the sky illuminance/radiation visible to the selected object for which the mask was calculated, under CIE overcast and uniform sky conditions. The third result is only valid for vertical surfaces and is the Vertical Sky Component as defined by the Building Research Establishment. These are the values displayed within the bottom right corner of the SunPath diagram when the shading mask is displayed.
+
+    If the shading calculation has not yet been performed (see the calc.shading.percentage method), this method will carry one out for the current object. 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    overcast 
+    A decimal value containing the overcast sky component. 
+    uniform 
+    A decimal value containing the uniform sky component. 
+    vertical 
+    A decimal value containing the vertical sky component. 
+    
+    """
+    val = p2e._app.Request("get.shading.components")
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
+
+def result_sky_component():
+    """
+    
+    Returns the percentage of CIE Overcast Sky illumination visible from the selected surface. This is time-independent and only valid after a shading calculation has been performed (see the calc.shading.percentage method). 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    SC 
+    A decimal value containing the sky component.
+    
+    """
+    val = p2e._app.Request("get.shading.skycomponent")
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def result_diffuse_component():
+    """
+    
+    Returns the diffuse solar radiation component as a single decimal value in Watts per square metre. This is only valid after a shading calculation has been performed (see the calc.shading.percentage method and set.model.time properties for mroe information). 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the current diffuse solar component. 
+    
+    """
+    val = p2e._app.Request("get.shading.diffuse")
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def result_direct_component():
+    """
+    
+    Returns the current direct solar radiation component as a single decimal value in Watts per square metre. This is only valid after a shading calculation has been performed (see the calc.shading.percentage method and set.model.time properties for more information). 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the current direct solar component. 
+    
+    """
+    val = p2e._app.Request("get.shading.direct")
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def result_insolation(from_day, to_day):
+    """
+    
+    Returns the total direct and diffuse incident solar radiation on the object for which the current shading mask has been calculated. Both are returned as single decimal values in Watts per square metre. A third value is also returned, being a count of the number of hours over which the direct and diffuse values were generated. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    from_day 
+    A value representing the Julian date when the calculation will begin, given as an integer from 1 to 365. 
+    
+    to_day 
+    A value representing the Julian date when the calculation will end, given as an integer from 1 to 365. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    total_direct 
+    A decimal value containing the total direct solar component. 
+    
+    total_diffuse 
+    A decimal value containing the total diffuse solar component. 
+    
+    total_hours 
+    A decimal value containing the total sunlight hours.
+    
+    """
+    arg_str = p2e._base._util._convert_args_to_string("get.shading.range", from_day, to_day)
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
+
+#------------------------------------------------------------------------------ 
+def result_percentage_by_current_day_time():
+    """
+    
+    Returns the percentage-in-shade of the selected object as a single decimal percentage value, using the current model date and time settings.
+    
+    This is only valid after a shading calculation has been performed (see the calc.shading.percentage method and set.model.time properties for more information). If a negative value is returned, then the set.shading.bothsides option has been used and the point is behind the surface. 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the shading value. 
+    Note: error in documentation - this actually returns 4 values.
+    The first 2 values seem to be:
+    
+        shading 
+        A decimal value between 0 (unshaded) and 100 (fully shaded) representing 
+        the effective percentage shading of the object whose shading mask is 
+        specified. 
+        
+        cosAngle 
+        A decimal fraction representing the effect of direct incidence. This is 
+        equal to the cosine of the 3D incidence angle between the centre-point 
+        of the sky segment and the surface normal of the object represented by 
+        the mask.    
+    
+    """
+    #TODO: check what 4 values are returned
+    val = p2e._app.Request("get.shading.percentage")
+    return p2e._base._util._convert_str_to_list(val, float, float, float, float)
+
+def result_percentage_by_azi_alt(azi, alt):
+    """
+    
+    Returns the percentage-in-shade of the selected object as a single decimal percentage value. Note that this is only valid after a shading calculation has been performed (see the calc.shading.percentage method and set.model.time properties for more information).
+    
+    If a negative value is returned, then the set.shading.bothsides option has been used and the point is behind the surface. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    azi 
+    The azimuth (-180 to 180) angle representing, together with the altitude angle, a point in the sky from which to retrieve the value.
+    
+    To retrieve the sun position at any time, use the get.model.sunangles command. 
+    
+    alt 
+    The altitude (0 to 90) angle representing, together with the azimuth angle, a point in the sky from which to retrieve the value.
+    
+    To retrieve the sun position at any time, use the get.model.sunangles command. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the shading value
+    Note: error in documentation - this actually returns 4 values
+    The first 2 values seem to be:
+    
+        shading 
+        A decimal value between 0 (unshaded) and 100 (fully shaded) representing 
+        the effective percentage shading of the object whose shading mask is 
+        specified. 
+        
+        cosAngle 
+        A decimal fraction representing the effect of direct incidence. This is 
+        equal to the cosine of the 3D incidence angle between the centre-point 
+        of the sky segment and the surface normal of the object represented by 
+        the mask.  
+        
+    """
+    #TODO: check what 4 values are returned
+    arg_str = p2e._base._util._convert_args_to_string("get.shading.percentage.angle", azi, alt)
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_list(val, float, float, float, float)
+
+def result_percentage_by_day_time(day, time):
+    """
+    
+    Returns the percentage-in-shade of the selected object as a single decimal percentage value. This is only valid after a shading calculation has been performed (see the calc.shading.percentage method and set.model.time properties for more information).
+    
+    If a negative value is returned, then the set.shading.bothsides option has been used and the point is behind the surface. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    day 
+    The day of the year from which to return the percentage (1 to 365). 
+    
+    time 
+    The time of the day from which to return the percentage (0 to 23). 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the shading value. 
+    Note: error in documentation - this actually returns 4 values
+    The first 2 values seem to be:
+    
+        shading 
+        A decimal value between 0 (unshaded) and 100 (fully shaded) representing 
+        the effective percentage shading of the object whose shading mask is 
+        specified. 
+        
+        cosAngle 
+        A decimal fraction representing the effect of direct incidence. This is 
+        equal to the cosine of the 3D incidence angle between the centre-point 
+        of the sky segment and the surface normal of the object represented by 
+        the mask.  
+        
+    """
+    #TODO: check what 4 values are returned
+    arg_str = p2e._base._util._convert_args_to_string("get.shading.percentage.datetime", day, time)
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_list(val, float, float, float, float)
+
+def result_percentage_by_table_index(x, y):
+    """
+    
+    Returns the percentage-in-shade of the selected object as a single decimal value. Note that this is only valid after a shading calculation has been performed (see the calc.shading.percentage method and set.model.time properties for more information).
+    
+    If a negative value is returned, then the set.shading.bothsides option has been used and the point is behind the surface. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    x 
+    The X index of the shading table, where X is the azimuth angle increment set in the set.shading.angles property. 
+    y 
+    The Y index of the shading table, where Y is the altitude angle increment set in the set.shading.angles property. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the shading value. 
+    Note: error in documentation - this actually returns 4 values
+    The first 2 values seem to be:
+    
+        shading 
+        A decimal value between 0 (unshaded) and 100 (fully shaded) representing 
+        the effective percentage shading of the object whose shading mask is 
+        specified. 
+        
+        cosAngle 
+        A decimal fraction representing the effect of direct incidence. This is 
+        equal to the cosine of the 3D incidence angle between the centre-point 
+        of the sky segment and the surface normal of the object represented by 
+        the mask.  
+        
+    """
+    #TODO: check what 4 values are returned
+    arg_str = p2e._base._util._convert_args_to_string("get.shading.percentage.index", x, y)
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_list(val, float, float, float, float)
+
 #===============================================================================
 # 
 #===============================================================================
 #------------------------------------------------------------------------------ 
-def set_overshadowing_precision(precision):
+def set_shading_mask_accuracy(precision):
     """
     
     Sets the accuracy of the overshadowing calculation. This calculation is 
@@ -395,8 +671,6 @@ def set_shading_both_sides_flag(state):
     arg_str = p2e._base._util._convert_args_to_string("set.shading.bothsides", state)
     p2e._app.Exec(arg_str)
 
-
-
 #------------------------------------------------------------------------------ 
 def display_shading_rays_flag():
     """
@@ -453,7 +727,7 @@ def detailed_shading_mask_flag():
     where 1 means a detailed mask and 0 it's own mask.
     
     """
-    val = p2e._app.Request("get.shading.update")#TODO: why 'update' instead of 'state'
+    val = p2e._app.Request("get.shading.update")#TODO: 'update' does not sound right
     return p2e._base._util._convert_str_to_type(val, int)
 
 def set_detailed_shading_mask_flag(state):
@@ -472,6 +746,8 @@ def set_detailed_shading_mask_flag(state):
     the selected object's own shading mask.
     
     """
-    arg_str = p2e._base._util._convert_args_to_string("set.shading.state", state)
+    arg_str = p2e._base._util._convert_args_to_string("set.shading.update", state)#TODO: 'update' does not sound right
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
+ 
+
