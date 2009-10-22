@@ -1,4 +1,10 @@
-from py2ecotect.obj.objects import _ObjectRoot
+
+from py2ecotect.obj.zone import Zone 
+from py2ecotect.obj.shading_mask import ShadingMask 
+from py2ecotect.obj.schedule import Schedule
+from py2ecotect.obj.material import Material
+
+#from py2ecotect.obj.objects import _ObjectRoot
 from py2ecotect.obj.objects import Point
 from py2ecotect.obj.objects import Line
 from py2ecotect.obj.objects import Roof
@@ -15,4 +21,5 @@ from py2ecotect.obj.objects import Light
 from py2ecotect.obj.objects import Appliance
 from py2ecotect.obj.objects import SolarCollector
 from py2ecotect.obj.objects import Camera
+
 from py2ecotect.obj.objects import Node
