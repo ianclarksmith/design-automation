@@ -234,7 +234,7 @@ class _ShadingMaskProp(object):
                                                      
         p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-    def percentage_by_current_day_time(self):
+    def result_percentage_by_current_day_time(self):
         """
         
         Returns the percentage-in-shade of the object/mask at the current model 
@@ -263,7 +263,7 @@ class _ShadingMaskProp(object):
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float)
     
-    def percentage_by_table_index(self, x, y):
+    def result_percentage_by_table_index(self, x, y):
         """
         
         Returns the percentage-in-shade of the specified object's mask as a 
@@ -300,7 +300,7 @@ class _ShadingMaskProp(object):
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float)
     
-    def percentage_by_azi_alt(self, azi, alt):
+    def result_percentage_by_azi_alt(self, azi, alt):
         """
         
         Returns the percentage-in-shade of the specified mask as a single 
@@ -339,7 +339,7 @@ class _ShadingMaskProp(object):
         val = p2e._app.Request(arg_str)
         return p2e._base._util._convert_str_to_list(val, float, float)
 
-    def percentage_by_day_time(self, day, time):
+    def result_percentage_by_day_time(self, day, time):
         """
         
         Returns the percentage-in-shade of the selected object's mask as a 

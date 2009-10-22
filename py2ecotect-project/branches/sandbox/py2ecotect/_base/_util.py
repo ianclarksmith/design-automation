@@ -9,7 +9,9 @@ def _convert_args_to_string(*args):
     return arg_str.strip()
 
 def _convert_str_to_list(string, *typeFunc):
-    str_list = re.split("[,\s]+", string[:-1])
+    if ord(string[-1:]) == 0:  #TODO: figure this out
+        string = string[:-1]    
+    str_list = re.split("[,\s]+", string)
     listElements = len(str_list)
     try:
         if str_list[0].lower() != "nil" and listElements != 0:
@@ -32,7 +34,8 @@ def _convert_str_to_list(string, *typeFunc):
         return None
     
 def _convert_str_to_type(string, typeFunc):
-    string = string[:-1]
+    if ord(string[-1:]) == 0:  #TODO: figure this out
+        string = string[:-1]
     try:
         if string.lower() != "nil" and len(string) != 0:
             return typeFunc(string)
