@@ -6,6 +6,7 @@ import pythoncom
 
 def block_container_count(block_name):
 
+    block_container_count_ed = True
     """
     
         Returns the number of block definitions that contain a specified block definition.
@@ -16,7 +17,7 @@ def block_container_count(block_name):
 
         Returns
         =======
-        number - The number of block definitions that contain the specified block definition if successful.
+        integer - The number of block definitions that contain the specified block definition if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -52,6 +53,7 @@ def block_containers(block_name):
 
 def block_count():
 
+    block_count_ed = True
     """
     
         Returns the number of block definitions in the document.
@@ -62,7 +64,7 @@ def block_count():
 
         Returns
         =======
-        number - The number of block definitions in the document.
+        Integer - The number of block definitions in the document.
         None - On error.
 
         Rhinoscript
