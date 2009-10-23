@@ -59,7 +59,7 @@ def block_count():
         Returns the number of block definitions in the document.
 
         Parameters
-        ==========
+        ========== 
         No parameters
 
         Returns
