@@ -7,7 +7,7 @@ import py2ecotect as p2e
 #from py2ecotect.model import results
 
 from py2ecotect.model import settings
-from py2ecotect.model import shading_calcs
+from py2ecotect.model import calc_shading
 
 from py2ecotect.model import sun
 from py2ecotect.model import time
@@ -19,7 +19,6 @@ from py2ecotect.model import weather
 from py2ecotect.model import attribute
 from py2ecotect.model import grid
 from py2ecotect.model import grid3d
-from py2ecotect.model import project
 from py2ecotect.model import project_data
 
 
