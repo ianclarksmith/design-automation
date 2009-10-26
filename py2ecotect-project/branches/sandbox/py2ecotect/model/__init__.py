@@ -34,9 +34,9 @@ def _populate():
     val = p2e._app.Request("get.model.zones")
     num_zones = _util._convert_str_to_type(val, int)    
     for eco_id in range(num_zones):
-        p2e.obj.Zone(eco_id)
+        p2e.entity.Zone(eco_id)
 
     val = p2e._app.Request("get.masks.count")
     num_masks = p2e._base._util._convert_str_to_type(val, int)
     for eco_id in range(num_masks):
-        p2e.obj.ShadingMask(eco_id)    
+        p2e.entity.ShadingMask(eco_id)    

@@ -2791,7 +2791,7 @@ class Zone(object):
         object_id = self.objs.next_object(-1, -1, -1, -1)
         prev_id = object_id
         while (object_id != -1):
-            p2e.obj._ObjectRoot(object_id, None)
+            p2e.entity._ObjectRoot(object_id, None)
             object_id = self.objs.next_object(prev_id, -1, -1, -1)
             prev_id = object_id
             
