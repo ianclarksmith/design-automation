@@ -1,6 +1,6 @@
 
-from py2ecotect.obj.zone import Zone 
-from py2ecotect.obj.shading_mask import ShadingMask 
+from py2ecotect.entity.zone import Zone 
+from py2ecotect.entity.shading_mask import ShadingMask 
 #from py2ecotect.obj.schedule import Schedule - needs fixing
 #from py2ecotect.obj.material import Material - needs fixing
 #from py2ecotect.obj.ray import Ray

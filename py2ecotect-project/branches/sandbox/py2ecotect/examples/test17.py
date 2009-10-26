@@ -7,7 +7,7 @@ points = (
           (0,0,10),
           )
 
-wall = p2e.entities.Wall.create(points)
+wall = p2e.entity.Wall.create(points)
 wall2 = wall.dupl.copy_move_by_vec((0,10,0))
 
 n = wall2.nodes.first_node_index()
@@ -37,5 +37,5 @@ for i in range(p2e.model.scan.num_objects() - 1, -1, -1):
     print o._eco_id
     o.modf.delete()
 
-p2e.app.view.redraw()
+p2e.application.view.redraw()
 print "done"

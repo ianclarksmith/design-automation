@@ -2044,9 +2044,9 @@ class _ObjectRootNodes(object):
     #-------------------------------------------------------------------------
     def add_node(self, point):
         #execute ecotect instruction
-        node_eco_id = p2e.obj.Node._gen_node(self, self.number_of_nodes -1, point)
+        node_eco_id = p2e.entity.Node._gen_node(self, self.number_of_nodes -1, point)
         if node_eco_id != -1:
-            p2e.obj.Node(self, node_eco_id)
+            p2e.entity.Node(self, node_eco_id)
         self.done()
     #-------------------------------------------------------------------------
     def delete_node(self, node, node_index = 0):
@@ -2442,15 +2442,15 @@ class _ObjectRoot(object):
         if points == None:
             #add exisiting nodes
             for node_num in range(self.nodes.first_node_index(), self.nodes.last_node_index()):
-                p2e.obj.Node(self, node_num) 
+                p2e.entity.Node(self, node_num) 
                 
         else:
             #add new nodes
             for node_num in range(len(points)):
                 #execute ecotect instruction
-                node_eco_id = p2e.obj.Node._gen_node(self, node_num, points[node_num])
+                node_eco_id = p2e.entity.Node._gen_node(self, node_num, points[node_num])
                 if node_eco_id != -1:
-                    p2e.obj.Node(self, node_eco_id)
+                    p2e.entity.Node(self, node_eco_id)
                 else:
                     pass
                     #raise Exception

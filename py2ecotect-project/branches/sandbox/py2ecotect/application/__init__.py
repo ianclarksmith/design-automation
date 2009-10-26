@@ -1,7 +1,7 @@
-from py2ecotect.app import application
-from py2ecotect.app import view
-from py2ecotect.app import draw
-from py2ecotect.app import sunpath
+from py2ecotect.application import application
+from py2ecotect.application import view
+from py2ecotect.application import draw
+from py2ecotect.application import sunpath
 
 #from wrappers.app_functions.timer import Timer
 #from wrappers.app_functions.movie import Movie
